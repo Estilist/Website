@@ -1,4 +1,52 @@
+/* NAVBAR HEADER */
 .navheader{
     background-color: var(--encabezado);
+    color: var(--blanco);
+}
+
+/* NAVBAR BRAND */
+.navbar-brand{
     font-family: var(--marca);
+    color: var(--blanco) !important; /* para sobreescribir bootstrap */
+}
+
+/* NAVBAR LINKS PAGINAS */
+.nav-link,
+.navbar-nav .nav-item {
+    font-family: var(--texto);
+    color: var(--blanco) !important;
+}
+
+/* NAVBAR TOGGLER */
+/* para quitar el borde gris predeterminado */
+.navbar-toggler {
+    border-color: transparent !important; 
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important; /* quita el contorno negro por defecto al seleccionar */
+    box-shadow: none !important; /* quita cualquier sombra residual */
+}
+
+/* PARA DEFINIR EL ORDEN DE LOS ELEMENTOS EN EL NAVBAR */
+.navheader .navbar-toggler {
+    order: 1;
+}
+.navheader .navbar-brand {
+    order: 2;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navheader .navbar-collapse {
+    order: 3;
+}
+
+/* ICONO PERSONA PARA USUARIO */
+#icono-persona .svg-icon-persona {
+    width: 24px;
+    height: 24px;
+    color: var(--blanco); 
 }

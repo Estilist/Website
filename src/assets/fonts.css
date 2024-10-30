@@ -1,11 +1,42 @@
 :root {
     --marca: 'Playfair Display', arial;
+    --titulo: 'DM Serif Text', arial;
+    --subtitulo: 'DM Serif Text Regular', arial;
+    --texto: 'Quicksand', arial;
 }
 
+/* MARCA */
 @font-face {
     font-display: swap; 
     font-family: 'Playfair Display';
     font-style: italic;
     font-weight: 600;
     src: url('./fonts/playfair-display-v37-latin-600italic.woff2') format('woff2');
+  }
+
+/* TITULO */
+@font-face {
+    font-display: swap;
+    font-family: 'DM Serif Text';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/dm-serif-text-v12-latin-italic.woff2') format('woff2'); 
+  }
+
+/* SUBTITULO */
+@font-face {
+    font-display: swap;
+    font-family: 'DM Serif Text Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/dm-serif-text-v12-latin-regular.woff2') format('woff2'); 
+  }
+
+/* TEXTO */
+@font-face {
+    font-display: swap; 
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/quicksand-v31-latin-500.woff2') format('woff2');
   }
