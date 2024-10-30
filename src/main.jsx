@@ -6,16 +6,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// Pages
-import Root from "./routes/root";
-import Test from "./components/Test";
-import ErrorPage from "./pages/ErrorPage";
-
 // Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./assets/fonts.css"
 import "./assets/colors.css"
+
+// Pages
+import Root from "./routes/Root";
+import ErrorPage from "./pages/ErrorPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import InicioPage from "./pages/InicioPage";
 
 const router = createBrowserRouter([
   {
@@ -23,9 +25,17 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+        { 
+            path: "/",
+            element: <InicioPage />,
+        },
+        { 
+            path: "/login",
+            element: <LoginPage />,
+        },
         {
-            path: "/test",
-            element: <Test />,
+            path: "/register",
+            element: <RegisterPage />,
         },
     ]
   }
