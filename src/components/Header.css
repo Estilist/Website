@@ -8,7 +8,7 @@
 
 /* NAVBAR BRAND */
 .navheader .navbar-brand{
-    font-family: var(--marca);
+    font-family: var(--marca-font);
     color: var(--blanco) !important; /* para sobreescribir bootstrap */
     text-align: center;
     font-size: 1.5rem;
@@ -18,7 +18,7 @@
 /* NAVBAR LINKS PAGINAS */
 .nav-link,
 .navbar-nav .nav-item {
-    font-family: var(--texto);
+    font-family: var(--texto-font);
     color: var(--blanco) !important;
 }
 

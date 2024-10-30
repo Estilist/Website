@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const PrimaryButton = ({ size, onClick, children }) => {
     const customStyles = {
         backgroundColor: 'var(--boton)',
-        color: '#fff',
+        color: 'var(--blanco)',
         padding: '10px 10px',
         fontFamily: 'var(--boton-font)',
         border: 'none',
