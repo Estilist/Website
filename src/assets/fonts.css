@@ -1,8 +1,8 @@
 :root {
-    --marca: 'Playfair Display', arial;
-    --titulo: 'DM Serif Text', arial;
-    --subtitulo: 'DM Serif Text Regular', arial;
-    --texto: 'Quicksand', arial;
+    --marca-font: 'Playfair Display', arial;
+    --titulo-font: 'DM Serif Text', arial;
+    --subtitulo-font: 'DM Serif Text Regular', arial;
+    --texto-font: 'Quicksand', arial;
     --boton-font: 'Cantata One', arial;
 }
 
