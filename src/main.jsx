@@ -14,6 +14,8 @@ import ErrorPage from "./pages/ErrorPage";
 // Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import "./assets/fonts.css"
+import "./assets/colors.css"
 
 const router = createBrowserRouter([
   {

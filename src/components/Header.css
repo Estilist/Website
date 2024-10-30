@@ -1,0 +1,4 @@
+.navheader{
+    background-color: var(--encabezado);
+    font-family: var(--marca);
+}
