@@ -1,15 +1,10 @@
-import Test from "../components/Test";
-import ThemeSwitcher from "../components/ThemeSwitcher";
+import { Outlet } from "react-router-dom";
 
 export default function Root() {
     return (
         <>
-            <div className="App min-vh-100 d-flex justify-content-center align-items-center text-center">
-                <div>
-                    <h1 className="mb-3">Estilist</h1>
-                    <Test />
-                </div>
-            </div>
+            {/* Navbar */}
+            <Outlet />
         </>
     )
 }
