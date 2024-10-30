@@ -9,20 +9,17 @@ function Header() {
   return (
     <Navbar expand="lg" className="navheader">
       <Container>
-        {/* Ícono de colapso a la izquierda */}
+        {/* icono de colapso a la izquierda */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-1" />
-        
-        {/* Título centrado */}
-        <Navbar.Brand className="mx-auto order-2">Estilist</Navbar.Brand>
-        
-        <Navbar.Collapse id="basic-navbar-nav" className="order-3">
+        {/* colapso */}
+        <Navbar.Collapse id="basic-navbar-nav" className="order-4">
           <Nav className="ms-auto">
             <Nav.Link>Ideas</Nav.Link>
-            <NavDropdown title="Análisis" id="basic-nav-dropdown">
+            <NavDropdown title="Análisis" id="basic-nav-dropdown" className="custom-dropdown">
               <NavDropdown.Item>Colorimetría</NavDropdown.Item>
               <NavDropdown.Item>Tipo de cuerpo y rostro</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Nuevo" id="basic-nav-dropdown">
+            <NavDropdown title="Nuevo" id="basic-nav-dropdown" className="custom-dropdown">
               <NavDropdown.Item>Cabello</NavDropdown.Item>
               <NavDropdown.Item>Belleza</NavDropdown.Item>
               <NavDropdown.Item>Outfits</NavDropdown.Item>
@@ -31,7 +28,10 @@ function Header() {
             <Nav.Link>Racha</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <Nav.Link href="#" className="ms-auto order-4" id="icono-persona">
+        {/* titulo */}
+        <Navbar.Brand className="mx-auto order-2">Estilist</Navbar.Brand>
+        {/* icono de usuario a la derecha */}
+        <Nav.Link href="#" className="ms-auto order-3" id="icono-persona">
           <img src={PersonIcon} alt="Icono Persona" className="svg-icon-persona" />
         </Nav.Link>
       </Container>
