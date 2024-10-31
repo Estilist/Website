@@ -1,8 +1,11 @@
 import PageTitle from "../components/PageTitle";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <PageTitle>Iniciar Sesión</PageTitle>

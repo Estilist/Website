@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import PageTitle from "../components/PageTitle";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
@@ -11,59 +12,58 @@ const RegisterPage = () => {
             <form className="TextForms">
                 {/* Nombre */}
                 <div className="form-group">
-                    <label htmlFor="inputName">Nombre</label>
+                    <label htmlFor="name">Nombre</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="inputName" 
-                        placeholder="Ingresa tu nombre" 
+                        id="name" 
+                        placeholder="Ingresa tu nombre"
                         aria-describedby="nameHelp" 
                     />
                 </div>
 
                 {/* Apellido Paterno */}
                 <div className="form-group">
-                    <label htmlFor="inputLastName1">Apellido Paterno</label>
+                    <label htmlFor="lastName1">Apellido Paterno</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="inputLastName1" 
-                        placeholder="Ingresa tu apellido paterno" 
+                        id="lastName1" 
+                        placeholder="Ingresa tu apellido paterno"
                     />
                 </div>
 
                 {/* Apellido Materno */}
                 <div className="form-group">
-                    <label htmlFor="inputLastName2">Apellido Materno</label>
+                    <label htmlFor="lastName2">Apellido Materno</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="inputLastName2" 
-                        placeholder="Ingresa tu apellido materno" 
+                        id="lastName2" 
+                        placeholder="Ingresa tu apellido materno"
                     />
                 </div>
 
                 {/* Correo Electrónico */}
                 <div className="form-group">
-                    <label htmlFor="inputEmail">Correo Electrónico</label>
+                    <label htmlFor="email">Correo Electrónico</label>
                     <input 
                         type="email" 
                         className="form-control" 
-                        id="inputEmail" 
-                        placeholder="nombre@ejemplo.com" 
+                        id="email" 
+                        placeholder="nombre@ejemplo.com"
                         aria-describedby="emailHelp" 
                     />
-                    
                 </div>
 
                 {/* Contraseña */}
                 <div className="form-group">
-                    <label htmlFor="inputPassword">Contraseña</label>
+                    <label htmlFor="password">Contraseña</label>
                     <input 
                         type="password" 
                         className="form-control" 
-                        id="inputPassword" 
-                        placeholder="Crea una contraseña" 
+                        id="password" 
+                        placeholder="Crea una contraseña"
                     />
                     <small id="passwordRequires" className="text">Utiliza mayúsculas, números y simbolos.</small>
                 </div>
@@ -84,7 +84,6 @@ const RegisterPage = () => {
                         </SecondaryButton>
                     </div>
                 </div>
-                
             </form>
         </div>
     );
