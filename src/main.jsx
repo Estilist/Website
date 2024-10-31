@@ -19,6 +19,8 @@ import ErrorPage from "./pages/ErrorPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import InicioPage from "./pages/InicioPage";
+import PersonalDataQuizPage from "./pages/PersonalDataQuizPage";
+import HelpUsPage from "./pages/HelpUsPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
         {
             path: "/register",
             element: <RegisterPage />,
+        },
+        {
+            path: "/personalDataQuiz",
+            element: <PersonalDataQuizPage />,
+        },
+        {
+          path: "/helpUs",
+          element: <HelpUsPage />,
         },
     ]
   }

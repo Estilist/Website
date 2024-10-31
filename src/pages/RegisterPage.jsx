@@ -1,8 +1,10 @@
 import PageTitle from "../components/PageTitle";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <PageTitle>Registrarme</PageTitle>
@@ -70,14 +72,14 @@ const RegisterPage = () => {
                 <div className="buttons">
                     {/* Boton de Registro */}
                     <div className = "primaryButton">
-                        <PrimaryButton onClick={() => navigate('/login')}>
+                        <PrimaryButton onClick={() => navigate('/helpUs')}>
                             Registrarme e Iniciar
                         </PrimaryButton>
                     </div>
 
                     {/* Boton de Ya Tengo Una Cuenta */}
                     <div className = "secondaryButton">
-                        <SecondaryButton onClick={() => navigate('/register')}>
+                        <SecondaryButton onClick={() => navigate('/login')}>
                             Ya tengo una cuenta
                         </SecondaryButton>
                     </div>

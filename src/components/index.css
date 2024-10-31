@@ -71,3 +71,50 @@ body {
 .form-check-label {
     font-size: 14px; 
 }
+
+/* HELP US PAGE */
+
+/* INFO */
+.help-us-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.help-us-container {
+    margin-top: 20px;
+    background-color: var(--iconos-opacity); 
+    font-family: var(--texto-font);
+    padding: 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+.description {
+    font-size: 18px;
+    color: var(--encabezado);
+    font-weight: bold; 
+}
+.requirement {
+    color: var(--boton);
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+}
+hr {
+    border: none;
+    border-top: 1px solid #5A377C;
+    margin: 10px 0;
+    margin-bottom: 20px;
+}
+
+.secondaryButton1 {
+    margin-top: 40px;
+    transform: scale(1.2);
+}
