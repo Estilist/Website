@@ -9,19 +9,35 @@ body {
 
 /* TEXT FORMS */
 .TextForms {
+    font-family: var(--texto-font);
+    font-size: 22px;
     text-align: left; /* definir a la izquierda */
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
 }
+
 .form-group {
     margin-bottom: 15px; /* Espaciado entre los campos */
 }
+
+.form-group > label {
+    margin-left: 10px;
+}
+
+.form-group > small {
+    margin-left: 5px;
+    font-size: 15px;
+}
+
 .form-control {
     margin-top: 5px;
     background-color: var(--iconos-opacity);
+    border: none;
     border-radius: 18px; /* Bordes redondeados */
     padding: 15px; /* Espaciado interno */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    
 }
 .form-control:focus {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
