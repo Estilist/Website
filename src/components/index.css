@@ -26,6 +26,10 @@ body {
 .form-control:focus {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
 }
+.text {
+    margin-left: 10px;
+    color: var(--mensajes);
+}
 
 /* BUTTONS */
 .buttons {
@@ -44,4 +48,26 @@ body {
     width: 100%; 
     max-width: 241px; 
     transform: scale(0.7);
+}
+.secondaryButton2 {
+    width: 100%; 
+    max-width: 273px; 
+    transform: scale(0.6);
+}
+
+/* CHECKBOX */
+.form-group.form-check {
+    display: flex;
+    margin-left: 10px; 
+    margin-top: -10px; 
+    margin-bottom: 250px;
+}
+.form-check-input {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px; 
+    cursor: pointer;
+}
+.form-check-label {
+    font-size: 14px; 
 }
