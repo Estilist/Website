@@ -15,6 +15,15 @@
     flex-grow: 0.75; /* para ocupar el espacio */
 }
 
+@media (min-width: 768px) {
+    .navheader .navbar-brand{
+        font-family: var(--marca-font);
+        color: var(--blanco) !important; /* para sobreescribir bootstrap */
+        text-align: left;
+        font-size: 1.5rem;
+    }
+}
+
 /* NAVBAR LINKS PAGINAS */
 .nav-link,
 .navbar-nav .nav-item {
@@ -66,6 +75,19 @@
 }
 .navheader .navbar-collapse {
     order: 3;
+}
+
+/* PARA DEFINIR EL ORDEN DE LOS ELEMENTOS EN EL NAVBAR DE MAYOR RESOLUCION*/
+@media (min-width: 768px) {
+    .navheader .navbar-toggler {
+        order: 2; 
+    }
+    .navheader .navbar-brand {
+        order: 1; 
+    }
+    .navheader .navbar-collapse {
+        order: 3; 
+    }
 }
 
 /* ICONO PERSONA PARA USUARIO */

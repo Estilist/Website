@@ -11,7 +11,6 @@ const InicioPage = () => {
         <>
             {/* Botón de Iniciar Sesión y Registrarme */}
             <PageTitle>Inicio</PageTitle>
-
             <Row>
                 <Col>
                     <PrimaryButton onClick={() => navigate('/login')}>
