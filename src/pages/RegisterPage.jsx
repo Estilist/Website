@@ -70,14 +70,14 @@ const RegisterPage = () => {
                 <div className="buttons">
                     {/* Boton de Registro */}
                     <div className = "primaryButton">
-                        <PrimaryButton onClick={() => navigate('/login')}>
+                        <PrimaryButton onClick={{}}>
                             Registrarme e Iniciar
                         </PrimaryButton>
                     </div>
 
                     {/* Boton de Ya Tengo Una Cuenta */}
                     <div className = "secondaryButton">
-                        <SecondaryButton onClick={() => navigate('/register')}>
+                        <SecondaryButton onClick={{}}>
                             Ya tengo una cuenta
                         </SecondaryButton>
                     </div>

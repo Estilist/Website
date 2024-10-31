@@ -10,6 +10,7 @@ const PrimaryButton = ({ size, onClick, children }) => {
         border: 'none',
         fontSize: '21px',
         boxShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
+        borderRadius: '18px',
     };
 
     return (
