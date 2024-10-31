@@ -63,7 +63,7 @@ const RegisterPage = () => {
                         id="inputPassword" 
                         placeholder="Crea una contraseña" 
                     />
-                    <small id="passwordRequires" className="form-text text-muted">Utiliza mayúsculas, números y simbolos.</small>
+                    <small id="passwordRequires" className="text">Utiliza mayúsculas, números y simbolos.</small>
                 </div>
 
                 {/* Botones */}
