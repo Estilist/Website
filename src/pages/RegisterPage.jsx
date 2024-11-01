@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import PageTitle from "../components/PageTitle";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
-import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
     const navigate = useNavigate();

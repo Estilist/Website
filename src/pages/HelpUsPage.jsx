@@ -14,8 +14,8 @@ const HelpUsPage = () => {
             <div className="help-us-container">
                 <p className="description">Para una respuesta más personalizada, requerimos:</p>
                 <div className="requirement">
-                    <img src={CameraIcon} alt="Icono de cámara" className="icon" />
-                    <p>Compartir fotografías de tu rostro para obtener tono de piel, tipo de rostro y facciones.</p>
+                    <img src={StarsIcon} alt="Icono de mediciones" className="icon" />
+                    <p>Medidas exactas de partes en específico de tu cuerpo, para obtener tipo y forma.</p>
                 </div>
                 <hr />
                 <div className="requirement">
@@ -24,8 +24,8 @@ const HelpUsPage = () => {
                 </div>
                 <hr />
                 <div className="requirement">
-                    <img src={StarsIcon} alt="Icono de mediciones" className="icon" />
-                    <p>Medidas exactas de partes en específico de tu cuerpo, para obtener tipo y forma.</p>
+                    <img src={CameraIcon} alt="Icono de cámara" className="icon" />
+                    <p>Compartir fotografías de tu rostro para obtener tono de piel, tipo de rostro y facciones.</p>
                 </div>
                 <hr />
                 <div className="requirement">
