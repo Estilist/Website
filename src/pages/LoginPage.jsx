@@ -4,6 +4,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
+import request from "../api";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -47,36 +48,24 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const validationErrors = validate();
+
         if (Object.keys(validationErrors).length === 0) {
             try {
-                const response = await fetch('/check-user/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
+                const response = await request('/check-user/', 'POST',
+                    {
                         correo: formData.email,
-                        contrasena: formData.password,
-                    }),
-                  });
-
-                if (response.ok) {
-                    const rJSON = await response.json();
-                    console.log('Inicio de sesión exitoso', rJSON);
-
-                    setSession({
-                        id: rJSON.idUsuario,
-                        email: formData.email
-                    });
-
-                    navigate('/');
-                } else {
-                    const errorData = await response.json();
-                    setErrors({ form: errorData.error });
-                }
+                        contrasena: formData.password
+                    }
+                );
+                
+                console.log('Inicio de sesión exitoso', response);
+                setSession({
+                    id: response.idUsuario,
+                    email: formData.email
+                });
+                navigate('/');
             } catch (error) {
-                setErrors({ form: 'Error al iniciar sesión' });
-                console.error('Error al iniciar sesión:', error);
+                setErrors({ form: error.message || 'Error al iniciar sesión' });
             }
         } else {
             setErrors(validationErrors);
@@ -112,7 +101,7 @@ const LoginPage = () => {
                         className={`form-control ${errors.password ? 'is-invalid' : ''}`} 
                         id="inputPassword" 
                         name="password"
-                        placeholder="Crea una contraseña" 
+                        placeholder="Contraseña"
                         value={formData.password}
                         onChange={handleChange}
                         autoComplete="current-password"
