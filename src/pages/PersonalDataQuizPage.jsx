@@ -1,6 +1,6 @@
 import PageTitle from "../components/PageTitle";
 import SecondaryButton from '../components/SecondaryButton';
-import GuideMessureModal from "../components/GuideMessureModal"; // Asegúrate de importar tu componente modal
+import GuideMessureModal from "../components/GuideMessureModal";
 import QuestionIcon from '../assets/icons/question-circle.svg';
 import chestImage from '../assets/photos/pecho.png';
 import waistImage from '../assets/photos/cintura.png';
@@ -8,8 +8,11 @@ import hipsImage from '../assets/photos/cadera.png';
 import legsImage from '../assets/photos/entrepierna.png';
 import { Form } from "react-bootstrap";
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const PersonalDataQuizPage = () => {
+    const navigate = useNavigate();
+
     const [chest, setChest] = useState(90); 
     const [waist, setWaist] = useState(75); 
     const [hips, setHips] = useState(90); 
@@ -56,7 +59,9 @@ const PersonalDataQuizPage = () => {
                 <div className="form-group">
                     <label htmlFor="age">Edad:</label>
                     <input 
-                        type="text" 
+                        type="number"
+                        max={100}
+                        min={0} 
                         className="form-control" 
                         id="age" 
                         placeholder="Ingresa tu edad"
@@ -84,7 +89,8 @@ const PersonalDataQuizPage = () => {
                 <div className="form-group">
                     <label htmlFor="height">Altura:</label>
                     <input 
-                        type="text" 
+                        type="number"
+                        min={0} 
                         className="form-control right-placeholder" 
                         id="height" 
                         placeholder="cm"
@@ -96,7 +102,8 @@ const PersonalDataQuizPage = () => {
                 <div className="form-group">
                     <label htmlFor="weight">Peso:</label>
                     <input 
-                        type="text" 
+                        type="number"
+                        min={0} 
                         className="form-control right-placeholder" 
                         id="weight" 
                         placeholder="kg"
