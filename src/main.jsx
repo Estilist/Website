@@ -19,8 +19,6 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import ErrorPage from "./pages/ErrorPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import PersonalDataQuizPage from "./pages/PersonalDataQuizPage";
-import HelpUsPage from "./pages/HelpUsPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 
@@ -44,18 +42,6 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <RegisterPage />,
-            },
-            {
-                path: "/personalDataQuiz",
-                element: (
-                    <PersonalDataQuizPage />
-                ),
-            },
-            {
-                path: "/helpUs",
-                element: (
-                    <HelpUsPage />
-                ),
             },
             {
                 path: "/profile",
