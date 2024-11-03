@@ -5,15 +5,15 @@ export const SessionContext = createContext();
 
 export const SessionProvider = ({ children }) => {
     const [session, setSession] = useState(() => {
-        const storedSession = localStorage.getItem('user');
+        const storedSession = localStorage.getItem('session');
         return storedSession ? JSON.parse(storedSession) : null;
     });
 
     useEffect(() => {
         if (session) {
-            localStorage.setItem("user", JSON.stringify(session));
+            localStorage.setItem("session", JSON.stringify(session));
         } else {
-            localStorage.removeItem("user");
+            localStorage.removeItem("session");
         }
     }, [session]);
 
