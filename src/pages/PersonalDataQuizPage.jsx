@@ -2,6 +2,10 @@ import PageTitle from "../components/PageTitle";
 import SecondaryButton from '../components/SecondaryButton';
 import GuideMessureModal from "../components/GuideMessureModal"; // Asegúrate de importar tu componente modal
 import QuestionIcon from '../assets/icons/question-circle.svg';
+import chestImage from '../assets/photos/pecho.png';
+import waistImage from '../assets/photos/cintura.png';
+import hipsImage from '../assets/photos/cadera.png';
+import legsImage from '../assets/photos/entrepierna.png';
 import { Form } from "react-bootstrap";
 import { useState } from 'react';
 
@@ -12,6 +16,7 @@ const PersonalDataQuizPage = () => {
     const [legs, setLegs] = useState(75); 
     const [modalShow, setModalShow] = useState(false); 
     const [modalContent, setModalContent] = useState("");
+    const [modalImage, setModalImage] = useState(""); 
 
     {/* Sliders de cada parte */}
     const handleRangeChange = (event) => {
@@ -35,9 +40,10 @@ const PersonalDataQuizPage = () => {
     };
 
     {/* Contenido del modal depende la parte */}
-    const handleIconClick = (content) => {
+    const handleIconClick = (content, imagePath) => {
         setModalContent(content);
-        setModalShow(true); 
+        setModalImage(imagePath);
+        setModalShow(true);
     };
 
     return (
@@ -79,7 +85,7 @@ const PersonalDataQuizPage = () => {
                     <label htmlFor="height">Altura:</label>
                     <input 
                         type="text" 
-                        className="form-control align-right" 
+                        className="form-control right-placeholder" 
                         id="height" 
                         placeholder="cm"
                         aria-describedby="heightHelp" 
@@ -91,13 +97,21 @@ const PersonalDataQuizPage = () => {
                     <label htmlFor="weight">Peso:</label>
                     <input 
                         type="text" 
-                        className="form-control align-right" 
+                        className="form-control right-placeholder" 
                         id="weight" 
                         placeholder="kg"
                         aria-describedby="weightHelp" 
                     />
                 </div>
             </form>
+
+            {/* Modal para Guia de Medidas */}
+            <GuideMessureModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                content={modalContent}
+                imagePath={modalImage}
+            />
 
             {/* Sliders */}
             <form className="DataForm2">
@@ -107,7 +121,7 @@ const PersonalDataQuizPage = () => {
                         src={QuestionIcon} 
                         alt="Icono de Pregunta" 
                         className="icon-question" 
-                        onClick={() => handleIconClick("Instrucciones para medir el pecho...")}
+                        onClick={() => handleIconClick("Manera de medir el pecho:", chestImage)} 
                     />
                     <label htmlFor="chest" className="subtitle1">Pecho:</label>
                     <div className="range-container">
@@ -131,7 +145,7 @@ const PersonalDataQuizPage = () => {
                         src={QuestionIcon} 
                         alt="Icono de Pregunta" 
                         className="icon-question" 
-                        onClick={() => handleIconClick("Instrucciones para medir la cintura...")} 
+                        onClick={() => handleIconClick("Manera de medir la cintura:", waistImage)} 
                     />
                     <label htmlFor="waist" className="subtitle1">Cintura:</label>
                     <div className="range-container">
@@ -155,7 +169,7 @@ const PersonalDataQuizPage = () => {
                         src={QuestionIcon} 
                         alt="Icono de Pregunta" 
                         className="icon-question" 
-                        onClick={() => handleIconClick("Instrucciones para medir la cadera...")}
+                        onClick={() => handleIconClick("Manera de medir la cadera:", hipsImage)}
                     />
                     <label htmlFor="hips" className="subtitle1">Cadera:</label>
                     <div className="range-container">
@@ -179,7 +193,7 @@ const PersonalDataQuizPage = () => {
                         src={QuestionIcon} 
                         alt="Icono de Pregunta" 
                         className="icon-question" 
-                        onClick={() => handleIconClick("Instrucciones para medir la entrepierna...")}
+                        onClick={() => handleIconClick("Manera de medir la entrepierna:", legsImage)}
                     />
                     <label htmlFor="legs" className="subtitle1">Entrepierna:</label>
                     <div className="range-container">
@@ -204,13 +218,6 @@ const PersonalDataQuizPage = () => {
                     Siguiente
                 </SecondaryButton>
             </div>
-
-            {/* Modal para Guia de Medidas */}
-            <GuideMessureModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                content={modalContent}
-            />
         </div>
     );
 };

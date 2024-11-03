@@ -1,6 +1,7 @@
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import PageTitle from "./PageTitle";
 
-const GuideMessureModal = ({ show, onHide, content }) => {
+const GuideMessureModal = ({ show, onHide, content, imagePath }) => { 
     return (
         <Modal
             show={show}
@@ -9,18 +10,12 @@ const GuideMessureModal = ({ show, onHide, content }) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Guía de Medidas
-                </Modal.Title>
-            </Modal.Header>
+            <Modal.Header closeButton />
             <Modal.Body>
-                <h4>Instrucciones</h4>
-                <p>{content}</p> {/* Aquí se muestra el contenido dinámico */}
+                <PageTitle> Guía de Medidas </PageTitle>
+                <p>{content}</p>
+                {imagePath && <img src={imagePath} alt="Guía de Medida" style={{ width: '100%' }} />}
             </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={onHide}>Cerrar</Button>
-            </Modal.Footer>
         </Modal>
     );
 };

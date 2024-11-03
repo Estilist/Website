@@ -46,9 +46,6 @@ body {
     margin-left: 10px;
     color: var(--mensajes);
 }
-input::placeholder {
-    text-align: right;
-}
 
 /* BUTTONS */
 .buttons {
@@ -247,4 +244,12 @@ hr {
     width: 20px; /* Ajusta el tamaño según necesites */
     height: 20px;
     cursor: pointer;
+}
+
+/* CUSTOM PLACEHOLDER FOR CM Y */
+.right-placeholder::placeholder {
+    text-align: right;
+}
+.right-placeholder {
+    text-align: left; 
 }
