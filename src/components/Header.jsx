@@ -39,7 +39,7 @@ function Header() {
                 </Navbar.Collapse>
 
                 {/* icono de usuario a la derecha */}
-                <Nav.Link className="ms-2 order-2 order-md-4" id="icono-persona" onClick={() => navigate("/profile")}>
+                <Nav.Link href="#" className="ms-auto order-2 order-md-4" id="icono-persona">
                     <img src={PersonIcon} alt="Icono Persona" className="svg-icon-persona" />
                 </Nav.Link>
             </Container>
