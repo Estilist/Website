@@ -54,6 +54,7 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 5px;
+    margin-top: 100px;
 }
 .primaryButton {
     width: 100%;
@@ -62,11 +63,6 @@ body {
 }
 .secondaryButton {
     width: 100%; 
-    max-width: 241px; 
-    transform: scale(0.7);
-}
-.secondaryButton2 {
-    width: 100%; 
     max-width: 273px; 
     transform: scale(0.6);
 }
@@ -74,14 +70,16 @@ body {
 /* CHECKBOX */
 .form-group.form-check {
     display: flex;
-    margin-left: 10px; 
-    margin-top: -10px; 
-    margin-bottom: 250px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 .form-check-input {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px; 
+    width: 16px;
+    height: 16px;
     cursor: pointer;
 }
 .form-check-label {
