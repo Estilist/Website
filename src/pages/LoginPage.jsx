@@ -4,7 +4,6 @@ import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
-import "./LoginPage.css";
 
 const LoginPage = () => {
     const navigate = useNavigate();

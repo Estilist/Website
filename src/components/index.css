@@ -85,6 +85,13 @@ body {
 .form-check-label {
     font-size: 14px; 
 }
+.form-error {
+    min-height: 60px;
+    margin-bottom: 15px;
+}
+.alert {
+    margin: 0;
+}
 
 /* HELP US PAGE */
 
