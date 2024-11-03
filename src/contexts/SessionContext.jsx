@@ -1,7 +1,11 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 export const SessionContext = createContext();
+
+export const useSession = () => {
+    return useContext(SessionContext);
+};
 
 export const SessionProvider = ({ children }) => {
     const [session, setSession] = useState(() => {
@@ -17,8 +21,12 @@ export const SessionProvider = ({ children }) => {
         }
     }, [session]);
 
+    const logout = () => {
+        setSession(null);
+    };
+
     return (
-        <SessionContext.Provider value={{ session, setSession }}>
+        <SessionContext.Provider value={{ session, setSession, logout }}>
             {children}
         </SessionContext.Provider>
     );

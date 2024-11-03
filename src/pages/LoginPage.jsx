@@ -86,7 +86,7 @@ const LoginPage = () => {
     return (
         <div>
             <PageTitle>Iniciar Sesión</PageTitle>
-            <form className="TextForms" onSubmit={handleSubmit}>
+            <form className="TextForms" onSubmit={handleSubmit} autoComplete="on">
                 {/* Correo Electrónico */}
                 <div className="form-group">
                     <label htmlFor="inputEmail">Correo Electrónico</label>
@@ -99,6 +99,7 @@ const LoginPage = () => {
                         aria-describedby="emailHelp" 
                         value={formData.email}
                         onChange={handleChange}
+                        autoComplete="email"
                     />
                     {errors.email && <small className="invalid-feedback">{errors.email}</small>}
                 </div>
@@ -114,6 +115,7 @@ const LoginPage = () => {
                         placeholder="Crea una contraseña" 
                         value={formData.password}
                         onChange={handleChange}
+                        autoComplete="current-password"
                     />
                     {errors.password && <small className="invalid-feedback">{errors.password}</small>}
                 </div>
@@ -142,7 +144,7 @@ const LoginPage = () => {
                 <div className="buttons">
                     {/* Boton de Registro */}
                     <div className="primaryButton">
-                        <PrimaryButton type="submit" onClick={handleSubmit}>
+                        <PrimaryButton type="submit">
                             Iniciar Sesión
                         </PrimaryButton>
                     </div>
