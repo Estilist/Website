@@ -15,7 +15,9 @@ function Header() {
                 {/* icono de colapso a la izquierda */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-1 order-md-2" />      
                 {/* título centrado */}
-                <Navbar.Brand className="mx-auto order-2 order-md-1" onClick={() => {navigate("/")}}>Estilist</Navbar.Brand>
+                <Navbar.Brand className="mx-auto order-2 order-md-1">
+                    <span className='logo' onClick={() => {navigate("/")}}>Estilist</span>
+                </Navbar.Brand>
                 {/* colapso */}
                 <Navbar.Collapse id="basic-navbar-nav" className="order-3 order-md-3">
                     <Nav className="ms-auto">
