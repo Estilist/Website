@@ -3,9 +3,11 @@ import PrimaryButton from "../../components/PrimaryButton";
 import PropTypes from "prop-types";
 import SecondaryButton from "../../components/SecondaryButton";
 import { useNavigate } from "react-router-dom";
+import countryList from 'react-select-country-list';
 
 const Register1 = ({ formData, errors, handleChange, handleNext }) => {
     const navigate = useNavigate();
+    const countries = countryList().getData();
 
     return (
         <div>
@@ -60,15 +62,20 @@ const Register1 = ({ formData, errors, handleChange, handleNext }) => {
                 {/* País */}
                 <div className="form-group">
                     <label htmlFor="pais">País</label>
-                    <input 
-                        type="text" 
-                        className={`form-control ${errors.pais ? 'is-invalid' : ''}`} 
-                        id="pais" 
+                    <select
+                        id="pais"
                         name="pais"
-                        placeholder="Ingresa tu país"
+                        className={`form-control ${errors.pais ? 'is-invalid' : ''}`}
                         value={formData.pais}
                         onChange={handleChange}
-                    />
+                    >
+                        <option value="">Selecciona tu país</option>
+                        {countries.map((country) => (
+                            <option key={country.value} value={country.value}>
+                                {country.label}
+                            </option>
+                        ))}
+                    </select>
                     {errors.pais && <small className="invalid-feedback">{errors.pais}</small>}
                 </div>
 
