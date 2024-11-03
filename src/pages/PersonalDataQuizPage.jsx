@@ -1,15 +1,17 @@
 import PageTitle from "../components/PageTitle";
 import SecondaryButton from '../components/SecondaryButton';
-import GuideMessureModal from "../components/GuideMessureModal"; // Asegúrate de importar tu componente modal
+import GuideMessureModal from "../components/GuideMessureModal";
 import QuestionIcon from '../assets/icons/question-circle.svg';
 import chestImage from '../assets/photos/pecho.png';
 import waistImage from '../assets/photos/cintura.png';
 import hipsImage from '../assets/photos/cadera.png';
 import legsImage from '../assets/photos/entrepierna.png';
+import { useNavigate } from 'react-router-dom';
 import { Form } from "react-bootstrap";
 import { useState } from 'react';
 
 const PersonalDataQuizPage = () => {
+    const navigate = useNavigate();
     const [chest, setChest] = useState(90); 
     const [waist, setWaist] = useState(75); 
     const [hips, setHips] = useState(90); 
@@ -214,7 +216,7 @@ const PersonalDataQuizPage = () => {
 
             {/* Siguiente */}
             <div className="secondaryButton3">
-                <SecondaryButton onClick={() => navigate('/personalDataQuiz')}>
+                <SecondaryButton onClick={() => navigate('/uploadImage')}>
                     Siguiente
                 </SecondaryButton>
             </div>

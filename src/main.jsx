@@ -21,6 +21,7 @@ import RegisterPage from "./pages/RegisterPage";
 import InicioPage from "./pages/InicioPage";
 import PersonalDataQuizPage from "./pages/PersonalDataQuizPage";
 import HelpUsPage from "./pages/HelpUsPage";
+import UploadImagePage from "./pages/UploadImagePage";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         {
           path: "/helpUs",
           element: <HelpUsPage />,
+        },
+        {
+          path: "/uploadImage",
+          element: <UploadImagePage />,
         },
     ]
   }
