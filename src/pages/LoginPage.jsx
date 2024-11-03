@@ -112,7 +112,7 @@ const LoginPage = () => {
                         className={`form-control ${errors.password ? 'is-invalid' : ''}`} 
                         id="inputPassword" 
                         name="password"
-                        placeholder="Crea una contraseña" 
+                        placeholder="Contraseña"
                         value={formData.password}
                         onChange={handleChange}
                         autoComplete="current-password"

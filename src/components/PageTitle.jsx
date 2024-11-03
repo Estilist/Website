@@ -5,7 +5,8 @@ const PageTitle = ({ children }) => {
     const customStyle = {
         fontSize: '40px',
         fontFamily: 'var(--subtitulo-font)',
-        color: 'var(--boton)'
+        color: 'var(--boton)',
+        marginBottom: '30px'
     };
 
     return (
