@@ -14,8 +14,12 @@ function Header() {
             <Container>
                 {/* icono de colapso a la izquierda */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-1 order-md-2" />      
+
                 {/* título centrado */}
-                <Navbar.Brand className="mx-auto order-2 order-md-1" onClick={() => {navigate("/")}}>Estilist</Navbar.Brand>
+                <Navbar.Brand className="mx-auto order-2 order-md-1">
+                    <span className='logo' onClick={() => {navigate("/")}}>Estilist</span>
+                </Navbar.Brand>
+
                 {/* colapso */}
                 <Navbar.Collapse id="basic-navbar-nav" className="order-3 order-md-3">
                     <Nav className="ms-auto">
@@ -33,8 +37,9 @@ function Header() {
                         <Nav.Link className="order-2">Racha</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+
                 {/* icono de usuario a la derecha */}
-                <Nav.Link href="#" className="ms-auto order-2 order-md-4" id="icono-persona">
+                <Nav.Link className="ms-auto order-2 order-md-4" id="icono-persona" onClick={() => navigate("/profile")}>
                     <img src={PersonIcon} alt="Icono Persona" className="svg-icon-persona" />
                 </Nav.Link>
             </Container>

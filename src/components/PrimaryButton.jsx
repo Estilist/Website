@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const PrimaryButton = ({ size, onClick, children }) => {
+const PrimaryButton = ({ type, size, onClick, children }) => {
     const customStyles = {
         backgroundColor: 'var(--boton)',
         color: 'var(--blanco)',
@@ -14,13 +14,14 @@ const PrimaryButton = ({ size, onClick, children }) => {
     };
 
     return (
-        <Button size={size} onClick={onClick} style={customStyles}>
+        <Button type={type} size={size} onClick={onClick} style={customStyles}>
             {children}
         </Button>
     );
 };
 
 PrimaryButton.propTypes = {
+    type: PropTypes.string,
     size: PropTypes.string,
     onClick: PropTypes.func,
     children: PropTypes.node,

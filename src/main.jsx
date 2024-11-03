@@ -15,45 +15,64 @@ import "./components/index.css"
 
 // Pages
 import Root from "./routes/Root";
+import ProtectedRoute from "./routes/ProtectedRoute";
 import ErrorPage from "./pages/ErrorPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import InicioPage from "./pages/InicioPage";
 import PersonalDataQuizPage from "./pages/PersonalDataQuizPage";
 import HelpUsPage from "./pages/HelpUsPage";
+import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
+
+// Contexts
+import { SessionProvider } from "./contexts/SessionContext";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-        { 
-            path: "/",
-            element: <InicioPage />,
-        },
-        { 
-            path: "/login",
-            element: <LoginPage />,
-        },
-        {
-            path: "/register",
-            element: <RegisterPage />,
-        },
-        {
-            path: "/personalDataQuiz",
-            element: <PersonalDataQuizPage />,
-        },
-        {
-          path: "/helpUs",
-          element: <HelpUsPage />,
-        },
-    ]
-  }
+    {
+        path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: [
+            { 
+                path: "/",
+                element: <HomePage />, // Redirige a Inicio o a Ideas
+            },
+            { 
+                path: "/login",
+                element: <LoginPage />,
+            },
+            {
+                path: "/register",
+                element: <RegisterPage />,
+            },
+            {
+                path: "/personalDataQuiz",
+                element: (
+                    <PersonalDataQuizPage />
+                ),
+            },
+            {
+                path: "/helpUs",
+                element: (
+                    <HelpUsPage />
+                ),
+            },
+            {
+                path: "/profile",
+                element: (
+                    <ProtectedRoute>
+                        <ProfilePage />
+                    </ProtectedRoute>
+                ),
+            }
+        ],
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <SessionProvider>
+      <RouterProvider router={router} />
+    </SessionProvider>
   </React.StrictMode>
 );
