@@ -4,10 +4,12 @@ import FaceImage from '../assets/photos/rostro.png';
 import Form from 'react-bootstrap/Form';
 import { FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UploadImagePage = () => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState('Ningún archivo seleccionado');
+    const navigate = useNavigate();
 
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
@@ -67,7 +69,7 @@ const UploadImagePage = () => {
             </form>
             {/* Analizar */}
             <div className="secondaryButton3">
-                <SecondaryButton onClick={() => navigate('/uploadImage')}>
+                <SecondaryButton onClick={() => navigate('/upload-image')}>
                     Analizar
                 </SecondaryButton>
             </div>
