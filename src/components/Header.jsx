@@ -26,7 +26,7 @@ function Header() {
                         <Nav.Link className="order-1">Ideas</Nav.Link>
                         <NavDropdown title="Análisis" id="basic-nav-dropdown" className="custom-dropdown">
                             <NavDropdown.Item>Colorimetría</NavDropdown.Item>
-                            <NavDropdown.Item>Tipo de cuerpo y rostro</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => {navigate('/upload-image')}}>Tipo de cuerpo y rostro</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Nuevo" id="basic-nav-dropdown" className="custom-dropdown">
                             <NavDropdown.Item>Cabello</NavDropdown.Item>

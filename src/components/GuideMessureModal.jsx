@@ -1,5 +1,6 @@
 import { Modal } from "react-bootstrap";
 import PageTitle from "./PageTitle";
+import PropTypes from 'prop-types';
 
 const GuideMessureModal = ({ show, onHide, content, imagePath }) => { 
     return (
@@ -18,6 +19,13 @@ const GuideMessureModal = ({ show, onHide, content, imagePath }) => {
             </Modal.Body>
         </Modal>
     );
+};
+
+GuideMessureModal.propTypes = {
+    show: PropTypes.bool.isRequired,
+    onHide: PropTypes.func.isRequired,
+    content: PropTypes.string.isRequired,
+    imagePath: PropTypes.string,
 };
 
 export default GuideMessureModal;
