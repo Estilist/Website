@@ -69,19 +69,26 @@ const UploadImagePage = () => {
         setError('');
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (!file) {
             setError('Debes seleccionar un archivo.');
             return;
         }
 
-        const formData = new FormData();
-        formData.append('image', file);
-        
-        const response = request('/upload-image/', 'POST', formData, false);
-        console.log('Respuesta de la API:', response);
-
-        navigate('/results');
+        // try {
+        //     const formData = new FormData();
+        //     formData.append('image', file);
+            
+        //     const response = await request('/upload-image/', 'POST', formData, false);
+        //     console.log('Imagen subida:', response);
+    
+        //     navigate('/measurements');
+        // } catch (error) {
+            //     console.error('Error al subir la imagen:', error);
+            //     setError('Ocurrió un error al subir la imagen.');
+            // }
+            
+        navigate('/measurements');
     };
 
     return (

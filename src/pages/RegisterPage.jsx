@@ -97,9 +97,9 @@ const RegisterPage = () => {
         peso: "",
         pais: "",
         chest: 90,
-        waist: 75,
+        waist: 90,
         hips: 90,
-        legs: 75,
+        legs: 90,
     };
 
     useEffect(() => {

@@ -16,6 +16,11 @@ const request = async (endpoint, method = 'GET', body = null, json = true) => {
         options.body = body;
   }
 
+  if (method === 'GET') {
+    // Add ?format=json
+    endpoint += '?format=json';
+  }
+
   const response = await fetch(`${apiUrl}${endpoint}`, options);
   if (!response.ok) {
     const errorData = await response.json();
