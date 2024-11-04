@@ -23,6 +23,7 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import UploadImagePage from "./pages/UploadImagePage";
 import ResultsPage from "./pages/ResultsPage";
+import MeasurementsPage from "./pages/MeasurementsPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
@@ -58,6 +59,22 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <UploadImagePage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/measurements",
+                element: (
+                    <ProtectedRoute>
+                        <MeasurementsPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/results",
+                element: (
+                    <ProtectedRoute>
+                        <ResultsPage />
                     </ProtectedRoute>
                 ),
             }

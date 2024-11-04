@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import { Spinner } from 'react-bootstrap';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import * as faceapi from 'face-api.js';
 import request from "../api";
 
@@ -17,7 +16,6 @@ const UploadImagePage = () => {
     const [fileName, setFileName] = useState('Ningún archivo seleccionado');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
 
     const handleFileChange = async (event) => {
         console.log('handleFileChange');
@@ -83,7 +81,7 @@ const UploadImagePage = () => {
         const response = request('/upload-image/', 'POST', formData, false);
         console.log('Respuesta de la API:', response);
 
-        // navigate('/analysis-result');
+        navigate('/results');
     };
 
     return (

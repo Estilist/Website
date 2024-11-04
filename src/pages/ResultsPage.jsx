@@ -1,9 +1,8 @@
-import React from "react";
 import PageTitle from "../components/PageTitle";
 import SecondaryButton from '../components/SecondaryButton';
-//import { useNavigate } from 'react-router-dom';
 import BodyImage from "../assets/photos/body/reloj-arena.png";
 import FaceImage from "../assets/photos/face/ovalada.png";
+import { useNavigate } from "react-router-dom";
 
 // datos simulados
 const simulatedResults = {
@@ -14,13 +13,12 @@ const simulatedResults = {
 };
 
 const ResultsPage = () => {
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div className="results-page">
-            <div className="title">
-                <PageTitle>¡Tus resultados!</PageTitle>
-            </div>
+            <PageTitle>¡Tus resultados!</PageTitle>
+            
             <div className="results-content">
             {/* Tipo de cuerpo */}
             <div className="result-section">
@@ -53,7 +51,7 @@ const ResultsPage = () => {
 
             {/* Siguiente */}
             <div className="secondaryButton4">
-                <SecondaryButton onClick={() => navigate('/register')}>
+                <SecondaryButton onClick={() => navigate('/')}>
                     Siguiente
                 </SecondaryButton>
             </div>
