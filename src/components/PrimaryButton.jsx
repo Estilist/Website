@@ -7,6 +7,7 @@ const PrimaryButton = ({ type, size, onClick, children }) => {
         color: 'var(--blanco)',
         padding: '10px 10px',
         width: '100%',
+        maxWidth: '200px',
         fontFamily: 'var(--boton-font)',
         border: 'none',
         fontSize: '21px',

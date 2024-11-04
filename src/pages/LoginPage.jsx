@@ -47,6 +47,7 @@ const LoginPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors({});
         const validationErrors = validate();
 
         if (Object.keys(validationErrors).length === 0) {
