@@ -1,6 +1,6 @@
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const request = async (endpoint, method = 'GET', body = null) => {
+const request = async (endpoint, method = 'GET', body = null, json = true) => {
   const options = {
     method,
     headers: {
@@ -9,7 +9,10 @@ const request = async (endpoint, method = 'GET', body = null) => {
   };
   
   if (body) {
-    options.body = JSON.stringify(body);
+    if (json)
+        options.body = JSON.stringify(body);
+    else
+        options.body = body;
   }
 
   try {
