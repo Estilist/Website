@@ -121,22 +121,32 @@ const RegisterPage = () => {
 
     const handleSubmit = async () => {
         const validation = validateStep(currentStep);
-
+    
         if (Object.keys(validation).length === 0) {
             try {
-                const response = await request('/create-user/', 'POST',
-                    {
-                        correo: formData.correo,
-                        contrasena: formData.contrasena,
-                        nombre: formData.nombre,
-                        apellidopaterno: formData.apellidopaterno,
-                        apellidomaterno: formData.apellidomaterno,
-                        edad: formData.edad,
-                        genero: formData.genero,
-                        pais: formData.pais,
-                    }
-                );
-                console.log('Usuario creado exitosamente:', response);
+                const response = await request('/create-user/', 'POST', {
+                    correo: formData.correo,
+                    contrasena: formData.contrasena,
+                    nombre: formData.nombre,
+                    apellidopaterno: formData.apellidopaterno,
+                    apellidomaterno: formData.apellidomaterno,
+                    edad: formData.edad,
+                    genero: formData.genero,
+                    pais: formData.pais,
+                });
+    
+                const idUsuario = response.idUsuario;
+    
+                await request('/user-measurements/', 'POST', {
+                    idusuario: idUsuario,
+                    altura: formData.altura,
+                    peso: formData.peso,
+                    pecho: formData.chest,
+                    cintura: formData.waist,
+                    cadera: formData.hips,
+                    entrepierna: formData.legs,
+                });
+    
                 navigate('/login');
             } catch (error) {
                 console.error('Error al crear usuario:', error);

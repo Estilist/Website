@@ -31,7 +31,8 @@ const Register3 = ({ formData, errors, handleChange, handleNext }) => {
                         <label htmlFor="age">Edad:</label>
                         <input 
                             type="number"
-                            min={0} 
+                            min={0}
+                            max={120}
                             className="form-control right-placeholder" 
                             id="age" 
                             name="edad"
@@ -69,7 +70,8 @@ const Register3 = ({ formData, errors, handleChange, handleNext }) => {
                         <label htmlFor="weight">Peso:</label>
                         <input 
                             type="number"
-                            min={0} 
+                            min={0}
+                            max={500}
                             className="form-control right-placeholder" 
                             id="weight" 
                             name="peso"
@@ -85,6 +87,7 @@ const Register3 = ({ formData, errors, handleChange, handleNext }) => {
                         <input 
                             type="number"
                             min={0} 
+                            max={300}
                             className="form-control right-placeholder" 
                             id="height" 
                             name="altura"
