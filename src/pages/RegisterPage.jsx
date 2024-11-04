@@ -26,11 +26,24 @@ const RegisterPage = () => {
     });
     const [errors, setErrors] = useState({});
 
-    const handleNext = () => {
+    const handleNext = async () => {
+        setErrors({});
         const validation = validateStep(currentStep);
-
+    
         if (Object.keys(validation).length === 0) {
-            setCurrentStep(currentStep + 1);
+            try {
+                await request('/check-user/', 'POST', {
+                    correo: formData.correo,
+                    contrasena: ""
+                });
+            } catch (error) {
+                if (error.status === 404)
+                    setCurrentStep(currentStep + 1);
+                else if (error.status === 401 || error.status === 400) 
+                    setErrors({ correo: "El usuario ya existe." });
+                else
+                    setErrors({ correo: "Error al verificar el usuario." });
+            }
         } else {
             setErrors(validation);
         }
@@ -70,7 +83,7 @@ const RegisterPage = () => {
             if (!formData.pais) {
                 newErrors.pais = "País es requerido.";
             }
-            
+
             if (!formData.correo) {
                 newErrors.correo = "Correo es requerido.";
             } else {
