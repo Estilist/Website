@@ -46,12 +46,31 @@ const RegisterPage = () => {
 
     const validateStep = (step) => {
         const newErrors = {};
-
+        const alphanumericRegex = /^[a-z0-9]+$/i;
+    
         if (step === 1) {
-            if (!formData.nombre) newErrors.nombre = "Nombre es requerido.";
-            if (!formData.apellidopaterno) newErrors.apellidopaterno = "Apellido Paterno es requerido.";
-            if (!formData.apellidomaterno) newErrors.apellidomaterno = "Apellido Materno es requerido.";
-            if (!formData.pais) newErrors.pais = "País es requerido.";
+            if (!formData.nombre) {
+                newErrors.nombre = "Nombre es requerido.";
+            } else if (!alphanumericRegex.test(formData.nombre)) {
+                newErrors.nombre = "Solo caracteres alfanuméricos permitidos.";
+            }
+            
+            if (!formData.apellidopaterno) {
+                newErrors.apellidopaterno = "Apellido Paterno es requerido.";
+            } else if (!alphanumericRegex.test(formData.apellidopaterno)) {
+                newErrors.apellidopaterno = "Solo caracteres alfanuméricos permitidos.";
+            }
+    
+            if (!formData.apellidomaterno) {
+                newErrors.apellidomaterno = "Apellido Materno es requerido.";
+            } else if (!alphanumericRegex.test(formData.apellidomaterno)) {
+                newErrors.apellidomaterno = "Solo caracteres alfanuméricos permitidos.";
+            }
+    
+            if (!formData.pais) {
+                newErrors.pais = "País es requerido.";
+            }
+            
             if (!formData.correo) {
                 newErrors.correo = "Correo es requerido.";
             } else {
@@ -60,6 +79,7 @@ const RegisterPage = () => {
                     newErrors.correo = "Correo inválido.";
                 }
             }
+    
             if (!formData.contrasena) {
                 newErrors.contrasena = "Contraseña es requerida.";
             }
@@ -82,7 +102,7 @@ const RegisterPage = () => {
                 newErrors.legs = "Entrepierna debe estar entre 20 y 180 cm.";
             }
         }
-
+    
         return newErrors;
     };
 
