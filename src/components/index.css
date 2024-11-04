@@ -290,15 +290,13 @@ hr {
     justify-content: space-between; 
     align-items: center; 
 }
-
 .file-name-text {
     font-size: medium;
-    margin: 0; /* Sin márgenes */
+    margin: 0;
     line-height: 1.5; /* Ajusta para alinear */
     text-align: center; 
     color: var(--boton);
 }
-
 .remove-file-button {
     background-color: transparent; 
     border: none; 
@@ -311,4 +309,68 @@ hr {
     margin-bottom: -3px;
 }
 
+/* RESULTS PAGE */
 
+/* LABELS */
+.results-page {
+    font-family: var(--texto-font);
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    max-width: 600px;
+    padding: 20px;
+}
+.results-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.result-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+}
+.results-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--encabezado);
+    grid-column: span 2; 
+    text-align: center;
+    margin-bottom: 10px;
+}
+.result-info {
+    flex-direction: column;
+    align-items: center;
+}
+.result-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    height: auto;
+}
+.result-description {
+    font-size: 14px;
+    text-align: left;
+}
+.result-text-box {
+    background-color: var(--boton);
+    color: var(--vinculos);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: -2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    border-radius: 10px;
+}
+
+/* ACEPTAR BUTTON */
+.secondaryButton4 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

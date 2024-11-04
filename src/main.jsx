@@ -22,6 +22,7 @@ import InicioPage from "./pages/InicioPage";
 import PersonalDataQuizPage from "./pages/PersonalDataQuizPage";
 import HelpUsPage from "./pages/HelpUsPage";
 import UploadImagePage from "./pages/UploadImagePage";
+import ResultsPage from "./pages/ResultsPage";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         {
           path: "/uploadImage",
           element: <UploadImagePage />,
+        },
+        {
+          path: "/results",
+          element: <ResultsPage />,
         },
     ]
   }
