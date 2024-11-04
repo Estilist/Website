@@ -5,14 +5,14 @@ import SecondaryButton from "../../components/SecondaryButton";
 import { useNavigate } from "react-router-dom";
 import countryList from 'react-select-country-list';
 
-const Register1 = ({ formData, errors, handleChange, handleNext }) => {
+const Register1 = ({ formData, errors, handleChange }) => {
     const navigate = useNavigate();
     const countries = countryList().getData();
 
     return (
         <div>
             <PageTitle>Registrarme</PageTitle>
-            <form className="TextForms" onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
+            <div className="TextForms">
                 {/* Nombre */}
                 <div className="form-group">
                     <label htmlFor="nombre">Nombre</label>
@@ -123,7 +123,7 @@ const Register1 = ({ formData, errors, handleChange, handleNext }) => {
                         </SecondaryButton>
                     </div>
                 </div>                
-            </form>
+            </div>
         </div>
     );
 };
@@ -132,7 +132,6 @@ Register1.propTypes = {
     formData: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
-    handleNext: PropTypes.func.isRequired,
 };
 
 export default Register1;

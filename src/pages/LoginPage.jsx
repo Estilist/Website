@@ -1,124 +1,101 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import PageTitle from "../components/PageTitle";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from '../components/SecondaryButton';
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
 import request from "../api";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const { setSession } = useContext(SessionContext);
 
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        rememberPassword: false,
-    });
-    const [errors, setErrors] = useState({});
-
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData({
-            ...formData,
-            [name]: type === 'checkbox' ? checked : value, 
-        });
-    };
-
-    const validate = () => {
-        const newErrors = {};
-        const alfanumericoRegex = /^[a-zA-Z0-9@.]+$/;
-
-        // No campos nulos
-        if (!formData.email) {
-            newErrors.email = "El correo electrónico no puede estar vacío.";
-        } else if (!alfanumericoRegex.test(formData.email)) {
-            newErrors.email = "El correo electrónico debe ser alfanumérico.";
-        }
-
-        if (!formData.password) {
-            newErrors.password = "La contraseña no puede estar vacía.";
-        } else if (!alfanumericoRegex.test(formData.password)) {
-            newErrors.password = "La contraseña debe ser alfanumérica.";
-        }
-
-        return newErrors;
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setErrors({});
-        const validationErrors = validate();
-
-        if (Object.keys(validationErrors).length === 0) {
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+            rememberPassword: false,
+        },
+        validationSchema: Yup.object({
+            email: Yup.string()
+                .email('Correo electrónico inválido.')
+                .matches(/^[a-zA-Z0-9@.]+$/, 'El correo electrónico debe ser alfanumérico.')
+                .required('El correo electrónico no puede estar vacío.'),
+            password: Yup.string()
+                .matches(/^[a-zA-Z0-9@.]+$/, 'La contraseña debe ser alfanumérica.')
+                .required('La contraseña no puede estar vacía.'),
+        }),
+        onSubmit: async (values, { setSubmitting, setErrors }) => {
             try {
-                const response = await request('/check-user/', 'POST',
-                    {
-                        correo: formData.email,
-                        contrasena: formData.password
-                    }
-                );
+                const response = await request('/check-user/', 'POST', {
+                    correo: values.email,
+                    contrasena: values.password
+                });
                 
                 console.log('Inicio de sesión exitoso', response);
                 setSession({
                     id: response.idUsuario,
-                    email: formData.email
+                    email: values.email
                 });
                 navigate('/');
             } catch (error) {
                 setErrors({ form: error.message || 'Error al iniciar sesión' });
+            } finally {
+                setSubmitting(false);
             }
-        } else {
-            setErrors(validationErrors);
-        }
-    };
+        },
+    });
 
     return (
         <div>
             <PageTitle>Iniciar Sesión</PageTitle>
-            <form className="TextForms" onSubmit={handleSubmit} autoComplete="on">
-                {/* Correo Electrónico */}
+            <form className="TextForms" onSubmit={formik.handleSubmit} autoComplete="on">
                 <div className="form-group">
-                    <label htmlFor="inputEmail">Correo Electrónico</label>
+                    <label htmlFor="email">Correo Electrónico</label>
                     <input 
                         type="email" 
-                        className={`form-control ${errors.email ? 'is-invalid' : ''}`} 
-                        id="inputEmail" 
+                        className={`form-control ${formik.touched.email && formik.errors.email ? 'is-invalid' : ''}`} 
+                        id="email" 
                         name="email"
                         placeholder="nombre@ejemplo.com" 
-                        aria-describedby="emailHelp" 
-                        value={formData.email}
-                        onChange={handleChange}
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         autoComplete="email"
                     />
-                    {errors.email && <small className="invalid-feedback">{errors.email}</small>}
+                    {formik.touched.email && formik.errors.email && (
+                        <small className="invalid-feedback">{formik.errors.email}</small>
+                    )}
                 </div>
 
-                {/* Contraseña */}
                 <div className="form-group">
-                    <label htmlFor="inputPassword">Contraseña</label>
+                    <label htmlFor="password">Contraseña</label>
                     <input 
                         type="password" 
-                        className={`form-control ${errors.password ? 'is-invalid' : ''}`} 
-                        id="inputPassword" 
+                        className={`form-control ${formik.touched.password && formik.errors.password ? 'is-invalid' : ''}`} 
+                        id="password" 
                         name="password"
                         placeholder="Contraseña"
-                        value={formData.password}
-                        onChange={handleChange}
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         autoComplete="current-password"
                     />
-                    {errors.password && <small className="invalid-feedback">{errors.password}</small>}
+                    {formik.touched.password && formik.errors.password && (
+                        <small className="invalid-feedback">{formik.errors.password}</small>
+                    )}
                 </div>
 
-                {/* Checkbox recordar contraseña */}
                 <div className="form-group form-check">
                     <input 
                         type="checkbox" 
                         className="form-check-input" 
                         id="rememberPassword" 
                         name="rememberPassword"
-                        checked={formData.rememberPassword}
-                        onChange={handleChange}
+                        checked={formik.values.rememberPassword}
+                        onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="rememberPassword">
                         Recordar contraseña
@@ -126,22 +103,22 @@ const LoginPage = () => {
                 </div>
 
                 {/* Errores del formulario */}
-                <div className="form-error">
-                    {errors.form && <div className="alert alert-danger">{errors.form}</div>}
-                </div>
-                
+                {formik.errors.form && (
+                    <div className="form-error">
+                        <div className="alert alert-danger">{formik.errors.form}</div>
+                    </div>
+                )}
+
                 {/* Botones */}
                 <div className="buttons">
-                    {/* Boton de Registro */}
                     <div className="primaryButton">
-                        <PrimaryButton type="submit">
+                        <PrimaryButton type="submit" disabled={formik.isSubmitting}>
                             Iniciar Sesión
                         </PrimaryButton>
                     </div>
 
-                    {/* Boton de Olvidé mi Contraseña */}
                     <div className="secondaryButton">
-                        <SecondaryButton onClick={() => {}}>
+                        <SecondaryButton type="button" onClick={() => {}}>
                             Olvidé mi contraseña
                         </SecondaryButton>
                     </div>
