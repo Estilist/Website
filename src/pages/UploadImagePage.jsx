@@ -2,6 +2,7 @@ import PageTitle from "../components/PageTitle";
 import SecondaryButton from '../components/SecondaryButton';
 import FaceImage from '../assets/photos/rostro.png';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import { Spinner } from 'react-bootstrap';
 import { useState } from 'react';
@@ -10,6 +11,8 @@ import * as faceapi from 'face-api.js';
 import request from "../api";
 
 const UploadImagePage = () => {
+    const navigate = useNavigate();
+
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState('Ningún archivo seleccionado');
     const [error, setError] = useState('');

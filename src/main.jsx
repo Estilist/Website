@@ -22,6 +22,7 @@ import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import UploadImagePage from "./pages/UploadImagePage";
+import ResultsPage from "./pages/ResultsPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
