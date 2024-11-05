@@ -1,13 +1,11 @@
-import PageTitle from "../components/PageTitle";
-import CameraIcon from '../assets/icons/camera.svg'; 
-import ImagesIcon from '../assets/icons/images.svg';
-import StarsIcon from '../assets/icons/stars.svg';
-import ChatHeartIcon from '../assets/icons/chat-heart.svg';
-import SecondaryButton from '../components/SecondaryButton';
-import { useNavigate } from 'react-router-dom';
+import PageTitle from "../../components/PageTitle";
+import CameraIcon from '../../assets/icons/camera.svg'; 
+import ImagesIcon from '../../assets/icons/images.svg';
+import StarsIcon from '../../assets/icons/stars.svg';
+import ChatHeartIcon from '../../assets/icons/chat-heart.svg';
+import PrimaryButton from '../../components/PrimaryButton';
 
-const HelpUsPage = () => {
-    const navigate = useNavigate();
+const Register2 = () => {
     return (
         <div className="help-us-page">
             <PageTitle>¡Ayúdanos a conocerte mejor!</PageTitle>
@@ -34,14 +32,13 @@ const HelpUsPage = () => {
                 </div>
             </div>
 
-            {/* Boton de Ya Tengo Una Cuenta */}
-            <div className = "secondaryButton1">
-                    <SecondaryButton onClick={() => navigate('/personalDataQuiz')}>
-                        Aceptar
-                    </SecondaryButton>
+            <div className="secondaryButton1">
+                <PrimaryButton type="submit">
+                    Aceptar
+                </PrimaryButton>
             </div>
         </div>
     );
 };
 
-export default HelpUsPage;
+export default Register2;

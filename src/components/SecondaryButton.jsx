@@ -6,6 +6,7 @@ const SecondaryButton = ({ size, onClick, children }) => {
         backgroundColor: 'var(--boton2)',
         color: 'var(--blanco)',
         padding: '10px 10px',
+        width: '100%',
         fontFamily: 'var(--boton-font)',
         border: 'none',
         fontSize: '21px',

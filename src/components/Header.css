@@ -15,6 +15,11 @@
     flex-grow: 0.75; /* para ocupar el espacio */
 }
 
+.logo {
+    user-select: none; /* para evitar seleccionar el texto */
+    cursor: pointer;
+}
+
 @media (min-width: 768px) {
     .navheader .navbar-brand{
         font-family: var(--marca-font);
