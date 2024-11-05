@@ -106,7 +106,7 @@ const RegisterPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [currentStep]);
+    }, [currentStep]);      
 
     const handleSubmit = async (values, actions) => {
         if (currentStep < validationSchemas.length - 1) {
