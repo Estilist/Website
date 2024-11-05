@@ -75,20 +75,18 @@ const UploadImagePage = () => {
             return;
         }
 
-        // try {
-        //     const formData = new FormData();
-        //     formData.append('image', file);
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
             
-        //     const response = await request('/upload-image/', 'POST', formData, false);
-        //     console.log('Imagen subida:', response);
-    
-        //     navigate('/measurements');
-        // } catch (error) {
-            //     console.error('Error al subir la imagen:', error);
-            //     setError('Ocurrió un error al subir la imagen.');
-            // }
+            await request('/facial-recognition/', 'POST', formData, false);
+            navigate('/measurements');
+        } catch (error) {
+            console.error('Error al subir la imagen:', error);
+            setError('Ocurrió un error al subir la imagen.');
+        }
             
-        navigate('/measurements');
+        // navigate('/measurements');
     };
 
     return (
