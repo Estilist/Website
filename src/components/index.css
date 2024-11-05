@@ -374,3 +374,34 @@ hr {
     justify-content: center;
     margin-top: 50px;
 }
+
+/* START WITH... PAGE */
+
+/* PAGE */
+.start-page {
+    font-family: var(--texto-font);
+    margin: auto;
+    margin-top: -20px;
+    max-width: 600px;
+    padding: 20px;
+}
+.start-content {
+    margin-top: 10px;
+    padding: 5px;
+}
+.subtitle-label {
+    display: block;
+    font-size: 24px;
+    color: var(--encabezado);
+    grid-column: span 2; 
+    text-align: center;
+}
+.page-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.page-button button.selected {
+    background-color: var(--boton) !important; 
+    color: #fff !important; 
+
+}

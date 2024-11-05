@@ -23,6 +23,8 @@ import PersonalDataQuizPage from "./pages/PersonalDataQuizPage";
 import HelpUsPage from "./pages/HelpUsPage";
 import UploadImagePage from "./pages/UploadImagePage";
 import ResultsPage from "./pages/ResultsPage";
+import ColorimetryPage from "./pages/ColorimetryPage";
+import StartPage from "./pages/StartPage";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
         {
           path: "/results",
           element: <ResultsPage />,
+        },
+        {
+          path: "/colorimetry",
+          element: <ColorimetryPage />,
+        },
+        {
+          path: "/start",
+          element: <StartPage />,
         },
     ]
   }
