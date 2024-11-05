@@ -7,18 +7,20 @@ import Register3 from "../pages/Register/Register3";
 import request from "../api";
 import { useNavigate } from "react-router-dom";
 
+const nameRegex = /^[a-záéíóúüñ ]+$/i;
+
 const validationSchemas = [
     // Step 1
     Yup.object({
         nombre: Yup.string()
             .required("Nombre es requerido.")
-            .matches(/^[a-z0-9]+$/i, "Solo caracteres alfanuméricos permitidos."),
+            .matches(nameRegex, "Solo caracteres alfabéticos permitidos."),
         apellidopaterno: Yup.string()
             .required("Apellido Paterno es requerido.")
-            .matches(/^[a-z0-9]+$/i, "Solo caracteres alfanuméricos permitidos."),
+            .matches(nameRegex, "Solo caracteres alfabéticos permitidos."),
         apellidomaterno: Yup.string()
             .required("Apellido Materno es requerido.")
-            .matches(/^[a-z0-9]+$/i, "Solo caracteres alfanuméricos permitidos."),
+            .matches(nameRegex, "Solo caracteres alfabéticos permitidos."),
         correo: Yup.string()
             .email("Correo inválido.")
             .required("Correo es requerido.")
