@@ -24,6 +24,8 @@ import ProfilePage from "./pages/ProfilePage";
 import UploadImagePage from "./pages/UploadImagePage";
 import ResultsPage from "./pages/ResultsPage";
 import MeasurementsPage from "./pages/MeasurementsPage";
+import StartPage from "./pages/StartPage";
+import ColorimetryPage from "./pages/ColorimetryPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
@@ -77,7 +79,23 @@ const router = createBrowserRouter([
                         <ResultsPage />
                     </ProtectedRoute>
                 ),
-            }
+            },
+            {
+                path: "/start",
+                element: (
+                    <ProtectedRoute>
+                        <StartPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/colorimetry",
+                element: (
+                    <ProtectedRoute>
+                        <ColorimetryPage />
+                    </ProtectedRoute>
+                ),
+            },
         ],
     },
 ]);

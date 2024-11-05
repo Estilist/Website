@@ -1,31 +1,32 @@
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const SecondaryButton = ({ size, onClick, children }) => {
+const LilacButton = ({ size, onClick, children, className }) => {
     const customStyles = {
-        backgroundColor: 'var(--boton2)',
-        color: 'var(--blanco)',
+        backgroundColor: 'var(--iconos)',
+        color: 'var(--encabezado)',
         padding: '10px 10px',
-        width: '100%',
-        fontFamily: 'var(--boton-font)',
+        fontFamily: 'var(--texto-font)',
         border: 'none',
         fontSize: '21px',
         boxShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
         borderRadius: '18px',
-        width: '150px',
+        width: '280px',
+        textAlign: 'center',
     };
 
     return (
-        <Button size={size} onClick={onClick} style={customStyles}>
+        <Button size={size} onClick={onClick} style={customStyles} className={className}>
             {children}
         </Button>
     );
 };
 
-SecondaryButton.propTypes = {
+LilacButton.propTypes = {
     size: PropTypes.string,
     onClick: PropTypes.func,
     children: PropTypes.node,
+    className: PropTypes.string,
 };
 
-export default SecondaryButton;
+export default LilacButton;

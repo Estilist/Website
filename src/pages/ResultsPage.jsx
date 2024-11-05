@@ -116,7 +116,7 @@ const ResultsPage = () => {
 
             {/* Siguiente */}
             <div className="secondaryButton4">
-                <SecondaryButton onClick={() => navigate('/')}>
+                <SecondaryButton onClick={() => navigate('/measurements')}>
                     Siguiente
                 </SecondaryButton>
             </div>

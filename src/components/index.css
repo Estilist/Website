@@ -9,7 +9,12 @@ body {
 
 /* TEXT FORMS */
 .TextForms {
+    font-family: var(--texto-font);
+    font-size: 22px;
     text-align: left; /* definir a la izquierda */
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
 }
 .form-group {
     margin-bottom: 15px; /* Espaciado entre los campos */
@@ -49,6 +54,7 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 5px;
+    margin-top: 100px;
 }
 .primaryButton {
     width: 100%;
@@ -78,13 +84,6 @@ body {
 }
 .form-check-label {
     font-size: 14px; 
-}
-.form-error {
-    min-height: 60px;
-    margin-bottom: 15px;
-}
-.alert {
-    margin: 0;
 }
 
 /* HELP US PAGE */
@@ -138,7 +137,7 @@ hr {
 
 /* PERSONAL DATA FORMS */
 .title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .DataForm {
@@ -374,4 +373,68 @@ hr {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+}
+
+/* START WITH... PAGE */
+
+/* PAGE */
+.start-page {
+    font-family: var(--texto-font);
+    margin: auto;
+    max-width: 600px;
+}
+.start-subtitle {
+    margin-top: 10px;
+    padding: 5px;
+}
+.subtitle-label {
+    display: block;
+    font-size: 24px;
+    color: var(--encabezado);
+    grid-column: span 2; 
+    text-align: center;
+}
+.page-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.page-button button.selected {
+    background-color: var(--boton) !important; 
+    color: #fff !important; 
+}
+
+/* COLORIMETRY PAGE */
+
+/* LABELS */
+.colorimetry-content {
+    padding: 10px;
+}
+.subtitle1-label {
+    display: block;
+    font-size: 20px;
+    color: var(--boton);
+    grid-column: span 2; 
+    text-align: center;
+}
+.categories-label {
+    display: block;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+    grid-column: span 2; 
+}
+.color-box {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 30px;
+}
+.color-image {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 8px;
 }
