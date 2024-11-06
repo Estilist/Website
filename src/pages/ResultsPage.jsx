@@ -23,7 +23,7 @@ const bodyImages = {
     // Hombres
     "Reloj de arena": body_reloj_arena,
     "Rectángulo": body_rectangulo,
-    "Triangulo invertido (V)": body_triangulo_invertido,
+    "Triángulo invertido (V)": body_triangulo_invertido,
     "Ovalado (Manzana)": body_ovalo,
     "Trapecio (Triangular)": body_triangulo,
     "Átletico": body_atletico,
@@ -31,8 +31,8 @@ const bodyImages = {
     // Mujeres
     // "Reloj de arena": body_reloj_arena,
     "Rectangular": body_rectangulo,
-    "Triangulo (Pera)": body_triangulo,
-    "Triangulo invertido": body_triangulo_invertido,
+    "Triángulo (Pera)": body_triangulo,
+    "Triángulo invertido": body_triangulo_invertido,
     // "Ovalado (Manzana)": body_ovalo,
     // "Átletico": body_atletico,
 };
@@ -73,7 +73,7 @@ const ResultsPage = () => {
             })
         }
         fetchData();
-    });
+    }, []);
 
     if (results === null) {
         return (

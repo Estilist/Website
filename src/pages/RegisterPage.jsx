@@ -109,6 +109,8 @@ const RegisterPage = () => {
             actions.setTouched({}); 
             actions.setSubmitting(false);
         } else {
+            actions.setSubmitting(true);
+
             try {
                 const response = await request('/create-user/', 'POST', {
                     correo: values.correo,
@@ -121,20 +123,21 @@ const RegisterPage = () => {
                     pais: values.pais,
                 });
 
-                const idUsuario = response.idUsuario;
-
-                await request('/user-measurements/', 'POST', {
-                    idusuario: idUsuario,
+                const user_measurements = {
+                    idusuario: response.idUsuario,
                     altura: values.altura,
                     peso: values.peso,
                     hombros: values.shoulder,
                     cintura: values.waist,
                     cadera: values.hips,
-                });
+                }
+
+                await request('/user-measurements/', 'POST', user_measurements);
 
                 navigate('/login');
             } catch (error) {
                 console.error('Error al crear usuario:', error);
+            } finally {
                 actions.setSubmitting(false);
             }
         }
