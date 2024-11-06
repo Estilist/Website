@@ -7,7 +7,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import * as faceapi from 'face-api.js';
-// import request from "../api";
+import request from "../api";
 
 const UploadImagePage = () => {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const UploadImagePage = () => {
     const [loading, setLoading] = useState(false);
 
     const handleFileChange = async (event) => {
-        console.log('handleFileChange');
+        setError('');
 
         const selectedFile = event.target.files[0];
         if (selectedFile) {

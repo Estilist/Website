@@ -33,7 +33,7 @@ function Header() {
                     <Nav className="ms-auto">
                         <Nav.Link className="order-0" onClick={() => handleItemClick('/')}>Ideas</Nav.Link>
                         <NavDropdown title="Análisis" id="basic-nav-dropdown" className="custom-dropdown">
-                            <NavDropdown.Item onClick={() => handleItemClick('/colorimetria')}>Colorimetría</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleItemClick('/colorimetry')}>Colorimetría</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => handleItemClick('/upload-image')}>Tipo de cuerpo y rostro</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Nuevo" id="basic-nav-dropdown" className="custom-dropdown">

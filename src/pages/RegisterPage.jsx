@@ -65,22 +65,18 @@ const validationSchemas = [
             .min(1, "Peso debe ser mayor a 0.")
             .max(500, "Peso debe ser menor a 500.")
             .required("Peso es requerido."),
-        chest: Yup.number()
-            .min(20, "Pecho debe estar entre 20 y 180 cm.")
-            .max(180, "Pecho debe estar entre 20 y 180 cm.")
-            .required(),
+        shoulder: Yup.number()
+            .min(20, 'Ingresa una medida válida.')
+            .max(180, 'Ingresa una medida válida.')
+            .required('Ingresa la medida de tu hombros.'),
         waist: Yup.number()
-            .min(20, "Cintura debe estar entre 20 y 180 cm.")
-            .max(180, "Cintura debe estar entre 20 y 180 cm.")
-            .required(),
+            .min(20, 'Ingresa una medida válida.')
+            .max(180, 'Ingresa una medida válida.')
+            .required('Ingresa la medida de tu cintura.'),
         hips: Yup.number()
-            .min(20, "Cadera debe estar entre 20 y 180 cm.")
-            .max(180, "Cadera debe estar entre 20 y 180 cm.")
-            .required(),
-        legs: Yup.number()
-            .min(20, "Entrepierna debe estar entre 20 y 180 cm.")
-            .max(180, "Entrepierna debe estar entre 20 y 180 cm.")
-            .required(),
+            .min(20, 'Ingresa una medida válida.')
+            .max(180, 'Ingresa una medida válida.')
+            .required('Ingresa la medida de tu cadera.'),
     }),
 ];
 
@@ -98,10 +94,9 @@ const RegisterPage = () => {
         altura: "",
         peso: "",
         pais: "",
-        chest: 90,
+        shoulder: 90,
         waist: 90,
         hips: 90,
-        legs: 90,
     };
 
     useEffect(() => {
@@ -132,10 +127,9 @@ const RegisterPage = () => {
                     idusuario: idUsuario,
                     altura: values.altura,
                     peso: values.peso,
-                    pecho: values.chest,
+                    hombros: values.shoulder,
                     cintura: values.waist,
                     cadera: values.hips,
-                    entrepierna: values.legs,
                 });
 
                 navigate('/login');

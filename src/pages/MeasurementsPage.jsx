@@ -40,7 +40,6 @@ const MeasurementsPage = () => {
                 shoulder: Math.round(measurements.hombros),
                 waist: Math.round(measurements.cintura),
                 hips: Math.round(measurements.cadera),
-                legs: Math.round(measurements.entrepierna),
             });
             setLoading(false);
         }
@@ -91,13 +90,11 @@ const MeasurementsPage = () => {
         },
     });
 
-    /*
     if (loading) {
         return (
             <LoadingPage />
         );
     }
-    */
 
     return (
         <>

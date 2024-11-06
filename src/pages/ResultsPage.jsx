@@ -29,12 +29,12 @@ const bodyImages = {
     "Átletico": body_atletico,
 
     // Mujeres
-    "Reloj de arena": body_reloj_arena,
+    // "Reloj de arena": body_reloj_arena,
     "Rectangular": body_rectangulo,
     "Triangulo (Pera)": body_triangulo,
     "Triangulo invertido": body_triangulo_invertido,
-    "Ovalado (Manzana)": body_ovalo,
-    "Átletico": body_atletico,
+    // "Ovalado (Manzana)": body_ovalo,
+    // "Átletico": body_atletico,
 };
 
 const faceImages = {
