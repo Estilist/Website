@@ -5,35 +5,36 @@ import { useNavigate } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
 import LoadingPage from "./LoadingPage";
 
+import body_atletico from '../assets/photos/body/atletico.jpg'
 import body_ovalo from '../assets/photos/body/ovalo.png';
 import body_rectangulo from '../assets/photos/body/rectangulo.png';
 import body_reloj_arena from '../assets/photos/body/reloj-arena.png';
-import body_rombo from '../assets/photos/body/rombo.png';
 import body_triangulo_invertido from '../assets/photos/body/triangulo-invertido.png';
 import body_triangulo from '../assets/photos/body/triangulo.png';
 
-import face_redondo from '../assets/photos/face/redonda.png';
-import face_cuadrado from '../assets/photos/face/cuadrada.png';
-import face_alargado from '../assets/photos/face/alargada.png';
-import face_corazon from '../assets/photos/face/corazon.png';
-import face_ovalado from '../assets/photos/face/ovalada.png';
+import face_redondo from '../assets/photos/face/redonda.jpg';
+import face_cuadrado from '../assets/photos/face/cuadrada.jpg';
+import face_alargado from '../assets/photos/face/alargada.jpg';
+import face_corazon from '../assets/photos/face/corazon.jpg';
+import face_ovalado from '../assets/photos/face/ovalada.jpg';
 import request from "../api";
 
 const bodyImages = {
     // Hombres
+    "Reloj de arena": body_reloj_arena,
     "Rectángulo": body_rectangulo,
     "Triangulo invertido (V)": body_triangulo_invertido,
     "Ovalado (Manzana)": body_ovalo,
     "Trapecio (Triangular)": body_triangulo,
-    // "Mesomorfo": body_reloj_arena,
+    "Átletico": body_atletico,
 
     // Mujeres
     "Reloj de arena": body_reloj_arena,
     "Rectangular": body_rectangulo,
     "Triangulo (Pera)": body_triangulo,
     "Triangulo invertido": body_triangulo_invertido,
-    // "Ovalado (Manzana)": body_ovalo,
-    // "Atletico": body_reloj_arena,
+    "Ovalado (Manzana)": body_ovalo,
+    "Átletico": body_atletico,
 };
 
 const faceImages = {

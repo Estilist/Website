@@ -26,6 +26,8 @@ import ResultsPage from "./pages/ResultsPage";
 import MeasurementsPage from "./pages/MeasurementsPage";
 import StartPage from "./pages/StartPage";
 import ColorimetryPage from "./pages/ColorimetryPage";
+import PreferencesPage from "./pages/PreferencesPage";
+import RecommendatioPage from "./pages/RecommendationPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
@@ -93,6 +95,22 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <ColorimetryPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/preferences",
+                element: (
+                    <ProtectedRoute>
+                        <PreferencesPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/recommentadion",
+                element: (
+                    <ProtectedRoute>
+                        <RecommendatioPage />
                     </ProtectedRoute>
                 ),
             },

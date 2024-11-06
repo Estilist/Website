@@ -438,3 +438,15 @@ hr {
     max-width: 280px;
     border-radius: 8px;
 }
+
+/* PREFERENCES PAGE */
+
+/* LABELS */
+.preferences-content {
+    text-align: left;
+    padding: 10px;
+}
+.subtitle-preferences {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.7);
+}

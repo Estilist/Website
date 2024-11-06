@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import PageTitle from "../components/PageTitle";
 import GuideMessureModal from '../components/GuideMessureModal';
-import chestImage from '../assets/photos/pecho.png';
+import shoulderImage from '../assets/photos/hombros.jpeg';
 import waistImage from '../assets/photos/cintura.png';
 import hipsImage from '../assets/photos/cadera.png';
-import legsImage from '../assets/photos/entrepierna.png';
 import PrimaryButton from "../components/PrimaryButton";
 
 import MeasurementField from "../components/MeasurementField";
@@ -38,7 +37,7 @@ const MeasurementsPage = () => {
             formik.setValues({
                 peso: Math.round(measurements.peso),
                 altura: Math.round(measurements.altura),
-                chest: Math.round(measurements.pecho),
+                shoulder: Math.round(measurements.hombros),
                 waist: Math.round(measurements.cintura),
                 hips: Math.round(measurements.cadera),
                 legs: Math.round(measurements.entrepierna),
@@ -52,10 +51,9 @@ const MeasurementsPage = () => {
         initialValues: {
             peso: '',
             altura: '',
-            chest: 0,
+            shoulder: 0,
             waist: 0,
             hips: 0,
-            legs: 0,
         },
         validationSchema: Yup.object({
             altura: Yup.number()
@@ -66,10 +64,10 @@ const MeasurementsPage = () => {
                 .min(1, "Peso debe ser mayor a 0.")
                 .max(500, "Peso debe ser menor a 500.")
                 .required("Peso es requerido."),
-            chest: Yup.number()
+            shoulder: Yup.number()
                 .min(20, 'Ingresa una medida válida.')
                 .max(180, 'Ingresa una medida válida.')
-                .required('Ingresa la medida de tu pecho.'),
+                .required('Ingresa la medida de tu hombros.'),
             waist: Yup.number()
                 .min(20, 'Ingresa una medida válida.')
                 .max(180, 'Ingresa una medida válida.')
@@ -78,31 +76,28 @@ const MeasurementsPage = () => {
                 .min(20, 'Ingresa una medida válida.')
                 .max(180, 'Ingresa una medida válida.')
                 .required('Ingresa la medida de tu cadera.'),
-            legs: Yup.number()
-                .min(20, 'Ingresa una medida válida.')
-                .max(180, 'Ingresa una medida válida.')
-                .required('Ingresa la medida de tu entrepierna.'),
         }),
         onSubmit: async (values) => {
             await request('/user-measurements/', 'POST', {
                 idusuario: session.id,
                 altura: values.altura,
                 peso: values.peso,
-                pecho: values.chest,
+                hombros: values.shoulder,
                 cintura: values.waist,
                 cadera: values.hips,
-                entrepierna: values.legs,
             });
 
             navigate('/results');
         },
     });
 
+    /*
     if (loading) {
         return (
             <LoadingPage />
         );
     }
+    */
 
     return (
         <>
@@ -143,12 +138,12 @@ const MeasurementsPage = () => {
 
                 <div className="DataForm2">
                     <MeasurementSlider
-                        label="Pecho"
-                        name="chest"
-                        value={formik.values.chest}
+                        label="Hombros"
+                        name="shoulder"
+                        value={formik.values.shoulder}
                         onChange={formik.handleChange}
-                        error={formik.errors.chest}
-                        onIconClick={() => handleIconClick("Manera de medir el pecho:", chestImage)}
+                        error={formik.errors.shoulder}
+                        onIconClick={() => handleIconClick("Manera de medir hombros:", shoulderImage)}
                     />
                     <MeasurementSlider
                         label="Cintura"
@@ -165,14 +160,6 @@ const MeasurementsPage = () => {
                         onChange={formik.handleChange}
                         error={formik.errors.hips}
                         onIconClick={() => handleIconClick("Manera de medir la cadera:", hipsImage)}
-                    />
-                    <MeasurementSlider
-                        label="Entrepierna"
-                        name="legs"
-                        value={formik.values.legs}
-                        onChange={formik.handleChange}
-                        error={formik.errors.legs}
-                        onIconClick={() => handleIconClick("Manera de medir la entrepierna:", legsImage)}
                     />
 
                     <div className="secondaryButton1">

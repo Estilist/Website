@@ -5,10 +5,9 @@ import PrimaryButton from "../../components/PrimaryButton";
 import MeasurementField from "../../components/MeasurementField";
 import MeasurementSlider from "../../components/MeasurementSlider";
 
-import chestImage from '../../assets/photos/pecho.png';
+import shoulderImage from '../../assets/photos/hombros.jpeg';
 import waistImage from '../../assets/photos/cintura.png';
 import hipsImage from '../../assets/photos/cadera.png';
-import legsImage from '../../assets/photos/entrepierna.png';
 import GuideMessureModal from "../../components/GuideMessureModal";
 
 const Register3 = ({ formData, errors, handleChange }) => {
@@ -90,14 +89,14 @@ const Register3 = ({ formData, errors, handleChange }) => {
                 </div>
 
                 <div className="DataForm2">
-                    {/* Pecho */}
+                    {/* Hombro */}
                     <MeasurementSlider
-                        label="Pecho"
-                        name="chest"
-                        value={formData.chest}
+                        label="Hombro"
+                        name="shoulder"
+                        value={formData.shoulder}
                         onChange={handleChange}
-                        error={errors.chest}
-                        onIconClick={() => handleIconClick("Manera de medir el pecho:", chestImage)}
+                        error={errors.shoulder}
+                        onIconClick={() => handleIconClick("Manera de medir hombros:", shoulderImage)}
                     />
 
                     {/* Cintura */}
@@ -119,17 +118,6 @@ const Register3 = ({ formData, errors, handleChange }) => {
                         error={errors.hips}
                         onIconClick={() => handleIconClick("Manera de medir la cadera:", hipsImage)}
                     />
-
-                    {/* Entrepierna */}
-                    <MeasurementSlider
-                        label="Entrepierna"
-                        name="legs"
-                        value={formData.legs}
-                        onChange={handleChange}
-                        error={errors.legs}
-                        onIconClick={() => handleIconClick("Manera de medir la entrepierna:", legsImage)}
-                    />
-
                     <div className="secondaryButton1">
                         <PrimaryButton type="submit">
                             Siguiente
