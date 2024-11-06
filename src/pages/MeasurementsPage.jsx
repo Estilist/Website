@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PageTitle from "../components/PageTitle";
 import GuideMessureModal from '../components/GuideMessureModal';
-import shoulderImage from '../assets/photos/pecho.png';
+import shoulderImage from '../assets/photos/hombros.jpeg';
 import waistImage from '../assets/photos/cintura.png';
 import hipsImage from '../assets/photos/cadera.png';
 import PrimaryButton from "../components/PrimaryButton";
@@ -143,7 +143,7 @@ const MeasurementsPage = () => {
                         value={formik.values.shoulder}
                         onChange={formik.handleChange}
                         error={formik.errors.shoulder}
-                        onIconClick={() => handleIconClick("Manera de medir el hombros:", shoulderImage)}
+                        onIconClick={() => handleIconClick("Manera de medir hombros:", shoulderImage)}
                     />
                     <MeasurementSlider
                         label="Cintura"
