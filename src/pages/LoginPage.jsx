@@ -116,12 +116,6 @@ const LoginPage = () => {
                             Iniciar Sesión
                         </PrimaryButton>
                     </div>
-
-                    <div className="secondaryButton">
-                        <SecondaryButton type="button" onClick={() => {}}>
-                            Olvidé mi contraseña
-                        </SecondaryButton>
-                    </div>
                 </div>
             </form>
         </div>

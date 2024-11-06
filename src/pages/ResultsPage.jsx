@@ -8,7 +8,6 @@ import LoadingPage from "./LoadingPage";
 import body_ovalo from '../assets/photos/body/ovalo.png';
 import body_rectangulo from '../assets/photos/body/rectangulo.png';
 import body_reloj_arena from '../assets/photos/body/reloj-arena.png';
-import body_rombo from '../assets/photos/body/rombo.png';
 import body_triangulo_invertido from '../assets/photos/body/triangulo-invertido.png';
 import body_triangulo from '../assets/photos/body/triangulo.png';
 
