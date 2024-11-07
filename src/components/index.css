@@ -380,12 +380,14 @@ hr {
 /* PAGE */
 .start-page {
     font-family: var(--texto-font);
+    justify-content: center; 
+    align-items: center;  
+    text-align: center; 
     margin: auto;
     max-width: 600px;
 }
-.start-subtitle {
-    margin-top: 10px;
-    padding: 5px;
+.start-container {
+    text-align: center;
 }
 .subtitle-label {
     display: block;
@@ -394,7 +396,10 @@ hr {
     grid-column: span 2; 
     text-align: center;
 }
-.page-button {
+.page-button {  
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: center !important; 
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -437,16 +442,4 @@ hr {
     width: 100%;
     max-width: 280px;
     border-radius: 8px;
-}
-
-/* PREFERENCES PAGE */
-
-/* LABELS */
-.preferences-content {
-    text-align: left;
-    padding: 10px;
-}
-.subtitle-preferences {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.7);
 }
