@@ -38,11 +38,11 @@ const bodyImages = {
 };
 
 const faceImages = {
-    "Redondo": face_redondo,
-    "Cuadrado": face_cuadrado,
-    "Alargado": face_alargado,
+    "Redonda": face_redondo,
+    "Cuadrada": face_cuadrado,
+    "Alargada": face_alargado,
     "Corazón": face_corazon,
-    "Ovalado": face_ovalado,
+    "Ovalada": face_ovalado,
 };
 
 const ResultsPage = () => {

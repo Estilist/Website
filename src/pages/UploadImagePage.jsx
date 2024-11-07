@@ -80,15 +80,16 @@ const UploadImagePage = () => {
         try {
             // Upload image to Blob Storage
             const imageUrl = await uploadToBlobStorage(file);
-            await request('/facial-recognition/', 'POST', {
-                url: imageUrl,
-                idusuario: session.idUsuario,
-            });
 
-            navigate('/measurements');
+            const formData = new FormData();
+            formData.append('url', imageUrl);
+            formData.append('idusuario', session.id);
+            await request('/facial-recognition/', 'POST', formData, false);
         } catch (error) {
             console.error('Error al subir la imagen:', error);
             setError('Ocurrió un error al subir la imagen.');
+        } finally {
+            navigate('/measurements');
         }
     };
 
