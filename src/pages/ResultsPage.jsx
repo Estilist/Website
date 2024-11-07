@@ -21,7 +21,7 @@ import request from "../api";
 
 const bodyImages = {
     // Hombres
-    "Reloj de arena": body_reloj_arena,
+    "Reloj de Arena": body_reloj_arena,
     "Rectángulo": body_rectangulo,
     "Triángulo invertido (V)": body_triangulo_invertido,
     "Ovalado (Manzana)": body_ovalo,

@@ -18,10 +18,17 @@ const ProfilePage = () => {
                 email: {session.email}
             </div>
 
-            {/* Botón de preferencias */}
+            {/* Botón de Preferencias */}
             <div className="mt-3">
                 <PrimaryButton onClick={() => navigate('/preferences')} type="button">
                     Preferencias
+                </PrimaryButton>
+            </div>
+
+            {/* Botón de Resultados */}
+            <div className="mt-3">
+                <PrimaryButton onClick={() => navigate('/results')} type="button">
+                    Resultados
                 </PrimaryButton>
             </div>
 

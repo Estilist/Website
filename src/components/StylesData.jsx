@@ -66,6 +66,8 @@ import rubioCenizoImg from '../assets/photos/preferencias/tintes-cabello/rubio c
 import rubioDoradoImg from '../assets/photos/preferencias/tintes-cabello/rubio dorado.png';
 import rubioPlatinoImg from '../assets/photos/preferencias/tintes-cabello/rubio platino.png';
 
+import ningunoImg from '../assets/photos/preferencias/ninguno.png';
+
 export const clothes = [
     { name: 'boho', src: bohoImg },
     { name: 'callejero', src: callejeroImg },
@@ -77,6 +79,7 @@ export const clothes = [
     { name: 'minimalista', src: minimalistaImg },
     { name: 'preppy', src: preppyImg },
     { name: 'romantico', src: romanticoImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
 
 export const accesories = [
@@ -90,14 +93,16 @@ export const accesories = [
     { name: 'minimalista', src: minimalistaAccesoriosImg },
     { name: 'preppy', src: preppyAccesoriosImg },
     { name: 'romantico', src: romanticoAccesoriosImg },
-    { name: 'vaquero', src: vaqueroAccesoriosImg }
+    { name: 'vaquero', src: vaqueroAccesoriosImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
 
 export const accessoriesColors = [
     { name: 'dorado', src: doradoImg },
     { name: 'plateado', src: plateadoImg },
     { name: 'negro', src: negroImg },
-    { name: 'colores', src: coloresImg }
+    { name: 'colores', src: coloresImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
 
 export const manHaircut = [
@@ -110,7 +115,8 @@ export const manHaircut = [
     { name: 'pompadour', src: pompadourImg },
     { name: 'casco', src: cascoImg },
     { name: 'raya lateral', src: rayaLateralImg },
-    { name: 'undercut', src: undercutImg }
+    { name: 'undercut', src: undercutImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
 
 export const womanHaircut = [
@@ -123,14 +129,16 @@ export const womanHaircut = [
     { name: 'largo en capas', src: largoEnCapasImg },
     { name: 'long bob', src: longBobImg },
     { name: 'pixie', src: pixieImg },
-    { name: 'shaggy', src: shaggyImg }
+    { name: 'shaggy', src: shaggyImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
 
 export const makeup = [
     { name: 'artístico', src: artisticoImg },
     { name: 'editorial', src: editorialImg },
     { name: 'glam', src: glamImg },
-    { name: 'natural', src: naturalImg }
+    { name: 'natural', src: naturalImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
 
 export const haircolor = [
@@ -145,5 +153,6 @@ export const haircolor = [
     { name: 'negro oscuro', src: negroOscuroImg },
     { name: 'gris plateado', src: grisPlateadoImg },
     { name: 'pastel', src: pastelImg },
-    { name: 'fantasía', src: fantasiaImg }
+    { name: 'fantasía', src: fantasiaImg },
+    { name: 'ninguno', src: ningunoImg }
 ];
