@@ -36,8 +36,9 @@ export const request = async (endpoint, method = 'GET', body = null, json = true
 export const uploadToBlobStorage = async (file) => {
     try {
         // Obtener la URL de subida desde el backend
-        const uploadUrlResponse = await request('/get-upload-url/', 'GET');
-        const { uploadUrl, fileUrl } = uploadUrlResponse;
+        const response = await request(`/get-upload-url/?filename=${file.name}&filetype=${file.type}`, 'GET');
+        const { uploadUrl, fileUrl } = response;
+        console.log(uploadUrl, fileUrl);
 
         // Subir el archivo a Blob Storage
         await fetch(uploadUrl, {
@@ -47,6 +48,7 @@ export const uploadToBlobStorage = async (file) => {
             },
             body: file,
         });
+        console.log('Archivo subido a Blob Storage:', fileUrl);
 
         return fileUrl;
     } catch (error) {
