@@ -4,7 +4,8 @@ import * as Yup from "yup";
 import Register1 from "../pages/Register/Register1";
 import Register2 from "../pages/Register/Register2";
 import Register3 from "../pages/Register/Register3";
-import request from "../api";
+import Register4 from "../pages/Register/Register4";
+import { request, uploadToBlobStorage} from "../api";
 import { useNavigate } from "react-router-dom";
 
 const nameRegex = /^[a-záéíóúüñ ]+$/i;
@@ -78,6 +79,11 @@ const validationSchemas = [
             .max(180, 'Ingresa una medida válida.')
             .required('Ingresa la medida de tu cadera.'),
     }),
+    // Step 4 - Image Upload
+    Yup.object({
+        file: Yup.mixed()
+            .required("La imagen es requerida."),
+    }),
 ];
 
 const RegisterPage = () => {
@@ -97,11 +103,12 @@ const RegisterPage = () => {
         shoulder: 90,
         waist: 90,
         hips: 90,
+        file: null,
     };
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [currentStep]);      
+    }, [currentStep]);
 
     const handleSubmit = async (values, actions) => {
         if (currentStep < validationSchemas.length - 1) {
@@ -112,6 +119,7 @@ const RegisterPage = () => {
             actions.setSubmitting(true);
 
             try {
+                // User
                 const response = await request('/create-user/', 'POST', {
                     correo: values.correo,
                     contrasena: values.contrasena,
@@ -122,7 +130,8 @@ const RegisterPage = () => {
                     genero: values.genero,
                     pais: values.pais,
                 });
-
+                
+                // Measurements
                 const user_measurements = {
                     idusuario: response.idUsuario,
                     altura: values.altura,
@@ -131,8 +140,14 @@ const RegisterPage = () => {
                     cintura: values.waist,
                     cadera: values.hips,
                 }
-
                 await request('/user-measurements/', 'POST', user_measurements);
+
+                // Upload image to Blob Storage
+                const imageUrl = await uploadToBlobStorage(values.file);
+                await request('/facial-recognition/', 'POST', {
+                    url: imageUrl,
+                    idusuario: response.idUsuario,
+                });
 
                 navigate('/login');
             } catch (error) {
@@ -168,6 +183,14 @@ const RegisterPage = () => {
                             formData={formik.values}
                             errors={formik.errors}
                             handleChange={formik.handleChange}
+                        />
+                    )}
+                    {currentStep === 3 && (
+                        <Register4
+                            setFieldValue={formik.setFieldValue}
+                            file={formik.values.file}
+                            setFile={file => formik.setFieldValue('file', file)}
+                            error={formik.errors.file}
                         />
                     )}
                 </Form>
