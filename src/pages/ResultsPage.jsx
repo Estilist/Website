@@ -23,7 +23,7 @@ const bodyImages = {
     // Hombres
     "Reloj de Arena": body_reloj_arena,
     "Rectángulo": body_rectangulo,
-    "Triángulo invertido (V)": body_triangulo_invertido,
+    "Triángulo Invertido (V)": body_triangulo_invertido,
     "Ovalado (Manzana)": body_ovalo,
     "Trapecio (Triangular)": body_triangulo,
     "Átletico": body_atletico,
@@ -32,7 +32,7 @@ const bodyImages = {
     // "Reloj de arena": body_reloj_arena,
     "Rectangular": body_rectangulo,
     "Triángulo (Pera)": body_triangulo,
-    "Triángulo invertido": body_triangulo_invertido,
+    "Triángulo Invertido": body_triangulo_invertido,
     // "Ovalado (Manzana)": body_ovalo,
     // "Átletico": body_atletico,
 };
