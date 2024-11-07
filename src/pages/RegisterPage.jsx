@@ -144,16 +144,16 @@ const RegisterPage = () => {
 
                 // Upload image to Blob Storage
                 const imageUrl = await uploadToBlobStorage(values.file);
-                await request('/facial-recognition/', 'POST', {
-                    url: imageUrl,
-                    idusuario: response.idUsuario,
-                });
+                const formData = new FormData();
+                formData.append('url', imageUrl);
+                formData.append('idusuario', response.idUsuario);
 
-                navigate('/login');
+                request('/facial-recognition/', 'POST', formData, false);
             } catch (error) {
                 console.error('Error al crear usuario:', error);
             } finally {
                 actions.setSubmitting(false);
+                navigate('/login');
             }
         }
     };
