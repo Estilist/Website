@@ -8,7 +8,7 @@
 .subtitle-preferences {
     font-size: 24px;
     color: rgba(0, 0, 0, 0.7);
-    margin-bottom: 10px; /* Espacio entre el título y la fila de imágenes */
+    margin-bottom: 10px;
 }
 /* BOTONES DE FEMENINA/MASCULINA */
 .page-button {
@@ -16,7 +16,8 @@
     gap: 20px; 
     justify-content: space-between;
     width: 100%;
-    margin-top: 0px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 .style-section {
     position: relative;

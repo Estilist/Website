@@ -8,7 +8,6 @@ import ImageButton from "../components/ImageButton";
 import { clothes, accesories, accessoriesColors, manHaircut, womanHaircut, makeup, haircolor } from '../components/StylesData'; 
 import { useSession } from '../contexts/SessionContext';
 import request from '../api';
-import PrimaryButton from '../components/PrimaryButton';
 
 const PreferencesPage = () => {
     const navigate = useNavigate();
@@ -51,7 +50,6 @@ const PreferencesPage = () => {
             console.error('Error:', error);
         }
     };
-
     const scrollLeft = (id) => {
         const container = document.getElementById(id);
         container.scrollBy({ left: -150, behavior: 'smooth' });
@@ -272,9 +270,9 @@ const PreferencesPage = () => {
 
                             {/* SIGUIENTE */}
                             <div className="secondaryButton4">
-                                <PrimaryButton type="submit">
+                                <SecondaryButton type="submit">
                                     Siguiente
-                                </PrimaryButton>
+                                </SecondaryButton>
                             </div>
                         </div>
                     </div>

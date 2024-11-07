@@ -13,6 +13,7 @@ import "./assets/fonts.css"
 import "./assets/colors.css"
 import "./components/index.css"
 import "./components/preferences.css"
+import "./components/recommendation.css"
 
 // Pages
 import Root from "./routes/Root";
@@ -108,7 +109,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/recommentadion",
+                path: "/recommendation",
                 element: (
                     <ProtectedRoute>
                         <RecommendatioPage />
