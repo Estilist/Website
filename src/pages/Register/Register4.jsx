@@ -16,7 +16,7 @@ const Register4 = ({ setFieldValue, file, setFile, error }) => {
         setFieldValue('file', null);
         setFile(null);
         const selectedFile = event.target.files[0];
-        
+
         if (selectedFile) {
             setLoading(true);
             

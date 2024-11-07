@@ -7,7 +7,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import * as faceapi from 'face-api.js';
-import request from "../api";
+import { request, uploadToBlobStorage } from "../api";
 import { useSession } from "../contexts/SessionContext";
 
 const UploadImagePage = () => {
@@ -78,11 +78,13 @@ const UploadImagePage = () => {
         }
 
         try {
-            const formData = new FormData();
-            formData.append('image', file);
-            formData.append('idusuario', session.idUsuario);
-            
-            await request('/facial-recognition/', 'POST', formData, false);
+            // Upload image to Blob Storage
+            const imageUrl = await uploadToBlobStorage(file);
+            await request('/facial-recognition/', 'POST', {
+                url: imageUrl,
+                idusuario: session.idUsuario,
+            });
+
             navigate('/measurements');
         } catch (error) {
             console.error('Error al subir la imagen:', error);

@@ -18,7 +18,8 @@ export const request = async (endpoint, method = 'GET', body = null, json = true
 
   if (method === 'GET') {
     // Add ?format=json
-    endpoint += '?format=json';
+    if (json)
+        endpoint += '?format=json';
   }
 
   const response = await fetch(`${apiUrl}${endpoint}`, options);
@@ -36,7 +37,7 @@ export const request = async (endpoint, method = 'GET', body = null, json = true
 export const uploadToBlobStorage = async (file) => {
     try {
         // Obtener la URL de subida desde el backend
-        const response = await request(`/get-upload-url/?filename=${file.name}&filetype=${file.type}`, 'GET');
+        const response = await request(`/upload-url/?filename=${file.name}&filetype=${file.type}`, 'GET', null, false);
         const { uploadUrl, fileUrl } = response;
         console.log(uploadUrl, fileUrl);
 
