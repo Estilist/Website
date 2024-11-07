@@ -86,38 +86,43 @@ const ResultsPage = () => {
             <PageTitle>¡Tus resultados!</PageTitle>
 
             <div className="results-content">
-            {/* Tipo de cuerpo */}
-            <div className="result-section">
-                <label className="results-label">Tu tipo de cuerpo es:</label>
-                    <div className="result-info">
-                        <img src={results.bodyImage} alt={results.bodyType} className="result-image" />
-                    </div>
-                    <div className="result-info">
-                        <p className="result-description">Debido a tus medidas y proporciones corporales asumimos que eres un:</p>
-                        <div className="result-text-box">
-                            <p className="result-type">{results.bodyType}</p>
+
+            {
+                // Tipo de cuerpo
+                results.bodyType &&
+                <div className="result-section">
+                    <label className="results-label">Tu tipo de cuerpo es:</label>
+                        <div className="result-info">
+                            <img src={results.bodyImage} alt={results.bodyType} className="result-image" />
                         </div>
-                    </div>         
-            </div>
-
-            {/* Tipo de rostro */}
-            <div className="result-section">
-                <label className="results-label">Tu tipo de rostro es:</label>
-                <div className="result-info">
-                    <img src={results.faceImage} alt={results.faceType} className="result-image" />
+                        <div className="result-info">
+                            <p className="result-description">Debido a tus medidas y proporciones corporales asumimos que eres un:</p>
+                            <div className="result-text-box">
+                                <p className="result-type">{results.bodyType}</p>
+                            </div>
+                        </div>         
                 </div>
-                <div className="result-info"> 
-                    <p className="result-description">Tu fotografía nos indica que tienes un rostro de tipo:</p>
-                    <div className="result-text-box">
-                        <p className="result-type">{results.faceType}</p>
+            }
+
+            {
+                // Tipo de rostro
+                results.faceType &&
+                <div className="result-section">
+                    <label className="results-label">Tu tipo de rostro es:</label>
+                    <div className="result-info">
+                        <img src={results.faceImage} alt={results.faceType} className="result-image" />
+                    </div>
+                    <div className="result-info"> 
+                        <p className="result-description">Tu fotografía nos indica que tienes un rostro de tipo:</p>
+                        <div className="result-text-box">
+                            <p className="result-type">{results.faceType}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
-
-            {/* Siguiente */}
             <div className="secondaryButton4">
-                <SecondaryButton onClick={() => navigate('/measurements')}>
+                <SecondaryButton onClick={() => navigate('/')}>
                     Siguiente
                 </SecondaryButton>
             </div>
