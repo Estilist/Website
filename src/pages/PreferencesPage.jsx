@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageTitle from "../components/PageTitle";
 import OptionButton from "../components/OptionButton";
 import SecondaryButton from '../components/SecondaryButton';
@@ -6,6 +7,8 @@ import ImageButton from "../components/ImageButton";
 import { clothes, accesories, accessoriesColors, manHaircut, womanHaircut, makeup, haircolor } from '../components/StylesData'; 
 
 const PreferencesPage = () => {
+    const navigate = useNavigate();
+
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedStyle, setSelectedStyle] = useState(null);
     const [selectedAccessory, setSelectedAccessory] = useState(null);
@@ -15,7 +18,6 @@ const PreferencesPage = () => {
     const [selectedMakeup, setSelectedMakeup] = useState(null);
     const [selectedHairColor, setSelectedHairColor] = useState(null);
 
-    // Manejadores generales de click
     const handleSelection = (type, value) => {
         switch(type) {
             case 'option': setSelectedOption(value); break;
@@ -81,6 +83,7 @@ const PreferencesPage = () => {
                                     imageSrc={style.src}
                                     isSelected={selectedStyle === style.name}
                                     onClick={() => handleSelection('style', style.name)}
+                                    title={style.name}
                                 />
                             ))}
                         </div>
@@ -101,6 +104,7 @@ const PreferencesPage = () => {
                                     imageSrc={accessory.src}
                                     isSelected={selectedAccessory === accessory.name}
                                     onClick={() => handleSelection('accessory', accessory.name)}
+                                    title={accessory.name}
                                 />
                             ))}
                         </div>
@@ -121,6 +125,7 @@ const PreferencesPage = () => {
                                     imageSrc={accessoryColor.src}
                                     isSelected={selectedAccessoryColor === accessoryColor.name}
                                     onClick={() => handleSelection('accessoryColor', accessoryColor.name)}
+                                    title={accessoryColor.name}
                                 />
                             ))}
                         </div>
@@ -141,6 +146,7 @@ const PreferencesPage = () => {
                                     imageSrc={manHair.src}
                                     isSelected={selectedManHaircut === manHair.name}
                                     onClick={() => handleSelection('manHaircut', manHair.name)}
+                                    title={manHair.name}
                                 />
                             ))}
                         </div>
@@ -161,6 +167,7 @@ const PreferencesPage = () => {
                                     imageSrc={womanHair.src}
                                     isSelected={selectedWomanHaircut === womanHair.name}
                                     onClick={() => handleSelection('womanHaircut', womanHair.name)}
+                                    title={womanHair.name}
                                 />
                             ))}
                         </div>
@@ -181,6 +188,7 @@ const PreferencesPage = () => {
                                     imageSrc={makeUp.src}
                                     isSelected={selectedMakeup === makeUp.name}
                                     onClick={() => handleSelection('makeup', makeUp.name)}
+                                    title={makeUp.name}
                                 />
                             ))}
                         </div>
@@ -201,6 +209,7 @@ const PreferencesPage = () => {
                                     imageSrc={hairColor.src}
                                     isSelected={selectedHairColor === hairColor.name}
                                     onClick={() => handleSelection('hairColor', hairColor.name)}
+                                    title={hairColor.name}
                                 />
                             ))}
                         </div>

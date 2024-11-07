@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ImageButton = ({ imageSrc, isSelected, onClick }) => {
+const ImageButton = ({ imageSrc, isSelected, onClick, title }) => {
     const buttonStyle = {
         border: isSelected ? '3px solid var(--boton)' : '2px solid transparent', 
         borderRadius: '8px',
@@ -16,9 +16,10 @@ const ImageButton = ({ imageSrc, isSelected, onClick }) => {
     return (
         <img
             src={imageSrc}
-            alt="Estilo de ropa"
+            alt={title} 
             style={buttonStyle}
             onClick={onClick}
+            title={title} 
         />
     );
 };
@@ -27,6 +28,7 @@ ImageButton.propTypes = {
     imageSrc: PropTypes.string.isRequired,
     isSelected: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,  
 };
 
 export default ImageButton;
