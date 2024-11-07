@@ -1,0 +1,34 @@
+/* IMAGEN */
+.product-image {
+    border: 5px solid var(--iconos); 
+    border-radius: 8px; 
+}
+.recommendation-content img {
+    max-width: 100%; /* tamaño al ancho disponible */
+    height: auto;    /* mantiene proporcion original de la imagen */
+    display: block;
+    margin: 0 auto;  /* centra la imagen */
+}
+
+/* ESTRELLAS */
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.star-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+/* BOTONES */
+.buttons {
+    gap: 20px;
+    margin-top: 10px; 
+}
+.secondaryButton {
+    margin-top: -10px;
+    transform: scale(0.8);
+}

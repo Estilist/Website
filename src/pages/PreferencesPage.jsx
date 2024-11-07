@@ -31,11 +31,6 @@ const PreferencesPage = () => {
             default: break;
         }
     };
-    const handleNext = () => {
-        if (selectedOption) {
-            navigate(selectedOption.path);
-        }
-    };
     const buttonClass = (option) => {
         return selectedOption === option ? 'selected' : '';
     };
@@ -220,7 +215,7 @@ const PreferencesPage = () => {
 
                 {/* SIGUIENTE */}
                 <div className="secondaryButton4">
-                    <SecondaryButton onClick={handleNext}>
+                    <SecondaryButton onClick={() => navigate('/')}>
                         Siguiente
                     </SecondaryButton>
                 </div>
