@@ -37,7 +37,12 @@ export const request = async (endpoint, method = 'GET', body = null, json = true
 export const uploadToBlobStorage = async (file) => {
     try {
         // Obtener la URL de subida desde el backend
-        const response = await request(`/upload-url/?filename=${file.name}&filetype=${file.type}`, 'GET', null, false);
+        const arr  = file.name.split('.');
+        const type = arr[1]
+        
+        console.log(file.name, type);
+
+        const response = await request(`/upload-url/?filename=${file.name}&filetype=${type}`, 'GET', null, false);
         const { uploadUrl, fileUrl } = response;
         console.log(uploadUrl, fileUrl);
 
@@ -46,6 +51,7 @@ export const uploadToBlobStorage = async (file) => {
             method: 'PUT',
             headers: {
                 'Content-Type': file.type,
+                'x-ms-blob-type': 'BlockBlob',
             },
             body: file,
         });
