@@ -1,9 +1,11 @@
 import PageTitle from '../components/PageTitle';
 import { useSession } from '../contexts/SessionContext';
 import PrimaryButton from '../components/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
     const { session, logout } = useSession();
+    const navigate = useNavigate();
 
     return (
         <>
@@ -14,6 +16,13 @@ const ProfilePage = () => {
             <div>
                 id: {session.id} <br />
                 email: {session.email}
+            </div>
+
+            {/* Botón de preferencias */}
+            <div className="mt-3">
+                <PrimaryButton onClick={() => navigate('/preferences')} type="button">
+                    Preferencias
+                </PrimaryButton>
             </div>
 
             {/* Botón de Cerrar Sesión */}

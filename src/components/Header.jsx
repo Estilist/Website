@@ -42,7 +42,7 @@ function Header() {
                             <NavDropdown.Item onClick={() => setExpanded(false)}>Outfits</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => setExpanded(false)}>Accesorios</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link className="order-2" onClick={() => setExpanded(false)}>Racha</Nav.Link>
+                        <Nav.Link className="order-2" onClick={() => handleItemClick('/recommendation')}>Racha</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
 
