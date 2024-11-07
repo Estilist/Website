@@ -5,8 +5,11 @@ import starEmpty from "../assets/icons/star.svg";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from "../components/SecondaryButton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RecommendationPage = () => {
+    const navigate = useNavigate();
+
     const [filledStars, setFilledStars] = useState(0);
 
     const handleStarClick = (index) => {
@@ -40,16 +43,16 @@ const RecommendationPage = () => {
                     ))}
                 </div>
             </div>
-            
+
             {/* Botones */}
             <div className="buttons">
                 <div className="primaryButton">
-                    <PrimaryButton type="submit">
+                    <PrimaryButton onClick={() => {navigate("/")}}>
                         Aceptar
                     </PrimaryButton>
                 </div>
                 <div className="secondaryButton">
-                    <SecondaryButton onClick={() => {navigate("/login")}}>
+                    <SecondaryButton type="submit">
                         Reformular
                     </SecondaryButton>
                 </div>
