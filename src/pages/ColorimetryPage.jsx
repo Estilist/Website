@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 import PrimaryButton from '../components/PrimaryButton';
@@ -15,28 +15,57 @@ import cabelloNeutro from '../assets/photos/paletas/CABELLO-NEUTRO.png';
 import accesoriosCalido from '../assets/photos/paletas/ACCESORIOS-CALIDO.png';
 import accesoriosFrio from '../assets/photos/paletas/ACCESORIOS-FRIO.png';
 import accesoriosNeutro from '../assets/photos/paletas/ACCESORIOS-NEUTRO.png';
+import request from "../api";
+import { useSession } from "../contexts/SessionContext";
+import LoadingPage from "./LoadingPage";
 
 const colorimetryImages = {
     ropa: {
-        calido: ropaCalido,
-        frio: ropaFrio,
-        neutro: ropaNeutro
+        Calido: ropaCalido,
+        Frio: ropaFrio,
+        Neutro: ropaNeutro
     },
     cabello: {
-        calido: cabelloCalido,
-        frio: cabelloFrio,
-        neutro: cabelloNeutro
+        Calido: cabelloCalido,
+        Frio: cabelloFrio,
+        Neutro: cabelloNeutro
     },
     accesorios: {
-        calido: accesoriosCalido,
-        frio: accesoriosFrio,
-        neutro: accesoriosNeutro
+        Calido: accesoriosCalido,
+        Frio: accesoriosFrio,
+        Neutro: accesoriosNeutro
     }
 };
 
 const ColorimetryPage = () => {
     const navigate = useNavigate();
-    const [skinTone, setSkinTone] = useState("calido"); // Cambia el valor a 'frio' o 'neutro'
+    const { session } = useSession();
+    const [skinTone, setSkinTone] = useState("Neutro");
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(true);
+        let tone;
+        const fetchData = async () => {
+            const response = await request(`/colorimetry/?idusuario=${session.id}`, 'GET', null, false);
+            console.log(response);
+
+            if (response.length === 0) {
+                navigate('/upload-image');
+                return;
+            } else {
+                tone = response[0].color;
+            }
+
+            setSkinTone(tone);
+            setLoading(false);
+        };
+        fetchData();
+    }, [session.id, navigate]);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
 
     return (
         <div className="colorimetry-page">
@@ -54,7 +83,7 @@ const ColorimetryPage = () => {
                 <div className="color-section">
                     <label htmlFor="text" className="categories-label">Ropa:</label>
                     <div className="color-box">
-                        <img src={ropaCalido} alt="Colores para ropa" className="color-image" />
+                        <img src={colorimetryImages.ropa[skinTone]} alt="Colores para ropa" className="color-image" />
                     </div>
                 </div>
 
@@ -62,7 +91,7 @@ const ColorimetryPage = () => {
                 <div className="color-section">
                     <label htmlFor="text" className="categories-label">Cabello:</label>
                     <div className="color-box">
-                        <img src={cabelloCalido} alt="Colores para cabello" className="color-image" />
+                        <img src={colorimetryImages.cabello[skinTone]} alt="Colores para cabello" className="color-image" />
                     </div>
                 </div>
 
@@ -70,7 +99,7 @@ const ColorimetryPage = () => {
                 <div className="color-section">
                     <label htmlFor="text" className="categories-label">Accesorios:</label>
                     <div className="color-box">
-                        <img src={accesoriosCalido} alt="Colores para accesorios" className="color-image" />
+                        <img src={colorimetryImages.accesorios[skinTone]} alt="Colores para accesorios" className="color-image" />
                     </div>
                 </div>
             </div>
