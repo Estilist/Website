@@ -72,6 +72,7 @@ const UploadImagePage = () => {
     };
 
     const handleSubmit = async () => {
+        setLoading(true);
         if (!file) {
             setError('Debes seleccionar un archivo.');
             return;
@@ -90,6 +91,7 @@ const UploadImagePage = () => {
             setError('Ocurrió un error al subir la imagen.');
         } finally {
             navigate('/measurements');
+            setLoading(false);
         }
     };
 
@@ -135,20 +137,18 @@ const UploadImagePage = () => {
                 </div>
                 {error && <small className="error-message text-danger">{error}</small>}
 
-                {loading && (
-                    <div className="loading-spinner my-3">
-                        <Spinner animation="border" role="status">
-                            <span className="visually-hidden">Cargando...</span>
-                        </Spinner>
-                    </div>
-                )}
-
                 <hr />
             </form>
             <div className="secondaryButton3">
-                <SecondaryButton onClick={handleSubmit}>
-                    Analizar
-                </SecondaryButton>
+                {loading ? (
+                    <SecondaryButton disabled>
+                        <Spinner animation="border" size="sm" />
+                    </SecondaryButton>
+                ) : (
+                    <SecondaryButton onClick={handleSubmit}>
+                        Analizar
+                    </SecondaryButton>
+                )}
             </div>
         </div>
     );

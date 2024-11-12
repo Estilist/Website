@@ -8,9 +8,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import * as faceapi from 'face-api.js';
 
-const Register4 = ({ setFieldValue, file, setFile, error }) => {
+const Register4 = ({ setFieldValue, file, setFile, error, loading, setLoading }) => {
     const [fileName, setFileName] = useState('Ningún archivo seleccionado');
-    const [loading, setLoading] = useState(false);
 
     const handleFileChange = async (event) => {
         setFieldValue('file', null);
@@ -103,20 +102,18 @@ const Register4 = ({ setFieldValue, file, setFile, error }) => {
                 </div>
                 {error && <small className="error-message text-danger">{error}</small>}
 
-                {loading && (
-                    <div className="loading-spinner my-3">
-                        <Spinner animation="border" role="status">
-                            <span className="visually-hidden">Cargando...</span>
-                        </Spinner>
-                    </div>
-                )}
-
                 <hr />
             </div>
             <div className="secondaryButton3">
-                <SecondaryButton type="submit">
-                    Analizar
-                </SecondaryButton>
+            {loading ? (
+                    <SecondaryButton disabled>
+                        <Spinner animation="border" size="sm" />
+                    </SecondaryButton>
+                ) : (
+                    <SecondaryButton type="submit">
+                        Analizar
+                    </SecondaryButton>
+                )}
             </div>
         </div>
     );
@@ -127,6 +124,8 @@ Register4.propTypes = {
     file: PropTypes.object,
     setFile: PropTypes.func.isRequired,
     error: PropTypes.string,
+    loading: PropTypes.bool.isRequired,
+    setLoading: PropTypes.func.isRequired
 };
 
 export default Register4;

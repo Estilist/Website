@@ -45,7 +45,7 @@ const ColorimetryPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        let tone;
+        
         const fetchData = async () => {
             const response = await request(`/colorimetry/?idusuario=${session.id}`, 'GET', null, false);
             console.log(response);
@@ -54,10 +54,9 @@ const ColorimetryPage = () => {
                 navigate('/upload-image');
                 return;
             } else {
-                tone = response[0].color;
+                setSkinTone(response[0].tono);
             }
 
-            setSkinTone(tone);
             setLoading(false);
         };
         fetchData();

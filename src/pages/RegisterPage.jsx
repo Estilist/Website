@@ -89,6 +89,8 @@ const validationSchemas = [
 const RegisterPage = () => {
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(0);
+    const [loading, setLoading] = useState(false);
+
     const initialValues = {
         nombre: "",
         apellidopaterno: "",
@@ -117,6 +119,7 @@ const RegisterPage = () => {
             actions.setSubmitting(false);
         } else {
             actions.setSubmitting(true);
+            setLoading(true);
 
             try {
                 // User
@@ -148,11 +151,12 @@ const RegisterPage = () => {
                 formData.append('url', imageUrl);
                 formData.append('idusuario', response.idUsuario);
 
-                request('/facial-recognition/', 'POST', formData, false);
+                await request('/facial-recognition/', 'POST', formData, false);
             } catch (error) {
                 console.error('Error al crear usuario:', error);
             } finally {
                 actions.setSubmitting(false);
+                setLoading(false);
                 navigate('/login');
             }
         }
@@ -191,6 +195,8 @@ const RegisterPage = () => {
                             file={formik.values.file}
                             setFile={file => formik.setFieldValue('file', file)}
                             error={formik.errors.file}
+                            loading={loading}
+                            setLoading={setLoading}
                         />
                     )}
                 </Form>
