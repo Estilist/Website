@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import QuestionIcon from '../assets/icons/question-circle.svg';
+import QuestionIcon from '../../assets/icons/question-circle.svg';
 
 const MeasurementSlider = ({ label, name, value, onChange, error, onIconClick }) => (
     <div className="form-group">

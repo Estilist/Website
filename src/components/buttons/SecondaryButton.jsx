@@ -6,7 +6,6 @@ const SecondaryButton = ({ size, onClick, children }) => {
         backgroundColor: 'var(--boton2)',
         color: 'var(--blanco)',
         padding: '10px 10px',
-        width: '100%',
         fontFamily: 'var(--boton-font)',
         border: 'none',
         fontSize: '21px',
@@ -16,9 +15,11 @@ const SecondaryButton = ({ size, onClick, children }) => {
     };
 
     return (
-        <Button size={size} onClick={onClick} style={customStyles}>
-            {children}
-        </Button>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button size={size} onClick={onClick} style={customStyles}>
+                {children}
+            </Button>
+        </div>
     );
 };
 

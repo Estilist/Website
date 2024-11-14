@@ -1,14 +1,14 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import PageTitle from "../../../extras/PageTitle";
-import PrimaryButton from "../../buttons/PrimaryButton";
-import MeasurementField from "../../../extras/MeasurementField";
-import MeasurementSlider from "../../extras/MeasurementSlider";
+import PageTitle from "../../components/extras/PageTitle";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import MeasurementField from "../../components/extras/MeasurementField";
+import MeasurementSlider from "../../components/extras/MeasurementSlider";
 
 import shoulderImage from '../../assets/photos/hombros.jpeg';
 import waistImage from '../../assets/photos/cintura.png';
 import hipsImage from '../../assets/photos/cadera.png';
-import GuideMessureModal from "../../components/GuideMessureModal";
+import GuideMessureModal from "../../components/extras/GuideMessureModal";
 
 const Register3 = ({ formData, errors, handleChange }) => {
     const [modalShow, setModalShow] = useState(false);

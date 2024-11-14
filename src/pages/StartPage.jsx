@@ -1,6 +1,6 @@
-import PageTitle from "../extras/PageTitle";
-import LilacButton from '../buttons/LilacButton';
-import SecondaryButton from '../buttons/SecondaryButton';
+import PageTitle from "../components/extras/PageTitle";
+import LilacButton from '../components/buttons/LilacButton';
+import SecondaryButton from '../components/buttons/SecondaryButton';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 

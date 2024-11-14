@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PageTitle from "../extras/PageTitle";
-import OptionButton from "../buttons/OptionButton";
-import SecondaryButton from '../buttons/SecondaryButton';
-import ImageButton from "../buttons/ImageButton";
-import { clothes, accesories, accessoriesColors, manHaircut, womanHaircut, makeup, haircolor } from '../components/StylesData'; 
+import PageTitle from "../components/extras/PageTitle";
+import OptionButton from "../components/buttons/OptionButton";
+import SecondaryButton from '../components/buttons/SecondaryButton';
+import ImageButton from "../components/buttons/ImageButton";
+import { clothes, accesories, accessoriesColors, manHaircut, womanHaircut, makeup, haircolor } from "../components/extras/StylesData"; 
 
 const PreferencesPage = () => {
     const navigate = useNavigate();

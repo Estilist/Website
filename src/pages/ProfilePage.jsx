@@ -1,6 +1,6 @@
-import PageTitle from '../extras/PageTitle';
+import PageTitle from '../components/extras/PageTitle';
 import { useSession } from '../contexts/SessionContext';
-import PrimaryButton from '../buttons/PrimaryButton';
+import PrimaryButton from '../components/buttons/PrimaryButton';
 
 const ProfilePage = () => {
     const { session, logout } = useSession();

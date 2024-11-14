@@ -1,9 +1,9 @@
-import PageTitle from "../extras/PageTitle";
+import PageTitle from "../components/extras/PageTitle";
 import exampleImage from "../assets/photos/pantalon.png";
 import starFill from "../assets/icons/star-fill.svg"; 
 import starEmpty from "../assets/icons/star.svg";    
-import PrimaryButton from "../buttons/PrimaryButton";
-import SecondaryButton from "../buttons/SecondaryButton";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import SecondaryButton from "../components/buttons/SecondaryButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

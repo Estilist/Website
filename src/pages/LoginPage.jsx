@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import PageTitle from "../extras/PageTitle";
-import PrimaryButton from "../buttons/PrimaryButton";
+import PageTitle from "../components/extras/PageTitle";
+import PrimaryButton from "../components/buttons/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
 import request from "../api";

@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import PersonIcon from '../assets/icons/person.svg';
+import PersonIcon from '../../assets/icons/person.svg';
 import { useNavigate } from 'react-router-dom';
-import '../components/Header.css';
+import '../../components/Header.css';
 
 function Header() {
     const navigate = useNavigate();

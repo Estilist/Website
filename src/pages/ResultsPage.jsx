@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import PageTitle from "../buttons/PageTitle";
-import SecondaryButton from '../buttons/SecondaryButton';
 import { useNavigate } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
+import PageTitle from "../components/extras/PageTitle";
+import SecondaryButton from '../components/buttons/SecondaryButton';
 import LoadingPage from "./LoadingPage";
 
 import body_atletico from '../assets/photos/body/atletico.jpg'
