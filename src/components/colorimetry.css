@@ -1,0 +1,35 @@
+/* COLORIMETRY PAGE */
+
+/* LABELS */
+.colorimetry-content {
+    padding: 10px;
+}
+.subtitle1-label {
+    display: block;
+    font-size: 20px;
+    color: var(--boton);
+    grid-column: span 2; 
+    text-align: center;
+}
+.categories-label {
+    display: block;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+    grid-column: span 2; 
+}
+.color-box {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 30px;
+}
+.color-image {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 8px;
+}

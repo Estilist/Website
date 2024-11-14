@@ -1,9 +1,9 @@
-import PageTitle from "../../components/PageTitle";
+import PageTitle from "../../components/extras/PageTitle";
 import CameraIcon from '../../assets/icons/camera.svg'; 
 import ImagesIcon from '../../assets/icons/images.svg';
 import StarsIcon from '../../assets/icons/stars.svg';
 import ChatHeartIcon from '../../assets/icons/chat-heart.svg';
-import PrimaryButton from '../../components/PrimaryButton';
+import PrimaryButton from '../../components/buttons/PrimaryButton';
 
 const Register2 = () => {
     return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PageTitle from "../components/PageTitle";
-import PrimaryButton from '../components/PrimaryButton';
+import PageTitle from "../components/extras/PageTitle";
+import PrimaryButton from '../components/extras/PrimaryButton';
 
 // Importar las imágenes de colorimetría
 import ropaCalido from '../assets/photos/paletas/ROPA-CALIDO.png';

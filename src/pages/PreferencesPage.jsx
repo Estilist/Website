@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PageTitle from "../components/PageTitle";
-import OptionButton from "../components/OptionButton";
-import SecondaryButton from '../components/SecondaryButton';
-import ImageButton from "../components/ImageButton";
+import PageTitle from "../extras/PageTitle";
+import OptionButton from "../buttons/OptionButton";
+import SecondaryButton from '../buttons/SecondaryButton';
+import ImageButton from "../buttons/ImageButton";
 import { clothes, accesories, accessoriesColors, manHaircut, womanHaircut, makeup, haircolor } from '../components/StylesData'; 
 
 const PreferencesPage = () => {

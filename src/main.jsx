@@ -11,9 +11,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./assets/fonts.css"
 import "./assets/colors.css"
+// Pages css
+import "./components/colorimetry.css"
+import "./components/help.css"
 import "./components/index.css"
+import "./components/measurements.css"
 import "./components/preferences.css"
 import "./components/recommendation.css"
+import "./components/register.css"
+import "./components/results.css"
+import "./components/start.css"
+import "./components/upload.css"
 
 // Pages
 import Root from "./routes/Root";

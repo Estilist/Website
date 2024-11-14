@@ -1,9 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import PageTitle from "../../components/PageTitle";
-import PrimaryButton from "../../components/PrimaryButton";
-import MeasurementField from "../../components/MeasurementField";
-import MeasurementSlider from "../../components/MeasurementSlider";
+import PageTitle from "../../../extras/PageTitle";
+import PrimaryButton from "../../buttons/PrimaryButton";
+import MeasurementField from "../../../extras/MeasurementField";
+import MeasurementSlider from "../../extras/MeasurementSlider";
 
 import shoulderImage from '../../assets/photos/hombros.jpeg';
 import waistImage from '../../assets/photos/cintura.png';

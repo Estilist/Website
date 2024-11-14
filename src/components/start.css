@@ -1,0 +1,32 @@
+/* START WITH... PAGE */
+
+/* PAGE */
+.start-page {
+    font-family: var(--texto-font);
+    justify-content: center; 
+    align-items: center;  
+    text-align: center; 
+    margin: auto;
+    max-width: 600px;
+}
+.start-container {
+    text-align: center;
+}
+.subtitle-label {
+    display: block;
+    font-size: 24px;
+    color: var(--encabezado);
+    grid-column: span 2; 
+    text-align: center;
+}
+.page-button {  
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: center !important; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.page-button button.selected {
+    background-color: var(--boton) !important; 
+    color: #fff !important; 
+}

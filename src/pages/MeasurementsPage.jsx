@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import PageTitle from "../components/PageTitle";
-import GuideMessureModal from '../components/GuideMessureModal';
+import PageTitle from "../extras/PageTitle";
+import GuideMessureModal from '../extras/GuideMessureModal';
 import shoulderImage from '../assets/photos/hombros.jpeg';
 import waistImage from '../assets/photos/cintura.png';
 import hipsImage from '../assets/photos/cadera.png';
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../buttons/PrimaryButton";
 
-import MeasurementField from "../components/MeasurementField";
-import MeasurementSlider from "../components/MeasurementSlider";
+import MeasurementField from "../extras/MeasurementField";
+import MeasurementSlider from "../extras/MeasurementSlider";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useSession } from "../contexts/SessionContext";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import PageTitle from "../components/PageTitle";
-import SecondaryButton from '../components/SecondaryButton';
+import PageTitle from "../buttons/PageTitle";
+import SecondaryButton from '../buttons/SecondaryButton';
 import { useNavigate } from "react-router-dom";
 import { useSession } from "../contexts/SessionContext";
 import LoadingPage from "./LoadingPage";

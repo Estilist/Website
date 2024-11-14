@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/Buttons/PrimaryButton";
 import { Col, Row } from 'react-bootstrap';
-import SecondaryButton from '../components/SecondaryButton';
-import PageTitle from '../components/PageTitle';
+import SecondaryButton from '../components/Buttons/SecondaryButton';
+import PageTitle from '../components/extras/PageTitle';
 
 const InicioPage = () => {
     const navigate = useNavigate();

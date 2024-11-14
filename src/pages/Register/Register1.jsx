@@ -1,7 +1,7 @@
-import PageTitle from "../../components/PageTitle";
-import PrimaryButton from "../../components/PrimaryButton";
+import PageTitle from "../../../extras/PageTitle";
+import PrimaryButton from "../../../buttons/PrimaryButton";
 import PropTypes from "prop-types";
-import SecondaryButton from "../../components/SecondaryButton";
+import SecondaryButton from "../../../buttons/SecondaryButton";
 import { useNavigate } from "react-router-dom";
 import countryList from 'react-select-country-list';
 

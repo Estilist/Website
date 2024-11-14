@@ -1,0 +1,118 @@
+/*--- PERSONAL DATA QUIZ PAGE ---*/
+
+/* PERSONAL DATA FORMS */
+.title {
+    margin-bottom: 10px;
+}
+
+.DataForm {
+    font-family: var(--texto-font);
+    font-size: 22px;
+    text-align: left; 
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 600px; 
+    margin: auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+.subtitle {
+    color: var(--boton);
+    font-family: var(--texto-font);
+    font-size: 28px;
+    text-align: left; 
+    font-weight: bold;
+}
+.DataForm1 {
+    text-align: left; 
+    padding: 20px;
+    gap: 20px;
+    max-width: 600px; 
+    margin: auto;
+    margin-top: -40px;
+}
+.subtitle1 {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: var(--encabezado);
+    font-family: var(--texto-font);
+    font-size: 22px;
+    text-align: left;
+    padding-left: 20px;
+}
+.DataForm2 {
+    padding: 20px;
+    gap: 20px;
+    max-width: 600px; 
+    margin: auto;
+    margin-top: -20px;
+}
+
+/* PERSONAL DATA FORMS */
+.range-container {
+    font-family: var(--texto-font);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: -25px;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+.range-slider {
+    max-width: 480px;
+    width: 480px;
+    appearance: none;
+    height: 15px;
+    background: #d9c1f1;
+    border-radius: 10px;
+    outline: var(--iconos);
+}
+.range-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: #b1a7d6;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.range-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: #b1a7d6;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.range-slider::-webkit-slider-thumb:hover,
+.range-slider::-moz-range-thumb:hover {
+    background-color: #a392c4;
+}
+.range-value {
+    font-size: 1em;
+    font-weight: bold;
+    color: #7e6991;
+}
+
+/* BOTON SIGUIENTE */
+.secondaryButton3 {
+    margin-bottom: 40px;
+}
+
+/* QUESTION ICON */
+.icon-question {
+    position: relative;
+    top: 7px; /* Ajusta el valor para mover hacia abajo */
+    width: 20px; /* Ajusta el tamaño según necesites */
+    height: 20px;
+    cursor: pointer;
+}
+
+/* CUSTOM PLACEHOLDER FOR CM Y KG */
+.right-placeholder::placeholder {
+    text-align: right;
+}
+.right-placeholder {
+    text-align: left; 
+}
