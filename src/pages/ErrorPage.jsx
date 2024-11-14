@@ -1,8 +1,8 @@
 import { useNavigate, useRouteError } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Container, Row, Col } from 'react-bootstrap';
-import Header from "../components/Header";
-import PrimaryButton from "../components/PrimaryButton";
+import Header from "../components/header/Header";
+import PrimaryButton from "../components/buttons/PrimaryButton";
 
 export default function ErrorPage() {
     const navigate = useNavigate();

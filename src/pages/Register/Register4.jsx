@@ -1,5 +1,5 @@
-import PageTitle from "../../components/PageTitle";
-import SecondaryButton from '../../components/SecondaryButton';
+import PageTitle from "../../components/extras/PageTitle";
+import SecondaryButton from '../../components/buttons/SecondaryButton';
 import FaceImage from '../../assets/photos/rostro.png';
 import Form from 'react-bootstrap/Form';
 import { FaTimes } from 'react-icons/fa';
