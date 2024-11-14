@@ -4,21 +4,24 @@ import * as Yup from "yup";
 import Register1 from "../pages/Register/Register1";
 import Register2 from "../pages/Register/Register2";
 import Register3 from "../pages/Register/Register3";
-import request from "../api";
+import Register4 from "../pages/Register/Register4";
+import { request, uploadToBlobStorage} from "../api";
 import { useNavigate } from "react-router-dom";
+
+const nameRegex = /^[a-záéíóúüñ ]+$/i;
 
 const validationSchemas = [
     // Step 1
     Yup.object({
         nombre: Yup.string()
             .required("Nombre es requerido.")
-            .matches(/^[a-z0-9]+$/i, "Solo caracteres alfanuméricos permitidos."),
+            .matches(nameRegex, "Solo caracteres alfabéticos permitidos."),
         apellidopaterno: Yup.string()
             .required("Apellido Paterno es requerido.")
-            .matches(/^[a-z0-9]+$/i, "Solo caracteres alfanuméricos permitidos."),
+            .matches(nameRegex, "Solo caracteres alfabéticos permitidos."),
         apellidomaterno: Yup.string()
             .required("Apellido Materno es requerido.")
-            .matches(/^[a-z0-9]+$/i, "Solo caracteres alfanuméricos permitidos."),
+            .matches(nameRegex, "Solo caracteres alfabéticos permitidos."),
         correo: Yup.string()
             .email("Correo inválido.")
             .required("Correo es requerido.")
@@ -63,28 +66,31 @@ const validationSchemas = [
             .min(1, "Peso debe ser mayor a 0.")
             .max(500, "Peso debe ser menor a 500.")
             .required("Peso es requerido."),
-        chest: Yup.number()
-            .min(20, "Pecho debe estar entre 20 y 180 cm.")
-            .max(180, "Pecho debe estar entre 20 y 180 cm.")
-            .required(),
+        shoulder: Yup.number()
+            .min(20, 'Ingresa una medida válida.')
+            .max(180, 'Ingresa una medida válida.')
+            .required('Ingresa la medida de tu hombros.'),
         waist: Yup.number()
-            .min(20, "Cintura debe estar entre 20 y 180 cm.")
-            .max(180, "Cintura debe estar entre 20 y 180 cm.")
-            .required(),
+            .min(20, 'Ingresa una medida válida.')
+            .max(180, 'Ingresa una medida válida.')
+            .required('Ingresa la medida de tu cintura.'),
         hips: Yup.number()
-            .min(20, "Cadera debe estar entre 20 y 180 cm.")
-            .max(180, "Cadera debe estar entre 20 y 180 cm.")
-            .required(),
-        legs: Yup.number()
-            .min(20, "Entrepierna debe estar entre 20 y 180 cm.")
-            .max(180, "Entrepierna debe estar entre 20 y 180 cm.")
-            .required(),
+            .min(20, 'Ingresa una medida válida.')
+            .max(180, 'Ingresa una medida válida.')
+            .required('Ingresa la medida de tu cadera.'),
+    }),
+    // Step 4 - Image Upload
+    Yup.object({
+        file: Yup.mixed()
+            .required("La imagen es requerida."),
     }),
 ];
 
 const RegisterPage = () => {
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(0);
+    const [loading, setLoading] = useState(false);
+
     const initialValues = {
         nombre: "",
         apellidopaterno: "",
@@ -96,10 +102,10 @@ const RegisterPage = () => {
         altura: "",
         peso: "",
         pais: "",
-        chest: 90,
+        shoulder: 90,
         waist: 90,
         hips: 90,
-        legs: 90,
+        file: null,
     };
 
     useEffect(() => {
@@ -112,7 +118,11 @@ const RegisterPage = () => {
             actions.setTouched({}); 
             actions.setSubmitting(false);
         } else {
+            actions.setSubmitting(true);
+            setLoading(true);
+
             try {
+                // User
                 const response = await request('/create-user/', 'POST', {
                     correo: values.correo,
                     contrasena: values.contrasena,
@@ -123,23 +133,31 @@ const RegisterPage = () => {
                     genero: values.genero,
                     pais: values.pais,
                 });
-
-                const idUsuario = response.idUsuario;
-
-                await request('/user-measurements/', 'POST', {
-                    idusuario: idUsuario,
+                
+                // Measurements
+                const user_measurements = {
+                    idusuario: response.idUsuario,
                     altura: values.altura,
                     peso: values.peso,
-                    pecho: values.chest,
+                    hombros: values.shoulder,
                     cintura: values.waist,
                     cadera: values.hips,
-                    entrepierna: values.legs,
-                });
+                }
+                await request('/user-measurements/', 'POST', user_measurements);
 
-                navigate('/login');
+                // Upload image to Blob Storage
+                const imageUrl = await uploadToBlobStorage(values.file);
+                const formData = new FormData();
+                formData.append('url', imageUrl);
+                formData.append('idusuario', response.idUsuario);
+
+                await request('/facial-recognition/', 'POST', formData, false);
             } catch (error) {
                 console.error('Error al crear usuario:', error);
+            } finally {
                 actions.setSubmitting(false);
+                setLoading(false);
+                navigate('/login');
             }
         }
     };
@@ -169,6 +187,16 @@ const RegisterPage = () => {
                             formData={formik.values}
                             errors={formik.errors}
                             handleChange={formik.handleChange}
+                        />
+                    )}
+                    {currentStep === 3 && (
+                        <Register4
+                            setFieldValue={formik.setFieldValue}
+                            file={formik.values.file}
+                            setFile={file => formik.setFieldValue('file', file)}
+                            error={formik.errors.file}
+                            loading={loading}
+                            setLoading={setLoading}
                         />
                     )}
                 </Form>

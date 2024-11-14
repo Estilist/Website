@@ -21,28 +21,28 @@ import request from "../api";
 
 const bodyImages = {
     // Hombres
-    "Reloj de arena": body_reloj_arena,
+    "Reloj de Arena": body_reloj_arena,
     "Rectángulo": body_rectangulo,
-    "Triangulo invertido (V)": body_triangulo_invertido,
+    "Triángulo Invertido (V)": body_triangulo_invertido,
     "Ovalado (Manzana)": body_ovalo,
     "Trapecio (Triangular)": body_triangulo,
     "Átletico": body_atletico,
 
     // Mujeres
-    "Reloj de arena": body_reloj_arena,
+    // "Reloj de arena": body_reloj_arena,
     "Rectangular": body_rectangulo,
-    "Triangulo (Pera)": body_triangulo,
-    "Triangulo invertido": body_triangulo_invertido,
-    "Ovalado (Manzana)": body_ovalo,
-    "Átletico": body_atletico,
+    "Triángulo (Pera)": body_triangulo,
+    "Triángulo Invertido": body_triangulo_invertido,
+    // "Ovalado (Manzana)": body_ovalo,
+    // "Átletico": body_atletico,
 };
 
 const faceImages = {
-    "Redondo": face_redondo,
-    "Cuadrado": face_cuadrado,
-    "Alargado": face_alargado,
+    "Redonda": face_redondo,
+    "Cuadrada": face_cuadrado,
+    "Alargada": face_alargado,
     "Corazón": face_corazon,
-    "Ovalado": face_ovalado,
+    "Ovalada": face_ovalado,
 };
 
 const ResultsPage = () => {
@@ -73,7 +73,7 @@ const ResultsPage = () => {
             })
         }
         fetchData();
-    });
+    }, []);
 
     if (results === null) {
         return (
@@ -86,38 +86,43 @@ const ResultsPage = () => {
             <PageTitle>¡Tus resultados!</PageTitle>
 
             <div className="results-content">
-            {/* Tipo de cuerpo */}
-            <div className="result-section">
-                <label className="results-label">Tu tipo de cuerpo es:</label>
-                    <div className="result-info">
-                        <img src={results.bodyImage} alt={results.bodyType} className="result-image" />
-                    </div>
-                    <div className="result-info">
-                        <p className="result-description">Debido a tus medidas y proporciones corporales asumimos que eres un:</p>
-                        <div className="result-text-box">
-                            <p className="result-type">{results.bodyType}</p>
+
+            {
+                // Tipo de cuerpo
+                results.bodyType &&
+                <div className="result-section">
+                    <label className="results-label">Tu tipo de cuerpo es:</label>
+                        <div className="result-info">
+                            <img src={results.bodyImage} alt={results.bodyType} className="result-image" />
                         </div>
-                    </div>         
-            </div>
-
-            {/* Tipo de rostro */}
-            <div className="result-section">
-                <label className="results-label">Tu tipo de rostro es:</label>
-                <div className="result-info">
-                    <img src={results.faceImage} alt={results.faceType} className="result-image" />
+                        <div className="result-info">
+                            <p className="result-description">Debido a tus medidas y proporciones corporales asumimos que eres un:</p>
+                            <div className="result-text-box">
+                                <p className="result-type">{results.bodyType}</p>
+                            </div>
+                        </div>         
                 </div>
-                <div className="result-info"> 
-                    <p className="result-description">Tu fotografía nos indica que tienes un rostro de tipo:</p>
-                    <div className="result-text-box">
-                        <p className="result-type">{results.faceType}</p>
+            }
+
+            {
+                // Tipo de rostro
+                results.faceType &&
+                <div className="result-section">
+                    <label className="results-label">Tu tipo de rostro es:</label>
+                    <div className="result-info">
+                        <img src={results.faceImage} alt={results.faceType} className="result-image" />
+                    </div>
+                    <div className="result-info"> 
+                        <p className="result-description">Tu fotografía nos indica que tienes un rostro de tipo:</p>
+                        <div className="result-text-box">
+                            <p className="result-type">{results.faceType}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
-
-            {/* Siguiente */}
             <div className="secondaryButton4">
-                <SecondaryButton onClick={() => navigate('/measurements')}>
+                <SecondaryButton onClick={() => navigate('/')}>
                     Siguiente
                 </SecondaryButton>
             </div>

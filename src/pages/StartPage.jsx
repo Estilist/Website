@@ -40,7 +40,7 @@ const StartPage = () => {
                     {/* TIPO DE CUERPO Y ROSTRO */}
                     <LilacButton 
                         className={buttonClass('Tipo de cuerpo y rostro')} 
-                        onClick={() => handleOptionSelect('Tipo de cuerpo y rostro', '/body-face')}
+                        onClick={() => handleOptionSelect('Tipo de cuerpo y rostro', '/results')}
                     >
                         Tipo de cuerpo y rostro
                     </LilacButton>
