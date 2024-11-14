@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import PrimaryButton from "../components/Buttons/PrimaryButton";
+import PrimaryButton from "../components/buttons/PrimaryButton";
 import { Col, Row } from 'react-bootstrap';
-import SecondaryButton from '../components/Buttons/SecondaryButton';
+import SecondaryButton from '../components/buttons/SecondaryButton';
 import PageTitle from '../components/extras/PageTitle';
 
 const InicioPage = () => {
