@@ -45,13 +45,13 @@ const RecommendationPage = () => {
             </div>
 
             {/* Botones */}
-            <div className="buttons">
-                <div className="primaryButton">
+            <div className="recommendation-buttons">
+                <div className="recommendation-PB">
                     <PrimaryButton onClick={() => {navigate("/")}}>
                         Aceptar
                     </PrimaryButton>
                 </div>
-                <div className="secondaryButton">
+                <div className="recommendation-SB">
                     <SecondaryButton type="submit">
                         Reformular
                     </SecondaryButton>
