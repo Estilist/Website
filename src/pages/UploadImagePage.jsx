@@ -140,15 +140,10 @@ const UploadImagePage = () => {
                 <hr />
             </form>
             <div className="secondaryButton3">
-                {loading ? (
-                    <SecondaryButton disabled>
-                        <Spinner animation="border" size="sm" />
-                    </SecondaryButton>
-                ) : (
-                    <SecondaryButton onClick={handleSubmit}>
-                        Analizar
-                    </SecondaryButton>
-                )}
+                <SecondaryButton onClick={handleSubmit} disabled={loading}>
+                    {loading && <Spinner animation="border" size="sm" className="me-2" />}
+                    Analizar
+                </SecondaryButton>
             </div>
         </div>
     );

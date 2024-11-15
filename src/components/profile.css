@@ -1,0 +1,44 @@
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    width: 250px; 
+    margin-bottom: 20px;
+}
+
+.profile-text {
+    color: var(--encabezado);
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+}
+
+.profile-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    justify-content: flex-start; 
+}
+
+.profile-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    padding: 10px;
+    width: 300px; 
+}
+
+.delete-button .btn {
+    background-color: red !important;
+    color: white !important;
+}
+
