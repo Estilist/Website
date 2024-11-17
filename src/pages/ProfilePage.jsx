@@ -1,26 +1,52 @@
 import PageTitle from '../components/extras/PageTitle';
 import PrimaryButton from '../components/buttons/PrimaryButton';
+import LoadingPage from '../pages/LoadingPage';
 import ProfileIcon from '../assets/icons/person-circle.svg'; 
 import { useSession } from '../contexts/SessionContext';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import request from '../api';
 
 const ProfilePage = () => {
     const { session, logout } = useSession();
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    // no supe si se guardaba el nombre 
-    session.name = "Teresa";
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const r = await request(`/users/${session.id}/`, 'GET', null, false);
+                // console.log(r);
+
+                session.name = r.nombre + " " + r.apellidopaterno;
+                session.email = r.correo;
+                setLoading(false);          
+            } catch (error) {
+                console.error(error);
+                navigate('/login');
+            }
+        }
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />
+    }
 
     return (
         <div className = "profile-content">
             {/* TITULO */}
             <PageTitle>Tu cuenta</PageTitle>
             {/* NOMBRE*/}
-            <div className = "profile-info">
+            <div className="profile-info">
                 <img src={ProfileIcon} alt="Icono del perfil" className="profile-icon" />
                 <div className="profile-text">
-                    Nombre: {session.name} <br />
-                    ID: {session.id}
+                    {/* Name with max 16 chars */
+                        session.name.length > 16 ? session.name.slice(0, 16) + "..." : session.name
+                    } <br />
+                    <small style={{fontWeight: "400"}}>
+                        Editar datos
+                    </small>
                 </div>
             </div>
             <div className = "profile-buttons">
@@ -38,7 +64,7 @@ const ProfilePage = () => {
                 </div>
                 {/* CERRAR SESIÓN */}
                 <div className ="option-button button">
-                    <PrimaryButton onClick={logout} type="button">
+                    <PrimaryButton onClick={() => {logout(); navigate('/')}} type="button">
                         Cerrar Sesión
                     </PrimaryButton>
                 </div>
