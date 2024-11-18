@@ -41,10 +41,10 @@ const LoginPage = () => {
                     id: response.idUsuario,
                     email: values.email
                 });
+                navigate('/');
             } catch (error) {
                 setErrors({ form: error.message || 'Error al iniciar sesión' });
             } finally {
-                navigate('/');
                 setSubmitting(false);
                 setLoading(false);
             }
