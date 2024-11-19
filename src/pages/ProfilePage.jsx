@@ -29,6 +29,17 @@ const ProfilePage = () => {
         fetchData();
     }, []);
 
+    const handleDeleteAccount = async () => {
+        try {
+            const r = await request(`/delete-user/`, "POST", { "idusuario": session.id }, true);
+            console.log(r);
+            logout();
+            navigate("/");
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     if (loading) {
         return <LoadingPage />
     }
@@ -70,8 +81,8 @@ const ProfilePage = () => {
                 </div>
                 {/* ELIMINAR CUENTA */}
                 <div className ="delete-button button">
-                    {/*logica para cerrar la cuenta*/}
-                    <PrimaryButton type="button">
+                    {/* Lógica para cerrar la cuenta*/}
+                    <PrimaryButton type="button" onClick={() => handleDeleteAccount()}>
                         Eliminar Cuenta
                     </PrimaryButton>
                 </div>
