@@ -116,3 +116,8 @@
 .right-placeholder {
     text-align: left; 
 }
+
+/* MODAL, BOTON REGRESAR */
+.modal-SB {
+    margin-bottom: 20px;
+}
