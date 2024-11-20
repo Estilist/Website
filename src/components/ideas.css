@@ -1,14 +1,63 @@
-/* Mueve el texto hacia abajo en el carrusel */
-.carousel-item .carousel-caption {
-    position: absolute;
-    bottom: 30px !important;  /* Ajusta la distancia desde la parte inferior */
-    left: 50%;
-    transform: translateX(-50%); /* Centra el texto horizontalmente */
-    text-align: center; /* Asegura que el texto esté centrado */
+/* BORDE */
+.carousel {
+    border: 2px solid var(--boton); 
+    border-width: 5px;
+    border-radius: 10px; 
+    overflow: hidden;  /* Asegura que los bordes redondeados se mantengan */
 }
-
-/* Ajusta la imagen del carrusel */
-.carousel-item img {
-    object-fit: cover; /* Asegura que la imagen ocupe toda la altura del carrusel */
-    height: 400px; /* Ajusta la altura de las imágenes del carrusel */
+/* IMAGEN */
+.carousel img {
+    border-radius: 10px; 
+    transition: border-radius 0.3s ease-in-out;
+}
+/* TRANSMICIÓN DE CAMBIO DE PAGINAS */
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    transition: transform 0.5s ease; 
+}
+.carousel-divider {
+    width: 100%;  /* Ocupa todo el ancho */
+    background-color: white;  /* Fondo blanco para disimular */
+    border-top: 2px solid var(--boton);  /* Línea de color --boton */
+    margin-top: 0; 
+    margin-bottom: 20px;
+}
+/* POSICION DEL TEXTO */
+.carousel-caption-below {
+    text-align: left;
+    background-color: white;
+    border-radius: 10px; 
+    width: 100%;
+}
+/* ETIQUETAS */
+.carousel-tag {
+    background-color: var(--iconos);
+    font-family: var(--text-font);
+    color: var(--encabezado);
+    padding: 10px 20px; 
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+/* INDICADPRES */
+.carousel-indicators {
+    position: absolute;  
+    bottom: -50px;  
+    left: 0;
+    right: 0;
+    z-index: 1;  
+}
+/* FLECHAS */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--iconos); 
+    border-radius: 50%;
+    border: 3px solid var(--iconos);
+}
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: var(--iconos); 
 }

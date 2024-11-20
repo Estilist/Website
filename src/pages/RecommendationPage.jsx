@@ -1,5 +1,5 @@
 import PageTitle from "../components/extras/PageTitle";
-import exampleImage from "../assets/photos/pantalon.png";
+import exampleImage from "../assets/photos/ejemplos/pantalon.png";
 import starFill from "../assets/icons/star-fill.svg"; 
 import starEmpty from "../assets/icons/star.svg";    
 import PrimaryButton from "../components/buttons/PrimaryButton";

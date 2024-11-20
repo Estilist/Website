@@ -1,6 +1,14 @@
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from '../assets/photos/pantalon.png';
 import PageTitle from '../components/extras/PageTitle';
+
+// EJEMPLOS
+import pantalon from '../assets/photos/ejemplos/pantalon.png';
+import falda from '../assets/photos/ejemplos/falda.png';
+import chaqueta from '../assets/photos/ejemplos/chaqueta.png';
+import camiseta from '../assets/photos/ejemplos/camiseta.png';
+import bolsa from '../assets/photos/ejemplos/bolsa.png';
+
+// Solo lo tenía para demostrar que funcionara
 import FeedbackModal from "../components/extras/FeedbackModal";
 
 const IdeasPage = () => {
@@ -10,48 +18,74 @@ const IdeasPage = () => {
             <div>
                 <PageTitle>Ideas</PageTitle>
             </div>
-            
             {/* CARRUSEL DE IDEAS Y SUGERENCIAS */}
             <div>
-                <Carousel>
+                <Carousel className = "carousel-design">
                     <Carousel.Item>
                         <img
-                            src={ExampleCarouselImage}
+                            src={pantalon}
                             alt="First slide"
                             className="d-block w-100"
                         />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
+                        
+                        <div className="carousel-caption-below">
+                            <div className="carousel-divider"></div>
+                            <p className = "carousel-tag">Casual</p>
+                        </div>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
-                            src={ExampleCarouselImage}
+                            src={camiseta}
                             alt="Second slide"
                             className="d-block w-100"
                         />
-                        <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
+                        <div className="carousel-caption-below">
+                            <div className="carousel-divider"></div>
+                            <p className = "carousel-tag">Casual</p>
+                            <p className = "carousel-tag">Básico</p>
+                        </div>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
-                            src={ExampleCarouselImage}
+                            src={chaqueta}
                             alt="Third slide"
                             className="d-block w-100"
                         />
-                        <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
+                        <div className="carousel-caption-below">
+                            <div className="carousel-divider"></div>
+                            <p className = "carousel-tag">Invierno</p>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            src={falda}
+                            alt="Second slide"
+                            className="d-block w-100"
+                        />
+                        <div className="carousel-caption-below">
+                            <div className="carousel-divider"></div>
+                            <p className = "carousel-tag">Otoño</p>
+                            <p className = "carousel-tag">Boho</p>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            src={bolsa}
+                            alt="Third slide"
+                            className="d-block w-100"
+                        />
+                        <div className="carousel-caption-below">
+                            <div className="carousel-divider"></div>
+                            <p className = "carousel-tag">Clásico</p>
+                        </div>
                     </Carousel.Item>
                 </Carousel>
+                {/* 
                 <FeedbackModal 
                 show={true} 
                 onHide={() => console.log("Cerrar modal")} 
                 />
+                */}
             </div>
         </div>
     );
