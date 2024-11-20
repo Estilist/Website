@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import StarRating from "./StarRating";
 import request from "../api";
 import { Spinner } from "react-bootstrap";
+import PrimaryButton from "./buttons/PrimaryButton";
 
 const recommendations = [
     { url: "src\\assets\\photos\\pantalon.png" },
@@ -12,8 +14,7 @@ const recommendations = [
 const RecommendationContent = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [imageUrl, setImageUrl] = useState("");
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
+    const [starRating, setStarRating] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,49 +24,53 @@ const RecommendationContent = () => {
         fetchData();
     }, [currentIndex]);
 
-    const handleTouchStart = (e) => {
-        setTouchStart(e.targetTouches[0].clientX);
-    };
-
-    const handleTouchMove = (e) => {
-        setTouchEnd(e.targetTouches[0].clientX);
-    };
-
-    const handleTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-        const distance = touchStart - touchEnd;
-        if (distance > 50) {
-            setCurrentIndex((prev) => (prev < recommendations.length - 1 ? prev + 1 : prev));
-        } else if (distance < -50) {
-            setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev));
+    const handleAccept = () => {
+        if (starRating === 0) {
+            return;
         }
-        setTouchStart(null);
-        setTouchEnd(null);
+
+        setCurrentIndex((currentIndex + 1) % recommendations.length);
+        setStarRating(0);
     };
 
     return (
-        <div
-            className="recommendation-content"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-        >
-            <div className="recommendation-card">
-                {imageUrl ? (
-                    <img
-                        src={imageUrl}
-                        alt="contenido recomendado"
-                        className="product-image"
-                    />
-                ) : (
-                    <div className="product-spinner">
-                        <Spinner />
-                    </div>
-                )}
+        <>  
+            <div className="recommendation-content">
+                <AnimatePresence>
+                    <motion.div
+                        key={currentIndex}
+                        className="recommendation-card"
+                        initial={{ x: 250, opacity: 0, rotate: 20 }}
+                        animate={{ x: 0, opacity: 1, rotate: 0 }}
+                        exit={{ x: -250, opacity: 0, rotate: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {imageUrl ? (
+                            <img
+                                src={imageUrl}
+                                alt="contenido recomendado"
+                                className="product-image"
+                                />
+                            ) : (
+                                <div className="product-spinner">
+                                <Spinner />
+                            </div>
+                        )}
+                    </motion.div>
+                </AnimatePresence>
+
             </div>
 
-            <StarRating />
-        </div>
+            <StarRating starRating={starRating} setStarRating={setStarRating} />
+        
+            <div className="recommendation-buttons">
+                <div className="recommendation-PB">
+                    <PrimaryButton onClick={handleAccept}>
+                        Aceptar
+                    </PrimaryButton>
+                </div>
+            </div>
+        </>
     );
 };
 

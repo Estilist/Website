@@ -1,6 +1,8 @@
 /* IMAGEN */
 .product-image {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .product-spinner {
@@ -11,18 +13,28 @@
     height: 100%;
 }
 
-.recommendation-card {
+/* Maintain relative positioning */
+.recommendation-content {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    max-width: 90%;
-    aspect-ratio: 2/3; 
-    display: block;
+    width: 100%;
+    aspect-ratio: 3/4;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.recommendation-card {
+    width: 85%;
+    aspect-ratio: 2/3;
     margin: 0 auto;
     background-color: white;
     border-radius: 8px;
-    border: 5px solid var(--iconos); 
+    border: 5px solid var(--iconos);
+    z-index: 1;
+    position: absolute;
+    top: 0;
 }
 
 /* ESTRELLAS */
@@ -30,7 +42,7 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .star-icon {
@@ -58,4 +70,25 @@
 .recommendation-SB {
     margin-top: -10px;
     transform: scale(0.8);
+}
+
+/* DESKTOP */
+@media screen and (min-width: 400px) {
+    .recommendation-card {
+        width: 60%;
+    }
+
+    .recommendation-content {
+        aspect-ratio: 10/9;
+    }
+
+    .stars {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .recommendation-content {
+        overflow: visible;
+    }
 }
