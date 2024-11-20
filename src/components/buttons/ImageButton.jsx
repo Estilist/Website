@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const ImageButton = ({ imageSrc, isSelected, onClick, title }) => {
     const buttonStyle = {
@@ -19,7 +18,7 @@ const ImageButton = ({ imageSrc, isSelected, onClick, title }) => {
             alt={title} 
             style={buttonStyle}
             onClick={onClick}
-            title={title} 
+            title={title}
         />
     );
 };
