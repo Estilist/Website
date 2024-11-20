@@ -1,12 +1,27 @@
-import PageTitle from '../components/extras/PageTitle';
+import PageTitle from "../components/extras/PageTitle";
+import RecommendationContent from "../components/RecommendationContent";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import { useNavigate } from "react-router-dom";
 
-const IdeasPage = () => {
+const RecommendationPage = () => {
+    const navigate = useNavigate();
+
     return (
-        <>
-            {/* Botón de Iniciar Sesión y Registrarme */}
-            <PageTitle>Ideas</PageTitle>
-        </>
-    );
+        <div className="recommendation-page">
+            <div className="title">
+                <PageTitle>Ideas</PageTitle>
+            </div>
+
+            <RecommendationContent />
+            <div className="recommendation-buttons">
+                <div className="recommendation-PB">
+                    <PrimaryButton onClick={() => navigate("/")}>
+                        Aceptar
+                    </PrimaryButton>
+                </div>
+            </div>
+        </div>
+    )
 };
 
-export default IdeasPage;
+export default RecommendationPage;

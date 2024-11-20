@@ -1,14 +1,28 @@
 /* IMAGEN */
 .product-image {
-    border: 5px solid var(--iconos); 
-    border-radius: 8px; 
+    width: 100%;
 }
 
-.recommendation-content img {
-    max-width: 100%; 
-    height: auto;    
+.product-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--iconos);
+    height: 100%;
+}
+
+.recommendation-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 90%;
+    aspect-ratio: 2/3; 
     display: block;
-    margin: 0 auto;  
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    border: 5px solid var(--iconos); 
 }
 
 /* ESTRELLAS */
