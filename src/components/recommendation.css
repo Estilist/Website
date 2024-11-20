@@ -1,6 +1,5 @@
 /* IMAGEN */
 .product-image {
-    width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -27,11 +26,11 @@
 
 .recommendation-card {
     width: 85%;
-    aspect-ratio: 2/3;
+    aspect-ratio: 5/6;
     margin: 0 auto;
     background-color: white;
     border-radius: 8px;
-    border: 5px solid var(--iconos);
+    border: 5px solid var(--boton); 
     z-index: 1;
     position: absolute;
     top: 0;
@@ -73,7 +72,7 @@
 }
 
 /* DESKTOP */
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 480px) {
     .recommendation-card {
         width: 60%;
     }
