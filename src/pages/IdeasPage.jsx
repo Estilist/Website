@@ -6,9 +6,7 @@ const RecommendationPage = () => {
     return (
         <>
             <div className="recommendation-page">
-                <div className="title">
-                    <PageTitle>Ideas</PageTitle>
-                </div>
+                <PageTitle>Ideas</PageTitle>
 
                 <RecommendationContent />
             </div>
