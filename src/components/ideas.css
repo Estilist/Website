@@ -1,0 +1,14 @@
+/* Mueve el texto hacia abajo en el carrusel */
+.carousel-item .carousel-caption {
+    position: absolute;
+    bottom: 30px !important;  /* Ajusta la distancia desde la parte inferior */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el texto horizontalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+/* Ajusta la imagen del carrusel */
+.carousel-item img {
+    object-fit: cover; /* Asegura que la imagen ocupe toda la altura del carrusel */
+    height: 400px; /* Ajusta la altura de las imágenes del carrusel */
+}
