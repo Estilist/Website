@@ -1,7 +1,6 @@
 import { Modal } from "react-bootstrap";
 import PageTitle from "./PageTitle";
 import PropTypes from 'prop-types';
-
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const GuideMessureModal = ({ show, onHide, content, imagePath }) => { 

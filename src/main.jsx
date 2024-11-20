@@ -23,6 +23,7 @@ import "./components/register.css"
 import "./components/results.css"
 import "./components/start.css"
 import "./components/upload.css"
+import "./components/feedback.css"
 
 // Pages
 import Root from "./routes/Root";

@@ -1,6 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from '../assets/photos/pantalon.png';
 import PageTitle from '../components/extras/PageTitle';
+import FeedbackModal from "../components/extras/FeedbackModal";
 
 const IdeasPage = () => {
     return (
@@ -47,6 +48,10 @@ const IdeasPage = () => {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
+                <FeedbackModal 
+                show={true} 
+                onHide={() => console.log("Cerrar modal")} 
+                />
             </div>
         </div>
     );
