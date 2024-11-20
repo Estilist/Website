@@ -1,10 +1,8 @@
 import PageTitle from "../components/extras/PageTitle";
 import RecommendationContent from "../components/RecommendationContent";
 import SecondaryButton from "../components/buttons/SecondaryButton";
-import { useNavigate } from "react-router-dom";
 
 const RecommendationPage = () => {
-    const navigate = useNavigate();
 
     return (
         <div className="recommendation-page">

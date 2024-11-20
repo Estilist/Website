@@ -1,6 +1,7 @@
 import { Modal } from "react-bootstrap";
 import PageTitle from "./PageTitle";
 import PropTypes from 'prop-types';
+import SecondaryButton from "../buttons/SecondaryButton";
 
 const GuideMessureModal = ({ show, onHide, content, imagePath }) => { 
     return (
@@ -17,6 +18,13 @@ const GuideMessureModal = ({ show, onHide, content, imagePath }) => {
                 <p>{content}</p>
                 {imagePath && <img src={imagePath} alt="Guía de Medida" style={{ width: '100%' }} />}
             </Modal.Body>
+            <Modal.Footer style={{ display: 'flex', justifyContent: 'center' }}>
+                <div className="modal-SB">
+                    <SecondaryButton type="close" onClick={onHide}>
+                        Regresar
+                    </SecondaryButton>
+                </div>
+            </Modal.Footer>
         </Modal>
     );
 };
