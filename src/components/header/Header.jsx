@@ -37,10 +37,10 @@ function Header() {
                             <NavDropdown.Item onClick={() => handleItemClick('/upload-image')}>Tipo de cuerpo y rostro</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Nuevo" id="basic-nav-dropdown" className="custom-dropdown">
-                            <NavDropdown.Item onClick={() => setExpanded(false)}>Cabello</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => setExpanded(false)}>Belleza</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => setExpanded(false)}>Outfits</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => setExpanded(false)}>Accesorios</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Cabello</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Belleza</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Outfits</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Accesorios</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link className="order-2" onClick={() => handleItemClick('/recommendation')}>Racha</Nav.Link>
                     </Nav>

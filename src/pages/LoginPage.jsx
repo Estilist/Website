@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import PageTitle from "../components/extras/PageTitle";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import { useNavigate } from "react-router-dom";
@@ -6,10 +6,12 @@ import { SessionContext } from "../contexts/SessionContext";
 import request from "../api";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Spinner } from "react-bootstrap";
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const { setSession } = useContext(SessionContext);
+    const [loading, setLoading] = useState(false);
 
     const formik = useFormik({
         initialValues: {
@@ -27,6 +29,7 @@ const LoginPage = () => {
                 .required('La contraseña no puede estar vacía.'),
         }),
         onSubmit: async (values, { setSubmitting, setErrors }) => {
+            setLoading(true);
             try {
                 const response = await request('/check-user/', 'POST', {
                     correo: values.email,
@@ -43,6 +46,7 @@ const LoginPage = () => {
                 setErrors({ form: error.message || 'Error al iniciar sesión' });
             } finally {
                 setSubmitting(false);
+                setLoading(false);
             }
         },
     });
@@ -112,7 +116,7 @@ const LoginPage = () => {
                 <div className="buttons">
                     <div className="primaryButton">
                         <PrimaryButton type="submit" disabled={formik.isSubmitting}>
-                            Iniciar Sesión
+                            { loading ? <Spinner style={{height: '20px', width: '20px'}} /> : 'Iniciar Sesión' }
                         </PrimaryButton>
                     </div>
                 </div>

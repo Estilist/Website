@@ -105,7 +105,7 @@ const Register4 = ({ setFieldValue, file, setFile, error, loading, setLoading })
                 <hr />
             </div>
             <div className="secondaryButton3">
-                <SecondaryButton onClick={handleSubmit} disabled={loading}>
+                <SecondaryButton type='submit' disabled={loading}>
                     {loading && <Spinner animation="border" size="sm" className="me-2" />}
                     Analizar
                 </SecondaryButton>

@@ -35,7 +35,9 @@ const validationSchemas = [
                         return false;
                     } catch (error) {
                         // (401) El correo ya está tomado
-                        if (error.status === 401) return false;
+                        if (error.status === 401)
+                            if (error.message === "Usuario deshabilitado") return true;
+                            else return false;
                         // (404) El correo no existe, está disponible
                         else if (error.status === 404) return true;
                         // Otros errores
