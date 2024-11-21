@@ -1,6 +1,5 @@
 import PageTitle from "../components/extras/PageTitle";
 import RecommendationContent from "../components/RecommendationContent";
-import FeedbackModal from "../components/extras/FeedbackModal";
 
 const RecommendationPage = () => {
     return (
@@ -9,11 +8,7 @@ const RecommendationPage = () => {
                 <PageTitle>Ideas</PageTitle>
 
                 <RecommendationContent />
-            </div>
-
-            <FeedbackModal 
-                show={false} 
-            />
+            </div>            
         </>
     )
 };
