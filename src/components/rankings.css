@@ -1,0 +1,73 @@
+/* BOTONES DE ETIQUETAS */
+.lastRankings-tags {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: 15px;
+}
+/* TEMPORADA */
+.lastRankings-season {
+    margin-top: -19px;
+    position: relative;
+}
+/* SELECCIONAR TEMPORADA */
+.lastRankings-select {
+    background-color: var(--iconos);
+    border: none;
+    border-radius: 18px; 
+    padding: 10px 20px; 
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    /* QUITAR FLECHA */
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    /* FONT */
+    font-family: var(--text-font);
+    color: var(--encabezado);
+    font-size: 21px;
+    cursor: pointer;
+}
+/* EFECTO HOVER */
+.lastRankings-select:hover {
+    background-color: var(--boton); 
+    color: white; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+/* ESTILO PARA LAS OPCIONES DEL SELECT */
+.lastRankings-select option {
+    background-color: white; 
+    color: var(--encabezado); 
+    font-family: var(--text-font); 
+}
+/* FAVORITOS */
+.lastRankings-favorites {
+    max-width: 150px;
+    width: 100%; 
+    margin-top: -20px;
+}
+/* EFECTO HOVER PARA EL BOTÓN FAVORITOS */
+.lastRankings-favorites:hover .btn {
+    background-color: var(--boton) !important; 
+    color: white !important; 
+    transition: background-color 0.3s ease, color 0.3s ease !important; 
+}
+/* IMAGENES */
+.season-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    margin-top: 30px;
+}
+.season-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s ease;
+}
+.season-image:hover {
+    transform: scale(1.05); /* Efecto de zoom */
+}
+
+
