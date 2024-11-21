@@ -42,6 +42,9 @@ const LastRankingsPage = () => {
                 } catch (error) {
                     console.error('Error fetching rankings:', error);
                 }
+            } else {
+                // Fetch favorites rankings
+                handleFavorites();
             }
         };
 
