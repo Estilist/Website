@@ -26,6 +26,7 @@ import "./components/upload.css"
 import "./components/feedback.css"
 import "./components/ideas.css"
 import "./components/rankings.css"
+import "./components/plan.css"
 
 // Pages
 import Root from "./routes/Root";
@@ -43,6 +44,7 @@ import ColorimetryPage from "./pages/ColorimetryPage";
 import PreferencesPage from "./pages/PreferencesPage";
 import RecommendationPage from "./pages/RecommendationPage";
 import LastRankingsPage from "./pages/LastRankingsPage";
+import PlanPage from "./pages/PlanPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
@@ -134,6 +136,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <LastRankingsPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/plan",
+                element: (
+                    <ProtectedRoute>
+                        <PlanPage />
                     </ProtectedRoute>
                 ),
             },
