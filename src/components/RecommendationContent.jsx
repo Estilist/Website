@@ -7,6 +7,8 @@ import FeedbackModal from "../components/extras/FeedbackModal";
 import PrimaryButton from "./buttons/PrimaryButton";
 import { useSession } from "../contexts/SessionContext";
 
+const feedbackThreshold = 30;
+
 const RecommendationContent = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [imageUrl, setImageUrl] = useState("");
@@ -14,16 +16,17 @@ const RecommendationContent = () => {
     const [starRating, setStarRating] = useState(0);
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [currentRecommendationId, setCurrentRecommendationId] = useState(null);
     const { session } = useSession();
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            // const r = recommendations[currentIndex % recommendations.length];
             const r = await request(`/user-recomendation/`, "POST", { "idusuario": session.id }, true);
             console.log(r);
 
             setImageUrl(r.img);
+            setCurrentRecommendationId(r.id);
 
             const estilo = r.etiquetas.Estilo[0];
             const temporada = r.etiquetas.Temporada[0];
@@ -40,13 +43,25 @@ const RecommendationContent = () => {
         setShowModal(false);
     };
 
-    const handleAccept = () => {
+    const handleAccept = async () => {
         if (starRating === 0) {
             return;
         }
 
+        if (currentRecommendationId) {
+            try {
+                await request("/rank-recomendation/", "POST", {
+                    "idusuario": session.id,
+                    "idrecomendacion": currentRecommendationId,
+                    "ranking": starRating
+                }, true);
+            } catch (error) {
+                console.error("Error ranking recommendation:", error);
+            }
+        }
+
         setStarRating(0);
-        if ((currentIndex + 1) % 30 === 0)
+        if ((currentIndex + 1) % feedbackThreshold === 0)
             setShowModal(true);
         setCurrentIndex(prevIndex => prevIndex + 1);
     };
