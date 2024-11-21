@@ -14,7 +14,7 @@ import "./assets/colors.css"
 // Pages css
 import "./components/colorimetry.css"
 import "./components/help.css"
-import "./components/index.css"
+import "./components/inicio.css"
 import "./components/measurements.css"
 import "./components/preferences.css"
 import "./components/profile.css"
