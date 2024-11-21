@@ -5,6 +5,8 @@
     color: var(--encabezado);         
     text-align: center;    
     margin-bottom: 15px; 
+    text-wrap: wrap;
+    text-wrap-style: pretty;
 }
 .feedback-thanks {
     font-family: var(--subtitulo-font);
@@ -27,18 +29,6 @@
 .custom-modal .modal-header,
 .custom-modal .modal-footer {
     border: none !important; 
-}
-/* ESTRELLAS */
-.feedback-stars {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-}
-.feedback-star-icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
 }
 
 .feedback-PB {
