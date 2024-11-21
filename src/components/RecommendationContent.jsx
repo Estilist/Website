@@ -6,10 +6,15 @@ import { Spinner } from "react-bootstrap";
 import FeedbackModal from "./extras/FeedbackModal";
 import PrimaryButton from "./buttons/PrimaryButton";
 import { useSession } from "../contexts/SessionContext";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const feedbackThreshold = 30;
 
-const RecommendationContent = () => {
+const RecommendationContent = ({ refreshKey }) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const selectedEvent = location.state?.selectedEvent || null;
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [imageUrl, setImageUrl] = useState("");
     const [imageTags, setImageTags] = useState([]);
@@ -22,7 +27,13 @@ const RecommendationContent = () => {
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            const r = await request(`/user-recomendation/`, "POST", { "idusuario": session.id }, true);
+            const payload = { 
+                idusuario: session.id,
+                evento: selectedEvent
+            };
+            console.log(payload);
+
+            const r = await request(`/user-recomendation/`, "POST", payload, true);
             console.log(r);
 
             setImageUrl(r.img);
@@ -37,7 +48,7 @@ const RecommendationContent = () => {
             setLoading(false);
         };
         fetchData();
-    }, [currentIndex, session.id]);
+    }, [currentIndex, session.id, selectedEvent, refreshKey]);
 
     const hideModal = () => {
         setShowModal(false);
@@ -63,7 +74,13 @@ const RecommendationContent = () => {
         setStarRating(0);
         if ((currentIndex + 1) % feedbackThreshold === 0)
             setShowModal(true);
-        setCurrentIndex(prevIndex => prevIndex + 1);
+
+        if (selectedEvent) {
+            navigate('/');
+        } else {
+            setCurrentIndex(prevIndex => prevIndex + 1);
+        }
+        
     };
 
     return (

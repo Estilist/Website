@@ -14,7 +14,7 @@ const PlanPage = () => {
 
     const handleNext = () => {
         if (selectedOption) {
-            navigate(selectedOption.path);
+            navigate(selectedOption.path, { state: { selectedEvent: selectedOption.option } });
         }
     };
 
@@ -30,14 +30,14 @@ const PlanPage = () => {
                     {/* OPCION 1 */}
                     <LilacButton
                         className={`plan-select ${buttonClass('Formal')}`}
-                        onClick={() => handleOptionSelect('Formal', '/recommendation')}
+                        onClick={() => handleOptionSelect('Formal/Gala', '/recommendation')}
                     >
                         Formal
                     </LilacButton>
                     {/* OPCION 2 */}
                     <LilacButton
                         className={`plan-select ${buttonClass('Gala')}`}
-                        onClick={() => handleOptionSelect('Gala', '/recommendation')}
+                        onClick={() => handleOptionSelect('Formal/Gala', '/recommendation')}
                     >
                         Gala
                     </LilacButton>
