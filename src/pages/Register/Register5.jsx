@@ -5,8 +5,9 @@ import ImageButton from "../../components/buttons/ImageButton";
 import { clothes, accesories, accessoriesColors, manHaircut, womanHaircut, makeup, haircolor } from '../../components/extras/StylesData'; 
 
 import PropTypes from 'prop-types';
+import { Spinner } from "react-bootstrap";
 
-const Register5 = ({ values, errors, touched, setFieldValue }) => {
+const Register5 = ({ values, errors, touched, setFieldValue, loading, setLoading }) => {
     const scrollLeft = (id) => {
         const container = document.getElementById(id);
         container.scrollBy({ left: -150, behavior: 'smooth' });
@@ -213,6 +214,7 @@ const Register5 = ({ values, errors, touched, setFieldValue }) => {
                 {/* SIGUIENTE */}
                 <div className="secondaryButton4">
                     <SecondaryButton type="submit">
+                        {loading && <Spinner animation="border" size="sm" className="me-2" />}
                         Registrarme
                     </SecondaryButton>
                 </div>
@@ -226,6 +228,8 @@ Register5.propTypes = {
     errors: PropTypes.object.isRequired,
     touched: PropTypes.object.isRequired,
     setFieldValue: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+    setLoading: PropTypes.func.isRequired,
 };
 
 export default Register5;

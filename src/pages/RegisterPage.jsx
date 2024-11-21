@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// RegisterPage.jsx
+import { useState, useEffect, useContext } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Register1 from "../pages/Register/Register1";
@@ -6,8 +7,9 @@ import Register2 from "../pages/Register/Register2";
 import Register3 from "../pages/Register/Register3";
 import Register4 from "../pages/Register/Register4";
 import Register5 from '../pages/Register/Register5';
-import { request, uploadToBlobStorage} from "../api";
+import { request, uploadToBlobStorage } from "../api";
 import { useNavigate } from "react-router-dom";
+import { SessionContext, useSession } from "../contexts/SessionContext";
 
 const nameRegex = /^[a-záéíóúüñ ]+$/i;
 
@@ -47,8 +49,7 @@ const validationSchemas = [
             .required("País es requerido."),
     }),
     // Step 2
-    Yup.object({
-    }),
+    Yup.object({}),
     // Step 3
     Yup.object({
         edad: Yup.number()
@@ -103,6 +104,8 @@ const RegisterPage = () => {
     const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(0);
     const [loading, setLoading] = useState(false);
+    const { setSession } = useContext(SessionContext);
+    const { session } = useSession();
 
     const initialValues = {
         nombre: "",
@@ -133,16 +136,18 @@ const RegisterPage = () => {
     }, [currentStep]);
 
     const handleSubmit = async (values, actions) => {
-        if (currentStep < validationSchemas.length - 1) {
-            setCurrentStep(currentStep + 1);
-            actions.setTouched({}); 
-            actions.setSubmitting(false);
-        } else {
-            actions.setSubmitting(true);
-            setLoading(true);
+        actions.setSubmitting(true);
+        setLoading(true);
 
-            try {
-                // User
+        try {
+            if (currentStep === 0) {
+                // No POST after step 1
+                setCurrentStep(currentStep + 1);
+            } else if (currentStep === 1) {
+                // No POST after step 2
+                setCurrentStep(currentStep + 1);
+            } else if (currentStep === 2) {
+                // After step 3: create-user and user-measurements
                 const response = await request('/create-user/', 'POST', {
                     correo: values.correo,
                     contrasena: values.contrasena,
@@ -153,8 +158,9 @@ const RegisterPage = () => {
                     genero: values.genero,
                     pais: values.pais,
                 });
-                
-                // Measurements
+
+                setSession({ 'id': response.idUsuario }); // Store idUsuario in session
+
                 const user_measurements = {
                     idusuario: response.idUsuario,
                     altura: values.altura,
@@ -162,20 +168,31 @@ const RegisterPage = () => {
                     hombros: values.shoulder,
                     cintura: values.waist,
                     cadera: values.hips,
-                }
+                };
+                setCurrentStep(currentStep + 1);
                 await request('/user-measurements/', 'POST', user_measurements);
+            } else if (currentStep === 3) {
+                // After step 4: upload image
+                const idUsuario = session.id;
+                if (!idUsuario) {
+                    throw new Error("idUsuario no está disponible.");
+                }
 
-                // Upload image to Blob Storage
                 const imageUrl = await uploadToBlobStorage(values.file);
                 const formData = new FormData();
                 formData.append('url', imageUrl);
-                formData.append('idusuario', response.idUsuario);
+                formData.append('idusuario', idUsuario); // Use idUsuario from session
+                request('/facial-recognition/', 'POST', formData, false);
+                setCurrentStep(currentStep + 1);
+            } else if (currentStep === 4) {
+                // After step 5: preferences
+                const idUsuario = session.id;
+                if (!idUsuario) {
+                    throw new Error("idUsuario no está disponible.");
+                }
 
-                await request('/facial-recognition/', 'POST', formData, false);
-
-                // Preferences
                 const preferences = {
-                    idusuario: response.idUsuario,
+                    idusuario: idUsuario, // Use idUsuario from session
                     recomendaciones: values.recomendaciones,
                     ropa: values.ropa,
                     accesorios: values.accesorios,
@@ -185,13 +202,14 @@ const RegisterPage = () => {
                     maquillaje: values.maquillaje,
                 };
                 await request('/user-preferences/', 'POST', preferences);
-            } catch (error) {
-                console.error('Error al crear usuario:', error);
-            } finally {
-                actions.setSubmitting(false);
-                setLoading(false);
-                navigate('/login');
+                setCurrentStep(currentStep + 1);
+                navigate('/');
             }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            actions.setSubmitting(false);
+            setLoading(false);
         }
     };
 
@@ -228,8 +246,6 @@ const RegisterPage = () => {
                             file={formik.values.file}
                             setFile={file => formik.setFieldValue('file', file)}
                             error={formik.errors.file}
-                            loading={loading}
-                            setLoading={setLoading}
                         />
                     )}
                     {currentStep === 4 && (
@@ -239,6 +255,7 @@ const RegisterPage = () => {
                             errors={formik.errors}
                             touched={formik.touched}
                             loading={loading}
+                            setLoading={setLoading}
                         />
                     )}
                 </Form>
