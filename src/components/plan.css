@@ -1,0 +1,41 @@
+/* TITULO */
+.title {
+    margin-top: 20px;
+}
+/* PARA MANTENER SELECCION */
+.plan-page .plan-select.selected {
+    background-color: var(--boton) !important;
+    color: white !important;
+}
+/* CONTENIDO */
+.plan-content {
+    display: grid;
+    justify-content: center;  
+    padding: 20px;          
+}
+/* POSICION DE BOTONES */
+.plan-selection {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    margin-top: 30px;
+}
+/* BOTONES */
+.plan-option {
+    margin-top: -20px;
+}
+/* CAMBIAR COLOR DEL BOTON SOBRE EL MOUSE */
+.plan-selection .plan-select:hover {
+    background-color: var(--boton) !important;
+    color: white !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+.plan-select.selected {
+    background-color: var(--boton); 
+    color: white; 
+}
+/* ACEPTAR */
+.plan-SB {
+    margin-top: 20px;
+}
