@@ -8,7 +8,7 @@ const RecommendationPage = () => {
                 <PageTitle>Ideas</PageTitle>
 
                 <RecommendationContent />
-            </div>            
+            </div> 
         </>
     )
 };

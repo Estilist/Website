@@ -38,8 +38,8 @@ function Header() {
                         </NavDropdown>
                         <NavDropdown title="Nuevo" id="basic-nav-dropdown" className="custom-dropdown">
                             <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Cabello</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Belleza</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Outfits</NavDropdown.Item>
+                            {/* <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Belleza</NavDropdown.Item> */}
+                            <NavDropdown.Item onClick={() => handleItemClick('/plan')}>Outfits</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Accesorios</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link className="order-2" onClick={() => handleItemClick('/recommendation')}>Racha</Nav.Link>

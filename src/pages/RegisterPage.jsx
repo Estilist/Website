@@ -5,6 +5,7 @@ import Register1 from "../pages/Register/Register1";
 import Register2 from "../pages/Register/Register2";
 import Register3 from "../pages/Register/Register3";
 import Register4 from "../pages/Register/Register4";
+import Register5 from '../pages/Register/Register5';
 import { request, uploadToBlobStorage} from "../api";
 import { useNavigate } from "react-router-dom";
 
@@ -31,16 +32,11 @@ const validationSchemas = [
                 async (value) => {
                     try {
                         await request('/check-user/', 'POST', { correo: value, contrasena: "" });
-                        // (200)
                         return false;
                     } catch (error) {
-                        // (401) El correo ya está tomado
                         if (error.status === 401)
-                            if (error.message === "Usuario deshabilitado") return true;
-                            else return false;
-                        // (404) El correo no existe, está disponible
+                            return error.message === "Usuario deshabilitado" ? true : false;
                         else if (error.status === 404) return true;
-                        // Otros errores
                         return false;
                     }
                 }
@@ -51,7 +47,8 @@ const validationSchemas = [
             .required("País es requerido."),
     }),
     // Step 2
-    Yup.object(),
+    Yup.object({
+    }),
     // Step 3
     Yup.object({
         edad: Yup.number()
@@ -86,6 +83,20 @@ const validationSchemas = [
         file: Yup.mixed()
             .required("La imagen es requerida."),
     }),
+    // Step 5 - Preferences
+    Yup.object({
+        recomendaciones: Yup.string().required('Required'),
+        ropa: Yup.string().required('Required'),
+        accesorios: Yup.string().required('Required'),
+        joyeria: Yup.string().required('Required'),
+        cortecabello: Yup.string().required('Required'),
+        tintecabello: Yup.string().required('Required'),
+        maquillaje: Yup.string().when('recomendaciones', (recomendaciones, schema) => {
+            return recomendaciones === 'Femenina'
+                ? schema.required('Required')
+                : schema.notRequired();
+        }),
+    }),
 ];
 
 const RegisterPage = () => {
@@ -108,6 +119,13 @@ const RegisterPage = () => {
         waist: 90,
         hips: 90,
         file: null,
+        recomendaciones: '',
+        ropa: '',
+        accesorios: '',
+        joyeria: '',
+        cortecabello: '',
+        tintecabello: '',
+        maquillaje: '',
     };
 
     useEffect(() => {
@@ -154,6 +172,19 @@ const RegisterPage = () => {
                 formData.append('idusuario', response.idUsuario);
 
                 await request('/facial-recognition/', 'POST', formData, false);
+
+                // Preferences
+                const preferences = {
+                    idusuario: response.idUsuario,
+                    recomendaciones: values.recomendaciones,
+                    ropa: values.ropa,
+                    accesorios: values.accesorios,
+                    joyeria: values.joyeria,
+                    cortecabello: values.cortecabello,
+                    tintecabello: values.tintecabello,
+                    maquillaje: values.maquillaje,
+                };
+                await request('/user-preferences/', 'POST', preferences);
             } catch (error) {
                 console.error('Error al crear usuario:', error);
             } finally {
@@ -199,6 +230,15 @@ const RegisterPage = () => {
                             error={formik.errors.file}
                             loading={loading}
                             setLoading={setLoading}
+                        />
+                    )}
+                    {currentStep === 4 && (
+                        <Register5
+                            values={formik.values}
+                            setFieldValue={formik.setFieldValue}
+                            errors={formik.errors}
+                            touched={formik.touched}
+                            loading={loading}
                         />
                     )}
                 </Form>
