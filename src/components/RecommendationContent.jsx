@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import StarRating from "./StarRating";
 import request from "../api";
 import { Spinner } from "react-bootstrap";
-import FeedbackModal from "../components/extras/FeedbackModal";
+import FeedbackModal from "./extras/FeedbackModal";
 import PrimaryButton from "./buttons/PrimaryButton";
 import { useSession } from "../contexts/SessionContext";
 
@@ -115,6 +115,7 @@ const RecommendationContent = () => {
             <FeedbackModal 
                 show={showModal}
                 onHide={hideModal}
+                idusuario={`${session.id}`}
             />
         </>
     );
