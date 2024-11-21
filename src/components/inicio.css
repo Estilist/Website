@@ -1,0 +1,78 @@
+/* CUERPO */
+body {
+    background-color: var(--fondo);
+}
+/* CONTENIDO */
+.inicio-page {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+/* BANNER */
+.inicio-imagen {
+    text-align: center;
+    background-size: cover;
+    background: fixed;
+}
+.inicio-banner {
+    position: relative;
+    margin-bottom: 20px;
+}
+.inicio-banner img {
+    border-radius: 20px;
+    width: 100%; 
+}
+.banner-text {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 10px; 
+    text-align: center; 
+}
+.banner-text h1 {
+    margin: 0;
+    padding: 10px;
+    font-size: 2.5rem; 
+    font-family: var(--subtitulo-font);
+    color: var(--encabezado); 
+}
+.banner-text .brand-name {
+    font-family: var(--marca-font);
+    color: var(--boton); 
+}
+/* IMAGENES */
+.inicio-collage img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    margin-bottom: 20px;
+}
+/* TEXTO */
+.inicio-texto {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-family: var(--texto-font);
+}
+.inicio-subtitulo {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: var(--subtitulo-font);
+}
+/* BOTONES */
+.inicio-botones {
+    margin-bottom: 20px; 
+}
+/* SOBRE NOSOTROS / PIE DE PAGINA */
+.inicio-pie {
+    background-color: var(--iconos); 
+    color: var(--boton);
+    text-align: center;
+    padding: 5px;
+    padding-top: 20px;
+    font-family: var(--texto-font);
+    font-size: 14px;
+    border-radius: 20px;
+}
