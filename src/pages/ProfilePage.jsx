@@ -61,16 +61,22 @@ const ProfilePage = () => {
                 </div>
             </div>
             <div className = "profile-buttons">
-                {/* MODIFICAR FOTO */}
+                {/* ULTIMOS RANKINGS */}
+                <div className = "option-button button">
+                    <PrimaryButton onClick={() => navigate('/last-rankings')} type="button">
+                        Últimos Rankings
+                    </PrimaryButton>
+                </div>
+                {/* MODIFICAR MEDIDAS */}
                 <div className = "option-button button">
                     <PrimaryButton onClick={() => navigate('/upload-image')} type="button">
-                        Modificar foto
+                        Modificar Foto
                     </PrimaryButton>
                 </div>
                 {/* MODIFICAR MEDIDAS */}
                 <div className = "option-button button">
                     <PrimaryButton onClick={() => navigate('/measurements')} type="button">
-                        Modificar medidas
+                        Modificar Medidas
                     </PrimaryButton>
                 </div>
                 {/* CERRAR SESIÓN */}

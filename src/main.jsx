@@ -25,6 +25,7 @@ import "./components/start.css"
 import "./components/upload.css"
 import "./components/feedback.css"
 import "./components/ideas.css"
+import "./components/rankings.css"
 
 // Pages
 import Root from "./routes/Root";
@@ -41,6 +42,7 @@ import StartPage from "./pages/StartPage";
 import ColorimetryPage from "./pages/ColorimetryPage";
 import PreferencesPage from "./pages/PreferencesPage";
 import RecommendationPage from "./pages/RecommendationPage";
+import LastRankingsPage from "./pages/LastRankingsPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
@@ -124,6 +126,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <RecommendationPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/last-rankings",
+                element: (
+                    <ProtectedRoute>
+                        <LastRankingsPage />
                     </ProtectedRoute>
                 ),
             },
