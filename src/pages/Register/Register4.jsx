@@ -3,12 +3,11 @@ import SecondaryButton from '../../components/buttons/SecondaryButton';
 import FaceImage from '../../assets/photos/rostro.png';
 import Form from 'react-bootstrap/Form';
 import { FaTimes } from 'react-icons/fa';
-import { Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import * as faceapi from 'face-api.js';
 
-const Register4 = ({ setFieldValue, file, setFile, error, loading, setLoading }) => {
+const Register4 = ({ setFieldValue, file, setFile, error }) => {
     const [fileName, setFileName] = useState('Ningún archivo seleccionado');
 
     const handleFileChange = async (event) => {
@@ -17,8 +16,6 @@ const Register4 = ({ setFieldValue, file, setFile, error, loading, setLoading })
         const selectedFile = event.target.files[0];
 
         if (selectedFile) {
-            setLoading(true);
-            
             try {
                 if (selectedFile.size > 2 * 1024 * 1024) {
                     setFieldValue('file', null);
@@ -50,8 +47,6 @@ const Register4 = ({ setFieldValue, file, setFile, error, loading, setLoading })
                 };
             } catch (error) {
                 console.error('Error al procesar la imagen:', error);
-            } finally {
-                setLoading(false);
             }
         }
     };
@@ -105,8 +100,7 @@ const Register4 = ({ setFieldValue, file, setFile, error, loading, setLoading })
                 <hr />
             </div>
             <div className="secondaryButton3">
-                <SecondaryButton type='submit' disabled={loading}>
-                    {loading && <Spinner animation="border" size="sm" className="me-2" />}
+                <SecondaryButton type='submit'>
                     Analizar
                 </SecondaryButton>
             </div>
@@ -119,8 +113,6 @@ Register4.propTypes = {
     file: PropTypes.object,
     setFile: PropTypes.func.isRequired,
     error: PropTypes.string,
-    loading: PropTypes.bool.isRequired,
-    setLoading: PropTypes.func.isRequired
 };
 
 export default Register4;

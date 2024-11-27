@@ -1,44 +1,56 @@
 import PageTitle from "../components/extras/PageTitle";
 import LilacButton from '../components/buttons/LilacButton';
-import { useState } from 'react';
-
-// fotos de ejempo para probar etiquetas
-// Invierno
-import Invierno1Image from '../assets/photos/ejemplos/invierno1.png';
-import Invierno2Image from '../assets/photos/ejemplos/invierno2.png';
-import Invierno3Image from '../assets/photos/ejemplos/invierno3.png';
-import Invierno4Image from '../assets/photos/ejemplos/invierno4.png';
-// Otoño
-import Otono1Image from '../assets/photos/ejemplos/otono1.png';
-import Otono2Image from '../assets/photos/ejemplos/otono2.png';
-import Otono3Image from '../assets/photos/ejemplos/otono3.png';
-import Otono4Image from '../assets/photos/ejemplos/otono4.png';
-// Verano
-import Verano1Image from '../assets/photos/ejemplos/verano1.png';
-import Verano2Image from '../assets/photos/ejemplos/verano2.png';
-import Verano3Image from '../assets/photos/ejemplos/verano3.png';
-import Verano4Image from '../assets/photos/ejemplos/verano4.png';
-// Primavera
-import Primavera1Image from '../assets/photos/ejemplos/primavera1.png';
-import Primavera2Image from '../assets/photos/ejemplos/primavera2.png';
-import Primavera3Image from '../assets/photos/ejemplos/primavera3.png';
-import Primavera4Image from '../assets/photos/ejemplos/primavera4.png';
-
+import { useState, useEffect } from 'react';
+import { useSession } from "../contexts/SessionContext";
+import request from "../api";
 
 const LastRankingsPage = () => {
+    const { session } = useSession();
     const [selectedOption, setSelectedOption] = useState(null);
-
-    const imagesBySeason = {
-        spring: [Primavera1Image, Primavera2Image, Primavera3Image, Primavera4Image],
-        summer: [Verano1Image, Verano2Image, Verano3Image, Verano4Image],
-        fall: [Otono1Image, Otono2Image, Otono3Image, Otono4Image],
-        winter: [Invierno1Image, Invierno2Image, Invierno3Image, Invierno4Image],
-    };
+    const [rankings, setRankings] = useState([]);
 
     const handleSeasonSelect = (event) => {
         setSelectedOption(event.target.value);
     };
-    
+
+    const handleFavorites = async () => {
+        const idusuario = session.id;
+        const favoritos = '';
+        setSelectedOption('');
+
+        try {
+            console.log(`Fetching /get-rankings/?idusuario=${idusuario}&favoritos=${favoritos}`);
+            const response = await request(`/get-rankings/?idusuario=${idusuario}&favoritos=${favoritos}`, 'GET', null, false);
+            setRankings(response.rankings[0]);
+            console.log(response.rankings[0]);
+        } catch (error) {
+            console.error('Error fetching favorites rankings:', error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchRankings = async () => {
+            if (selectedOption) {
+                const temporada = selectedOption;
+                const idusuario = session.id;
+
+                try {
+                    console.log(`Fetching /get-rankings/?idusuario=${idusuario}&temporada=${temporada}`);
+                    const response = await request(`/get-rankings/?idusuario=${idusuario}&temporada=${temporada}`, 'GET', null, false);
+                    setRankings(response.rankings[0]);
+                    console.log(response.rankings[0]);
+                } catch (error) {
+                    console.error('Error fetching rankings:', error);
+                }
+            } else {
+                // Fetch favorites rankings
+                handleFavorites();
+            }
+        };
+
+        fetchRankings();
+    }, [selectedOption, session.id]);
+
     return (
         <div className="lastRankings-page">
             <div className="title">
@@ -46,7 +58,7 @@ const LastRankingsPage = () => {
             </div>
             <div className="lastRankings-tags">
                 <div className="lastRankings-favorites">
-                    <LilacButton>
+                    <LilacButton onClick={handleFavorites}>
                         Favoritos
                     </LilacButton>
                 </div>
@@ -61,23 +73,25 @@ const LastRankingsPage = () => {
                         <option value="" disabled>
                             Temporada ▼
                         </option>
-                        <option value="spring">Primavera</option>
-                        <option value="summer">Verano</option>
-                        <option value="fall">Otoño</option>
-                        <option value="winter">Invierno</option>
+                        <option value="Primavera">Primavera</option>
+                        <option value="Verano">Verano</option>
+                        <option value="Otoño">Otoño</option>
+                        <option value="Invierno">Invierno</option>
                     </select>
                 </div>
             </div>
-            <div className="season-images">
-                {selectedOption && imagesBySeason[selectedOption]?.map((image, index) => (
-                    <img 
-                        key={index} 
-                        src={image} 
-                        alt={`${selectedOption} ${index + 1}`} 
-                        className="season-image" 
-                    />
-                ))}
-            </div>
+            {rankings.length > 0 && (
+                <div className="season-images">
+                    {rankings.map(([url], index) => (
+                        <img
+                            key={index}
+                            src={url}
+                            alt={`Ranking ${index + 1}`}
+                            className="season-image"
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

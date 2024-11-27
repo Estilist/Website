@@ -67,83 +67,83 @@ import rubioDoradoImg from '../../assets/photos/preferencias/tintes-cabello/rubi
 import rubioPlatinoImg from '../../assets/photos/preferencias/tintes-cabello/rubio platino.png';
 
 export const clothes = [
-    { name: 'boho', src: bohoImg },
-    { name: 'callejero', src: callejeroImg },
-    { name: 'casual', src: casualImg },
-    { name: 'clasic', src: clasicImg },
-    { name: 'deportivo', src: deportivoImg },
-    { name: 'elegante', src: eleganteImg },
-    { name: 'grunge', src: grungeImg },
-    { name: 'minimalista', src: minimalistaImg },
-    { name: 'preppy', src: preppyImg },
-    { name: 'romantico', src: romanticoImg },
+    { name: 'Boho', src: bohoImg },
+    { name: 'Casual', src: casualImg },
+    { name: 'Clásico', src: clasicImg },
+    { name: 'Callejero', src: callejeroImg },
+    { name: 'Minimalista', src: minimalistaImg },
+    { name: 'Preppy', src: preppyImg },
+    { name: 'Deportivo', src: deportivoImg },
+    { name: 'Grunge', src: grungeImg },
+    { name: 'Romántico', src: romanticoImg },
+    { name: 'Elegante', src: eleganteImg },
 ];
 
 export const accesories = [
-    { name: 'boho', src: bohoAccesoriosImg },
-    { name: 'callejero', src: callejeroAccesoriosImg },
-    { name: 'casual', src: casualAccesoriosImg },
-    { name: 'clasico', src: clasicoAccesoriosImg },
-    { name: 'deportivo', src: deportivoAccesoriosImg },
-    { name: 'elegante', src: eleganteAccesoriosImg },
-    { name: 'grunge', src: grungeAccesoriosImg },
-    { name: 'minimalista', src: minimalistaAccesoriosImg },
-    { name: 'preppy', src: preppyAccesoriosImg },
-    { name: 'romantico', src: romanticoAccesoriosImg },
-    { name: 'vaquero', src: vaqueroAccesoriosImg }
+    { name: 'Boho', src: bohoAccesoriosImg },
+    { name: 'Casual', src: casualAccesoriosImg },
+    { name: 'Clásico', src: clasicoAccesoriosImg },
+    { name: 'Callejero', src: callejeroAccesoriosImg },
+    { name: 'Minimalista', src: minimalistaAccesoriosImg },
+    { name: 'Preppy', src: preppyAccesoriosImg },
+    { name: 'Deportivo', src: deportivoAccesoriosImg },
+    { name: 'Grunge', src: grungeAccesoriosImg },
+    { name: 'Romántico', src: romanticoAccesoriosImg },
+    { name: 'Elegante', src: eleganteAccesoriosImg },
+    { name: 'Vaquero', src: vaqueroAccesoriosImg }
 ];
 
 export const accessoriesColors = [
-    { name: 'dorado', src: doradoImg },
-    { name: 'plateado', src: plateadoImg },
-    { name: 'negro', src: negroImg },
-    { name: 'colores', src: coloresImg }
+    { name: 'Dorado', src: doradoImg },
+    { name: 'Plateado', src: plateadoImg },
+    { name: 'Negro', src: negroImg },
+    { name: 'Colores', src: coloresImg }
 ];
 
 export const manHaircut = [
-    { name: 'buzz', src: buzzImg },
-    { name: 'cesar', src: cesarImg },
-    { name: 'fade', src: fadeImg },
-    { name: 'french corp', src: frenchCorpImg },
-    { name: 'militar', src: militarImg },
-    { name: 'largo', src: largoImg },
-    { name: 'pompadour', src: pompadourImg },
-    { name: 'casco', src: cascoImg },
-    { name: 'raya lateral', src: rayaLateralImg },
-    { name: 'undercut', src: undercutImg }
+    { name: 'Buzz', src: buzzImg },
+    { name: 'Cesar', src: cesarImg },
+    { name: 'Fade', src: fadeImg },
+    { name: 'French corp', src: frenchCorpImg },
+    { name: 'Militar', src: militarImg },
+    { name: 'Largo', src: largoImg },
+    { name: 'Pompadour', src: pompadourImg },
+    { name: 'Casco', src: cascoImg },
+    { name: 'Raya lateral', src: rayaLateralImg },
+    { name: 'Undercut', src: undercutImg }
 ];
 
 export const womanHaircut = [
-    { name: 'bob', src: bobImg },
-    { name: 'corto en capas', src: cortoEnCapasImg },
-    { name: 'corto largo', src: cortoLargoImg },
-    { name: 'corto recto', src: cortoRectoImg },
-    { name: 'fleco corto', src: flecoCortoImg },
-    { name: 'fleco largo', src: flecoLargoImg },
-    { name: 'largo en capas', src: largoEnCapasImg },
-    { name: 'long bob', src: longBobImg },
-    { name: 'pixie', src: pixieImg },
-    { name: 'shaggy', src: shaggyImg }
+    { name: 'Bob', src: bobImg },
+    { name: 'Corto en capas', src: cortoEnCapasImg },
+    { name: 'Corto largo', src: cortoLargoImg },
+    { name: 'Corto recto', src: cortoRectoImg },
+    { name: 'Fleco corto', src: flecoCortoImg },
+    { name: 'Fleco largo', src: flecoLargoImg },
+    { name: 'Largo en capas', src: largoEnCapasImg },
+    { name: 'Long bob', src: longBobImg },
+    { name: 'Pixie', src: pixieImg },
+    { name: 'Shaggy', src: shaggyImg }
 ];
 
 export const makeup = [
-    { name: 'artístico', src: artisticoImg },
-    { name: 'editorial', src: editorialImg },
-    { name: 'glam', src: glamImg },
-    { name: 'natural', src: naturalImg }
+    { name: 'Artístico', src: artisticoImg },
+    { name: 'Editorial', src: editorialImg },
+    { name: 'Glam', src: glamImg },
+    { name: 'Natural', src: naturalImg }
 ];
 
 export const haircolor = [
-    { name: 'rubio cenizo', src: rubioCenizoImg },
-    { name: 'rubio dorado', src: rubioDoradoImg },
-    { name: 'rubio platino', src: rubioPlatinoImg },
-    { name: 'castaño oscuro', src: castanoOscuroImg },
-    { name: 'castaño claro', src: castanoClaroImg },
-    { name: 'balayage', src: balayageImg },
-    { name: 'rojo cobrizo', src: rojoCobrizoImg },
-    { name: 'rojo intenso', src: rojoIntensoImg },
-    { name: 'negro oscuro', src: negroOscuroImg },
-    { name: 'gris plateado', src: grisPlateadoImg },
-    { name: 'pastel', src: pastelImg },
-    { name: 'fantasía', src: fantasiaImg }
+    { name: 'Rubio cenizo', src: rubioCenizoImg },
+    { name: 'Rubio dorado', src: rubioDoradoImg },
+    { name: 'Rubio platino', src: rubioPlatinoImg },
+    { name: 'Rastaño oscuro', src: castanoOscuroImg },
+    { name: 'Castaño claro', src: castanoClaroImg },
+    { name: 'Balayage', src: balayageImg },
+    { name: 'Rojo cobrizo', src: rojoCobrizoImg },
+    { name: 'Rojo intenso', src: rojoIntensoImg },
+    { name: 'Negro oscuro', src: negroOscuroImg },
+    { name: 'Gris plateado', src: grisPlateadoImg },
+    { name: 'Pastel', src: pastelImg },
+    { name: 'Fantasía', src: fantasiaImg }
 ];

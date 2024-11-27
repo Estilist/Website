@@ -103,7 +103,7 @@ const PreferencesPage = () => {
                             {/* Ropa */}
                             <div className="style-section">
                                 <label className="subtitle-preferences">Estilo de ropa</label>
-                                <button className="arrow-button left" onClick={() => scrollLeft('clothes')}>&lt;</button>
+                                <button type='button' className="arrow-button left" onClick={() => scrollLeft('clothes')}>&lt;</button>
                                 <div className="style-buttons-container" id="clothes">
                                     <div className="style-buttons">
                                         {clothes.map((style) => (
@@ -117,7 +117,7 @@ const PreferencesPage = () => {
                                         ))}
                                     </div>
                                 </div> 
-                                <button className="arrow-button right" onClick={() => scrollRight('clothes')}>&gt;</button>
+                                <button type='button' className="arrow-button right" onClick={() => scrollRight('clothes')}>&gt;</button>
                                 {errors.ropa && touched.ropa && <small className="invalid-feedback">{errors.ropa}</small>}
                             </div>
                             <hr />
@@ -125,7 +125,7 @@ const PreferencesPage = () => {
                             {/* Accesorios */}
                             <div className="style-section">
                                 <label className="subtitle-preferences">Estilo de accesorios</label>
-                                <button className="arrow-button left" onClick={() => scrollLeft('accesories')}>&lt;</button>
+                                <button type='button' className="arrow-button left" onClick={() => scrollLeft('accesories')}>&lt;</button>
                                 <div className="style-buttons-container" id="accesories">
                                     <div className="style-buttons">
                                         {accesories.map((accessory) => (
@@ -139,7 +139,7 @@ const PreferencesPage = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <button className="arrow-button right" onClick={() => scrollRight('accesories')}>&gt;</button>
+                                <button type='button' className="arrow-button right" onClick={() => scrollRight('accesories')}>&gt;</button>
                                 {errors.accesorios && touched.accesorios && <small className="invalid-feedback">{errors.accesorios}</small>}
                             </div>
                             <hr />
@@ -147,7 +147,7 @@ const PreferencesPage = () => {
                             {/* Colores de accesorios */}
                             <label className="subtitle-preferences">Colores de accesorios</label>
                             <div className="style-section">
-                                <button className="arrow-button left v2" onClick={() => scrollLeft('accessoryColors')}> &lt; </button>
+                                <button type='button' className="arrow-button left v2" onClick={() => scrollLeft('accessoryColors')}> &lt; </button>
                                 <div className="style-buttons-container" id="accessoryColors">
                                     <div className="style-buttons">
                                         {accessoriesColors.map((accessoryColor) => (
@@ -161,7 +161,7 @@ const PreferencesPage = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <button className="arrow-button right v2" onClick={() => scrollRight('accessoryColors')}> &gt; </button>
+                                <button type='button' className="arrow-button right v2" onClick={() => scrollRight('accessoryColors')}> &gt; </button>
                                 {errors.joyeria && touched.joyeria && <small className="invalid-feedback">{errors.joyeria}</small>}
                             </div>
                             <hr />
@@ -172,7 +172,7 @@ const PreferencesPage = () => {
                                 <>
                                     <label className="subtitle-preferences">Cortes de cabello</label>
                                     <div className="style-section">
-                                        <button className="arrow-button left v2" onClick={() => scrollLeft('manHaircuts')}> &lt; </button>
+                                        <button type='button' className="arrow-button left v2" onClick={() => scrollLeft('manHaircuts')}> &lt; </button>
                                         <div className="style-buttons-container" id="manHaircuts">
                                             <div className="style-buttons">
                                                 {manHaircut.map((manHair) => (
@@ -186,7 +186,7 @@ const PreferencesPage = () => {
                                                 ))}
                                             </div>
                                         </div>
-                                        <button className="arrow-button right v2" onClick={() => scrollRight('manHaircuts')}> &gt; </button>
+                                        <button type='button' className="arrow-button right v2" onClick={() => scrollRight('manHaircuts')}> &gt; </button>
                                         {errors.cortecabello && touched.cortecabello && <small className="invalid-feedback">{errors.cortecabello}</small>}
                                     </div>
                                     <hr />
@@ -199,7 +199,7 @@ const PreferencesPage = () => {
                                     {/* Cortes de cabello para mujeres */}
                                     <label className="subtitle-preferences">Cortes de cabello</label>
                                     <div className="style-section">
-                                        <button className="arrow-button left v2" onClick={() => scrollLeft('womanHaircuts')}> &lt; </button>
+                                        <button type='button' className="arrow-button left v2" onClick={() => scrollLeft('womanHaircuts')}> &lt; </button>
                                         <div className="style-buttons-container" id="womanHaircuts">
                                             <div className="style-buttons">
                                                 {womanHaircut.map((womanHair) => (
@@ -213,7 +213,7 @@ const PreferencesPage = () => {
                                                 ))}
                                             </div>
                                         </div>
-                                        <button className="arrow-button right v2" onClick={() => scrollRight('womanHaircuts')}> &gt; </button>
+                                        <button type='button' className="arrow-button right v2" onClick={() => scrollRight('womanHaircuts')}> &gt; </button>
                                         {errors.cortecabello && touched.cortecabello && <small className="invalid-feedback">{errors.cortecabello}</small>}
                                     </div>
                                     <hr />
@@ -223,7 +223,7 @@ const PreferencesPage = () => {
                                         <>
                                             <label className="subtitle-preferences">Estilo de maquillaje</label>
                                             <div className="style-section">
-                                                <button className="arrow-button left v2" onClick={() => scrollLeft('makeupStyles')}> &lt; </button>
+                                                <button type='button' className="arrow-button left v2" onClick={() => scrollLeft('makeupStyles')}> &lt; </button>
                                                 <div className="style-buttons-container" id="makeupStyles">
                                                     <div className="style-buttons">
                                                         {makeup.map((makeUp) => (
@@ -237,7 +237,7 @@ const PreferencesPage = () => {
                                                         ))}
                                                     </div>
                                                 </div>
-                                                <button className="arrow-button right v2" onClick={() => scrollRight('makeupStyles')}> &gt; </button>
+                                                <button type='button' className="arrow-button right v2" onClick={() => scrollRight('makeupStyles')}> &gt; </button>
                                                 {errors.maquillaje && touched.maquillaje && <small className="invalid-feedback">{errors.maquillaje}</small>}
                                             </div>
                                             <hr />
@@ -249,7 +249,7 @@ const PreferencesPage = () => {
                             {/* Color de cabello */}
                             <label className="subtitle-preferences">Color de cabello</label>
                             <div className="style-section">
-                                <button className="arrow-button left v2" onClick={() => scrollLeft('hairColors')}> &lt; </button>
+                                <button type='button' className="arrow-button left v2" onClick={() => scrollLeft('hairColors')}> &lt; </button>
                                 <div className="style-buttons-container" id="hairColors">
                                     <div className="style-buttons">
                                         {haircolor.map((hairColor) => (
@@ -263,7 +263,7 @@ const PreferencesPage = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <button className="arrow-button right v2" onClick={() => scrollRight('hairColors')}> &gt; </button>
+                                <button type='button' className="arrow-button right v2" onClick={() => scrollRight('hairColors')}> &gt; </button>
                                 {errors.tintecabello && touched.tintecabello && <small className="invalid-feedback">{errors.tintecabello}</small>}
                             </div>
                             <hr />
