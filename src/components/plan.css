@@ -35,6 +35,13 @@
     background-color: var(--boton); 
     color: white; 
 }
+.plan-subtitle {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: var(--boton);
+    font-weight: bold;
+}
 /* ACEPTAR */
 .plan-SB {
     margin-top: 20px;
