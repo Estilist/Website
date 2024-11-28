@@ -24,7 +24,7 @@ const StreakModal = ({ show, onHide }) => {
                     <div className="streak-modal-number">
                         {streakDays}
                     </div>
-                    <div className="streak-days">
+                    <div className="streak-modal-days">
                         <p>días</p>
                     </div>
                 </div>

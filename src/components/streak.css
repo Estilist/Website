@@ -21,6 +21,7 @@
     text-align: center;
     border-radius: 10px; 
     width: fit-content;
+    padding: 20px 80px;
     margin: 20px 0;
 }
 .streak:hover {
@@ -28,7 +29,7 @@
     transition: transform 0.2s ease-in-out;
 }
 .streak-days {
-    font-family: var(--texto-font);
+    margin-top: -20px; 
 }
 .streak-number {
     font-size: 5rem;
@@ -75,9 +76,10 @@
     margin: 10px auto;
     margin-top: -10px;
 }
-.streak-days {
+.streak-modal-days {
+    font-family: var(--texto-font);
     font-size: 1.5rem;
-    margin-top: -10px; 
+    margin-top: -20px; 
 }
 .streak-modal-subtitle {
     font-family: var(--texto-font);
