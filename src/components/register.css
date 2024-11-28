@@ -78,3 +78,14 @@
 .form-check-label {
     font-size: 14px; 
 }
+
+.primaryButton-IniciarSesion {
+    width: 100%;
+    max-width: 220px; 
+    margin-top: 20px;
+}
+
+.secondaryButton-IniciarSesion {
+    margin-top: 10px;
+    transform: scale(0.9);
+}

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import PageTitle from "../components/extras/PageTitle";
 import PrimaryButton from "../components/buttons/PrimaryButton";
+import SecondaryButton from '../components/buttons/SecondaryButton';
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
 import request from "../api";
@@ -114,10 +115,17 @@ const LoginPage = () => {
 
                 {/* Botones */}
                 <div className="buttons">
-                    <div className="primaryButton">
+                    <div className="primaryButton-IniciarSesion">
                         <PrimaryButton type="submit" disabled={formik.isSubmitting}>
-                            { loading ? <Spinner style={{height: '20px', width: '20px'}} /> : 'Iniciar Sesión' }
+                            {loading && <Spinner animation="border" size="sm" className="me-2" />}
+                            Iniciar Sesión
                         </PrimaryButton>
+                    </div>
+                    {/* Registrarme */}
+                    <div className="secondaryButton-IniciarSesion">
+                        <SecondaryButton onClick={() => navigate('/register')}>
+                            Registrarme
+                        </SecondaryButton>
                     </div>
                 </div>
             </form>
