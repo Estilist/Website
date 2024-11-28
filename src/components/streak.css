@@ -1,0 +1,100 @@
+/* TITULO */
+.streak-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+/* SUBTITULO */
+.streak-subtitle {
+    font-weight: bold;
+    text-align: left;
+    margin-left: 20px;
+    width: 100%;
+}
+/* NUMERO DE DIAS DE LA RACHA */
+.streak {
+    background-color: rgba(252, 198, 72, 0.5); 
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    color: var(--boton); 
+    text-align: center;
+    border-radius: 10px; 
+    width: fit-content;
+    margin: 20px 0;
+}
+.streak:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+.streak-days {
+    font-family: var(--texto-font);
+}
+.streak-number {
+    font-size: 5rem;
+    animation: pop-in 0.3s ease-in-out;
+}
+@keyframes pop-in {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@media (max-width: 600px) {
+    .streak-number {
+        font-size: 5rem;
+    }
+    .streak {
+        padding: 10px 60px;
+    }
+}
+/* TEXTO */
+.streak-text {
+    color: var(--boton);
+    text-align: center;
+    margin-top: 20px;
+}
+/* ------------------------------------------------------------ */
+/* MODULO/VENTANA EMERGENTE PARA CUANDO SE INCREMENTE LA RACHA */
+.streak-modal-body {
+    text-align: center;
+}
+.streak-modal {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold;
+    color: var(--boton); 
+    border-radius: 10px; 
+    width: fit-content;
+    margin: 10px auto;
+    margin-top: -10px;
+}
+.streak-days {
+    font-size: 1.5rem;
+    margin-top: -10px; 
+}
+.streak-modal-subtitle {
+    font-family: var(--texto-font);
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0 30px;
+}
+.streak-modal-number {
+    font-size: 6rem;
+}
+.streak-modal-text {
+    font-size: 1.2rem;
+    color: var(--boton);
+    padding: 0 20px;
+}
+@media (max-width: 600px) {
+    .streak-modal-number {
+        font-size: 5rem; 
+    }
+}

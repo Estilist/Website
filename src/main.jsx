@@ -27,6 +27,7 @@ import "./components/feedback.css"
 import "./components/ideas.css"
 import "./components/rankings.css"
 import "./components/plan.css"
+import "./components/streak.css"
 
 // Pages
 import Root from "./routes/Root";
