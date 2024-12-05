@@ -27,19 +27,12 @@ const PlanPage = () => {
             </div>
             <div className="plan-content">
                 <div className="plan-selection plan-option">
-                    {/* OPCION 1 */}
-                    <LilacButton
-                        className={`plan-select ${buttonClass('Formal')}`}
-                        onClick={() => handleOptionSelect('Formal/Gala', '/recommendation')}
-                    >
-                        Formal
-                    </LilacButton>
                     {/* OPCION 2 */}
                     <LilacButton
-                        className={`plan-select ${buttonClass('Gala')}`}
+                        className={`plan-select ${buttonClass('Formal/Gala')}`}
                         onClick={() => handleOptionSelect('Formal/Gala', '/recommendation')}
                     >
-                        Gala
+                        Formal/Gala
                     </LilacButton>
                     {/* OPCION 3 */}
                     <LilacButton
@@ -84,13 +77,6 @@ const PlanPage = () => {
                         Negocios Casual
                     </LilacButton>
                     {/* OPCION 9 */}
-                    <LilacButton
-                        className={`plan-select ${buttonClass('Casual Elegante')}`}
-                        onClick={() => handleOptionSelect('Casual Elegante', '/recommendation')}
-                    >
-                        Casual Elegante
-                    </LilacButton>
-                    {/* OPCION 10 */}
                     <LilacButton
                         className={`plan-select ${buttonClass('Corbata Negra')}`}
                         onClick={() => handleOptionSelect('Corbata Negra', '/recommendation')}
