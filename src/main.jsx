@@ -27,6 +27,7 @@ import "./components/feedback.css"
 import "./components/ideas.css"
 import "./components/rankings.css"
 import "./components/plan.css"
+import "./components/streak.css"
 
 // Pages
 import Root from "./routes/Root";
@@ -45,6 +46,7 @@ import PreferencesPage from "./pages/PreferencesPage";
 import RecommendationPage from "./pages/RecommendationPage";
 import LastRankingsPage from "./pages/LastRankingsPage";
 import PlanPage from "./pages/PlanPage";
+import StreakPage from "./pages/StreakPage";
 
 // Contexts
 import { SessionProvider } from "./contexts/SessionContext";
@@ -144,6 +146,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <PlanPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/streak",
+                element: (
+                    <ProtectedRoute>
+                        <StreakPage />
                     </ProtectedRoute>
                 ),
             },
