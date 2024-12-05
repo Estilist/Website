@@ -40,7 +40,11 @@ function Header() {
                             {/* <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Cabello</NavDropdown.Item> */}
                             {/* <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Belleza</NavDropdown.Item> */}
                             <NavDropdown.Item onClick={() => handleItemClick('/plan')}>Outfits</NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => handleItemClick('/recommendation')}>Accesorios</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => {
+                                navigate('/recommendation',
+                                    { state: { selectedEvent: 'accesorios' } });
+                                setExpanded(false);
+                            }}>Accesorios</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link className="order-2" onClick={() => handleItemClick('/streak')}>Racha</Nav.Link>
                     </Nav>
